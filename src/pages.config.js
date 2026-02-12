@@ -49,22 +49,22 @@
  */
 import Contact from './pages/Contact';
 import Education from './pages/Education';
+import GenerateLogo from './pages/GenerateLogo';
 import Home from './pages/Home';
 import Investing from './pages/Investing';
 import Planning from './pages/Planning';
 import Team from './pages/Team';
-import GenerateLogo from './pages/GenerateLogo';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
     "Contact": Contact,
     "Education": Education,
+    "GenerateLogo": GenerateLogo,
     "Home": Home,
     "Investing": Investing,
     "Planning": Planning,
     "Team": Team,
-    "GenerateLogo": GenerateLogo,
 }
 
 export const pagesConfig = {
