@@ -246,7 +246,7 @@ export default function Contact() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-16 bg-slate-950">
+      <section className="py-16 bg-teal-700">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <AnimatedSection>
             <h2 className="text-2xl md:text-3xl font-light text-white">
