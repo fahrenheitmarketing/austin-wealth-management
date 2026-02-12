@@ -70,9 +70,8 @@ export default function HeroSection() {
           </Link>
           <Link to={createPageUrl('Contact')}>
             <Button 
-              variant="outline"
               size="lg"
-              className="border-slate-700 text-white hover:bg-slate-800/50 font-medium px-8 h-14 text-base rounded-full"
+              className="bg-teal-600 hover:bg-teal-500 text-white font-medium px-8 h-14 text-base rounded-full transition-all duration-300"
             >
               Schedule a Consultation
             </Button>
