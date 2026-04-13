@@ -39,7 +39,7 @@ export default function Layout({ children, currentPageName }) {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled || !isHome
             ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100' 
-            : 'bg-white/15 backdrop-blur-sm'
+            : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6">
@@ -49,7 +49,7 @@ export default function Layout({ children, currentPageName }) {
               <img 
                 src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/bbb5c820b_image.png" 
                 alt="Austin Wealth Management" 
-                className={`w-auto ${scrolled || !isHome ? 'mix-blend-multiply' : 'mix-blend-screen'}`}
+                className={`w-auto transition-all duration-300 ${scrolled || !isHome ? 'mix-blend-multiply' : 'brightness-0 invert'}`}
                 style={{ height: '72px' }}
               />
             </Link>
