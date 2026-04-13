@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Headphones, Music } from 'lucide-react';
+import { ArrowRight, Headphones, Music, Pause } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const podcastPlatforms = [
@@ -9,64 +9,87 @@ const podcastPlatforms = [
     name: "Apple Podcasts",
     icon: "🎙️",
     description: "Listen and subscribe on Apple Podcasts",
-    url: "#"
+    url: "https://podcasts.apple.com/us/podcast/cant-take-it-with-you/id1548365988"
   },
   {
     name: "Spotify",
     icon: "🎵",
     description: "Stream on Spotify",
-    url: "#"
+    url: "https://open.spotify.com/show/1MSTFG9grhgbMm02EDX5ea"
   },
   {
-    name: "Google Podcasts",
+    name: "RSS Feed",
     icon: "🎧",
-    description: "Subscribe on Google Podcasts",
-    url: "#"
+    description: "Subscribe via RSS",
+    url: "https://austinwealth.libsyn.com/rss"
   }
 ];
 
 const podcastEpisodes = [
   {
-    number: 1,
-    title: "Introduction to Financial Planning",
-    description: "Learn the fundamentals of creating a comprehensive financial plan that works for your unique situation.",
-    duration: "45 min"
+    number: 41,
+    title: "#41: The Acquisition Entrepreneur's Guide to Wealth",
+    description: "Entrepreneurship can be a powerful path to wealth, but it comes with unique challenges. Learn about SBA loans, business value, retirement plan design, and exit strategies.",
+    duration: "42:35",
+    audioUrl: "https://traffic.libsyn.com/secure/austinwealth/41_-_The_Acquisition_Entrepreneurs_Guide_to_Wealth.mp3"
   },
   {
-    number: 2,
-    title: "Investing 101: Building Your Portfolio",
-    description: "A beginner's guide to understanding stocks, bonds, and creating a diversified investment strategy.",
-    duration: "52 min"
+    number: 40,
+    title: "#40: Money Communication in Marriage",
+    description: "Money can cause stress in marriage. Licensed professional counselor Amy Spears provides a helpful framework for couples to communicate about financial decisions.",
+    duration: "38:20",
+    audioUrl: "https://traffic.libsyn.com/secure/austinwealth/40_-_Money_Communication_in_Marriage.mp3"
   },
   {
-    number: 3,
-    title: "Tax Strategies for High Earners",
-    description: "Practical tax planning strategies to minimize your tax burden and increase wealth accumulation.",
-    duration: "48 min"
+    number: 39,
+    title: "#39: Medicare Enrollment Options",
+    description: "Medicare planning is complex. Dana Lasman explains the basics and helps you understand your options for Parts A, B, C, D and more.",
+    duration: "48:45",
+    audioUrl: "https://traffic.libsyn.com/secure/austinwealth/39_-_Medicare_Enrollment_Options.mp3"
   },
   {
-    number: 4,
-    title: "Retirement Planning & Social Security",
-    description: "When and how to take Social Security, and strategies for optimizing your retirement income.",
-    duration: "50 min"
+    number: 38,
+    title: "#38: Avoiding Surprise Tax Bills",
+    description: "Without good tax planning, extra income can result in big tax bills. CPA Joe Pachuca discusses proactive tax strategy and estimated taxes.",
+    duration: "33:44",
+    audioUrl: "https://traffic.libsyn.com/secure/austinwealth/38_-_Avoiding_Surprise_Tax_Bills.mp3"
   },
   {
-    number: 5,
-    title: "Estate Planning Essentials",
-    description: "Protect your family's future with proper wills, trusts, and estate planning documents.",
-    duration: "46 min"
+    number: 37,
+    title: "#37: Making Your Business a Top-Performing Team",
+    description: "Business coach Dan Dowdy highlights the importance of cultivating a team, company culture, and career paths for growth.",
+    duration: "23:18",
+    audioUrl: "https://traffic.libsyn.com/secure/austinwealth/37_-_Making_Your_Business_a_Top-Performing_Team.mp3"
   },
   {
-    number: 6,
-    title: "College Savings & 529 Plans",
-    description: "Understanding 529 plans, Trump Savings Accounts, and other tools for education funding.",
-    duration: "44 min"
+    number: 36,
+    title: "#36: Personalizing the College Preparation Process",
+    description: "College consultant Marina Glava discusses strategies for the competitive world of college admissions and how students can identify their interests.",
+    duration: "31:01",
+    audioUrl: "https://traffic.libsyn.com/secure/austinwealth/36_-_Personalizing_the_College_Preparation_Process.mp3"
   }
 ];
 
 export default function Podcasts() {
+  const [playingId, setPlayingId] = useState(null);
+  const audioRef = useRef(null);
+
+  const handlePlayPause = (episodeNumber, audioUrl) => {
+    if (playingId === episodeNumber) {
+      audioRef.current?.pause();
+      setPlayingId(null);
+    } else {
+      if (audioRef.current) {
+        audioRef.current.src = audioUrl;
+        audioRef.current.play();
+      }
+      setPlayingId(episodeNumber);
+    }
+  };
+
   return (
     <main className="bg-white">
+      <audio ref={audioRef} onEnded={() => setPlayingId(null)} />
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 
@@ -162,8 +185,15 @@ export default function Podcasts() {
                       </div>
                     </div>
 
-                    <button className="flex-shrink-0 w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-amber-600 hover:bg-amber-50 flex items-center justify-center transition-all group-hover:shadow-md mt-1">
-                      <Music className="h-5 w-5 text-slate-600 group-hover:text-amber-600 transition-colors" />
+                    <button 
+                      onClick={() => handlePlayPause(episode.number, episode.audioUrl)}
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-amber-600 hover:bg-amber-50 flex items-center justify-center transition-all group-hover:shadow-md mt-1"
+                    >
+                      {playingId === episode.number ? (
+                        <Pause className="h-5 w-5 text-amber-600" />
+                      ) : (
+                        <Music className="h-5 w-5 text-slate-600 group-hover:text-amber-600 transition-colors" />
+                      )}
                     </button>
                   </div>
                 </div>
