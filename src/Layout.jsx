@@ -165,23 +165,11 @@ export default function Layout({ children, currentPageName }) {
       {/* Footer */}
       <footer className="relative bg-slate-950 text-white overflow-hidden">
         {/* Geometric pattern background */}
-        <svg className="absolute inset-0 w-full h-full opacity-20" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 400">
-          <defs>
-            <pattern id="hexPattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-              <g stroke="#D4A574" strokeWidth="1" fill="none">
-                {/* Left diamond */}
-                <polygon points="20,0 40,10 40,30 20,40 0,30 0,10" />
-                {/* Right diamond */}
-                <polygon points="60,0 80,10 80,30 60,40 40,30 40,10" />
-                {/* Bottom left diamond */}
-                <polygon points="20,40 40,50 40,70 20,80 0,70 0,50" />
-                {/* Bottom right diamond */}
-                <polygon points="60,40 80,50 80,70 60,80 40,70 40,50" />
-              </g>
-            </pattern>
-          </defs>
-          <rect width="1200" height="400" fill="url(#hexPattern)" />
-        </svg>
+        <img 
+          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/0c9997446_intricate-geometric-pattern-stockcake.jpg"
+          alt="Geometric pattern"
+          className="absolute inset-0 w-full h-full object-cover opacity-4"
+        />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-4 gap-12">
