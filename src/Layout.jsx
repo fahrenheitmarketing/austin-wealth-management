@@ -166,11 +166,14 @@ export default function Layout({ children, currentPageName }) {
       <footer className="relative bg-slate-950 text-white overflow-hidden">
         {/* Geometric pattern background */}
         <div 
-          className="absolute inset-0 opacity-4"
+          className="absolute inset-0"
           style={{
             backgroundImage: 'url(https://media.base44.com/images/public/6960325a10892c1a1fc0a802/0c9997446_intricate-geometric-pattern-stockcake.jpg)',
             backgroundRepeat: 'repeat',
-            backgroundSize: 'auto'
+            backgroundSize: 'auto',
+            backgroundColor: '#0f172a',
+            backgroundBlendMode: 'overlay',
+            opacity: 0.04
           }}
         />
 
