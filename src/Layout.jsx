@@ -165,10 +165,13 @@ export default function Layout({ children, currentPageName }) {
       {/* Footer */}
       <footer className="relative bg-slate-950 text-white overflow-hidden">
         {/* Geometric pattern background */}
-        <img 
-          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/0c9997446_intricate-geometric-pattern-stockcake.jpg"
-          alt="Geometric pattern"
-          className="absolute inset-0 w-full h-full object-cover opacity-4"
+        <div 
+          className="absolute inset-0 opacity-4"
+          style={{
+            backgroundImage: 'url(https://media.base44.com/images/public/6960325a10892c1a1fc0a802/0c9997446_intricate-geometric-pattern-stockcake.jpg)',
+            backgroundRepeat: 'repeat',
+            backgroundSize: 'auto'
+          }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
