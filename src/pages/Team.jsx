@@ -216,7 +216,7 @@ export default function Team() {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1567359781514-3b963ff3a34a?w=1920&q=80)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
