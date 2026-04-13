@@ -49,7 +49,8 @@ export default function Layout({ children, currentPageName }) {
               <img 
                 src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/bbb5c820b_image.png" 
                 alt="Austin Wealth Management" 
-                className="h-12 w-auto"
+                className={`w-auto ${scrolled || !isHome ? 'mix-blend-multiply' : 'brightness-0 invert'}`}
+                style={{ height: '72px' }}
               />
             </Link>
 
@@ -107,7 +108,8 @@ export default function Layout({ children, currentPageName }) {
                     <img 
                       src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/bbb5c820b_image.png" 
                       alt="Austin Wealth Management" 
-                      className="h-10 w-auto"
+                      className="w-auto mix-blend-multiply"
+                      style={{ height: '54px' }}
                     />
                   </div>
                   
