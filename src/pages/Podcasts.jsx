@@ -142,25 +142,27 @@ export default function Podcasts() {
             {podcastEpisodes.map((episode, index) => (
               <AnimatedSection key={episode.number} delay={index * 0.05}>
                 <div className="group p-6 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-600 to-teal-700 flex items-center justify-center flex-shrink-0 text-white font-medium group-hover:from-amber-500 group-hover:to-amber-600 transition-all">
-                      <Headphones className="h-5 w-5" />
-                    </div>
-                    
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-baseline gap-3 mb-2">
-                        <span className="text-xs font-medium text-amber-600">EPISODE {episode.number}</span>
-                        <span className="text-xs text-slate-500">{episode.duration}</span>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-start gap-4 flex-1 min-w-0">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-600 to-teal-700 flex items-center justify-center flex-shrink-0 text-white font-medium group-hover:from-amber-500 group-hover:to-amber-600 transition-all">
+                        <Headphones className="h-5 w-5" />
                       </div>
-                      <h3 className="text-lg font-medium text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
-                        {episode.title}
-                      </h3>
-                      <p className="text-slate-600 text-sm">
-                        {episode.description}
-                      </p>
+                      
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-baseline gap-3 mb-2 flex-wrap">
+                          <span className="text-xs font-medium text-amber-600">EPISODE {episode.number}</span>
+                          <span className="text-xs text-slate-500">{episode.duration}</span>
+                        </div>
+                        <h3 className="text-lg font-medium text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
+                          {episode.title}
+                        </h3>
+                        <p className="text-slate-600 text-sm">
+                          {episode.description}
+                        </p>
+                      </div>
                     </div>
 
-                    <button className="flex-shrink-0 w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-amber-600 hover:bg-amber-50 flex items-center justify-center transition-all group-hover:shadow-md">
+                    <button className="flex-shrink-0 w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-amber-600 hover:bg-amber-50 flex items-center justify-center transition-all group-hover:shadow-md mt-1">
                       <Music className="h-5 w-5 text-slate-600 group-hover:text-amber-600 transition-colors" />
                     </button>
                   </div>
