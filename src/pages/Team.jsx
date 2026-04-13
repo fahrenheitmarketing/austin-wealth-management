@@ -212,16 +212,13 @@ export default function Team() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1567359781514-3b963ff3a34a?w=1920&q=80)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
+      <section className="relative py-32 bg-slate-950 overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=1920&q=80" 
+          alt="Austin Skyline"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-slate-950/75" />
+        <div className="absolute inset-0 bg-slate-950/70" />
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
         </div>
