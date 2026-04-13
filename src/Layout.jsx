@@ -170,7 +170,7 @@ export default function Layout({ children, currentPageName }) {
           style={{
             backgroundImage: 'url(https://media.base44.com/images/public/6960325a10892c1a1fc0a802/0c9997446_intricate-geometric-pattern-stockcake.jpg)',
             backgroundRepeat: 'repeat',
-            backgroundSize: 'auto',
+            backgroundSize: '20%',
             backgroundBlendMode: 'screen',
             opacity: 0.08
           }}
