@@ -124,18 +124,12 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Map */}
-              <div className="mt-10 h-64 rounded-2xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.google.com/maps/embed/v1/place?q=5209+Burnet+Rd+Suite+210+Austin+TX+78756&key=AIzaSyBu-0W7ZJAMzQ_6b-tJz7PatrVnDosNXpQ"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Austin Wealth Management Location"
-                />
+              {/* Map placeholder */}
+              <div className="mt-10 h-64 rounded-2xl bg-slate-100 flex items-center justify-center">
+                <div className="text-center">
+                  <MapPin className="h-8 w-8 text-slate-400 mx-auto mb-2" />
+                  <p className="text-slate-500 text-sm">Serving Central Texas</p>
+                </div>
               </div>
             </AnimatedSection>
 
