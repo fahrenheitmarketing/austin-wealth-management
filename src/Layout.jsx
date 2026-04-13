@@ -47,7 +47,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Logo */}
             <Link to={createPageUrl('Home')} className="flex items-center">
               <img 
-                src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/bbb5c820b_image.png" 
+                src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/6a2778d1e_image.png" 
                 alt="Austin Wealth Management" 
                 className={`w-auto transition-all duration-300 ${scrolled || !isHome ? 'mix-blend-multiply' : 'brightness-0 invert'}`}
                 style={{ height: '72px' }}
@@ -106,7 +106,7 @@ export default function Layout({ children, currentPageName }) {
                 <div className="flex flex-col h-full">
                   <div className="p-6 border-b border-slate-100">
                     <img 
-                      src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/bbb5c820b_image.png" 
+                      src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/6a2778d1e_image.png" 
                       alt="Austin Wealth Management" 
                       className="w-auto mix-blend-multiply"
                       style={{ height: '54px' }}
@@ -166,7 +166,7 @@ export default function Layout({ children, currentPageName }) {
             <div className="md:col-span-2">
               <div className="mb-6">
                 <img 
-                  src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/bbb5c820b_image.png" 
+                  src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/6a2778d1e_image.png" 
                   alt="Austin Wealth Management" 
                   className="h-10 w-auto brightness-0 invert"
                 />
