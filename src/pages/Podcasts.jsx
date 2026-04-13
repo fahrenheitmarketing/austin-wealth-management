@@ -81,7 +81,9 @@ export default function Podcasts() {
     } else {
       if (audioRef.current) {
         audioRef.current.src = audioUrl;
-        audioRef.current.play();
+        audioRef.current.play().catch(() => {
+          setPlayingId(null);
+        });
       }
       setPlayingId(episodeNumber);
     }
@@ -89,7 +91,11 @@ export default function Podcasts() {
 
   return (
     <main className="bg-white">
-      <audio ref={audioRef} onEnded={() => setPlayingId(null)} />
+      <audio 
+        ref={audioRef} 
+        onEnded={() => setPlayingId(null)}
+        onError={() => setPlayingId(null)}
+      />
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 
