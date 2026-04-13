@@ -13,7 +13,7 @@ export default function HeroSection() {
         <img 
           src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/a3ce6fac0_image.png" 
           alt="Austin skyline"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/60" />
