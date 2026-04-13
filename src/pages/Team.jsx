@@ -214,7 +214,7 @@ export default function Team() {
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=1920&q=80" 
+          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/8e78a0887_image.png" 
           alt="Austin Skyline"
           className="absolute inset-0 w-full h-full object-cover"
         />
