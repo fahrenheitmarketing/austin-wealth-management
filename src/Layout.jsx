@@ -45,24 +45,12 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to={createPageUrl('Home')} className="flex items-center gap-3">
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                scrolled || !isHome ? 'bg-amber-500' : 'bg-amber-500'
-              }`}>
-                <span className="text-slate-950 font-bold text-lg">A</span>
-              </div>
-              <div>
-                <span className={`font-semibold tracking-tight ${
-                  scrolled || !isHome ? 'text-slate-900' : 'text-white'
-                }`}>
-                  Austin Wealth
-                </span>
-                <span className={`block text-xs tracking-wide uppercase ${
-                  scrolled || !isHome ? 'text-slate-500' : 'text-slate-400'
-                }`}>
-                  Management
-                </span>
-              </div>
+            <Link to={createPageUrl('Home')} className="flex items-center">
+              <img 
+                src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/bbb5c820b_image.png" 
+                alt="Austin Wealth Management" 
+                className="h-12 w-auto"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -116,15 +104,11 @@ export default function Layout({ children, currentPageName }) {
               <SheetContent side="right" className="w-full sm:w-96 p-0">
                 <div className="flex flex-col h-full">
                   <div className="p-6 border-b border-slate-100">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center">
-                        <span className="text-slate-950 font-bold text-lg">A</span>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-slate-900">Austin Wealth</span>
-                        <span className="block text-xs text-slate-500 uppercase tracking-wide">Management</span>
-                      </div>
-                    </div>
+                    <img 
+                      src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/bbb5c820b_image.png" 
+                      alt="Austin Wealth Management" 
+                      className="h-10 w-auto"
+                    />
                   </div>
                   
                   <nav className="flex-1 p-6 space-y-2">
@@ -178,14 +162,12 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center">
-                  <span className="text-slate-950 font-bold text-lg">A</span>
-                </div>
-                <div>
-                  <span className="font-semibold text-white">Austin Wealth</span>
-                  <span className="block text-xs text-slate-500 uppercase tracking-wide">Management</span>
-                </div>
+              <div className="mb-6">
+                <img 
+                  src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/bbb5c820b_image.png" 
+                  alt="Austin Wealth Management" 
+                  className="h-10 w-auto brightness-0 invert"
+                />
               </div>
               <p className="text-slate-400 leading-relaxed max-w-md">
                 We serve as professional educators and advocates for the financial well-being 
