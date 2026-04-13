@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Headphones, Music, Pause } from 'lucide-react';
+import { ArrowRight, Headphones, Music } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const podcastPlatforms = [
@@ -72,30 +72,13 @@ const podcastEpisodes = [
 
 export default function Podcasts() {
   const [playingId, setPlayingId] = useState(null);
-  const audioRef = useRef(null);
 
-  const handlePlayPause = (episodeNumber, audioUrl) => {
-    if (playingId === episodeNumber) {
-      audioRef.current?.pause();
-      setPlayingId(null);
-    } else {
-      if (audioRef.current) {
-        audioRef.current.src = audioUrl;
-        audioRef.current.play().catch(() => {
-          setPlayingId(null);
-        });
-      }
-      setPlayingId(episodeNumber);
-    }
+  const handlePlayClick = (audioUrl) => {
+    window.open(audioUrl, '_blank');
   };
 
   return (
     <main className="bg-white">
-      <audio 
-        ref={audioRef} 
-        onEnded={() => setPlayingId(null)}
-        onError={() => setPlayingId(null)}
-      />
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 
@@ -137,21 +120,25 @@ export default function Podcasts() {
               <AnimatedSection key={platform.name} delay={index * 0.1}>
                 <a 
                   href={platform.url}
-                  className="group p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-300 text-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group h-full"
                 >
-                  <div className="text-5xl mb-4">{platform.icon}</div>
-                  <h3 className="text-xl font-medium text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
-                    {platform.name}
-                  </h3>
-                  <p className="text-slate-600 text-sm mb-6">{platform.description}</p>
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="group-hover:border-amber-600 group-hover:text-amber-600"
-                  >
-                    Subscribe
-                    <ArrowRight className="ml-2 h-3 w-3" />
-                  </Button>
+                  <div className="h-full p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-300 text-center flex flex-col items-center">
+                    <div className="text-5xl mb-4">{platform.icon}</div>
+                    <h3 className="text-xl font-medium text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
+                      {platform.name}
+                    </h3>
+                    <p className="text-slate-600 text-sm mb-6 flex-1">{platform.description}</p>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="group-hover:border-amber-600 group-hover:text-amber-600"
+                    >
+                      Subscribe
+                      <ArrowRight className="ml-2 h-3 w-3" />
+                    </Button>
+                  </div>
                 </a>
               </AnimatedSection>
             ))}
@@ -192,14 +179,10 @@ export default function Podcasts() {
                     </div>
 
                     <button 
-                      onClick={() => handlePlayPause(episode.number, episode.audioUrl)}
+                      onClick={() => handlePlayClick(episode.audioUrl)}
                       className="flex-shrink-0 w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-amber-600 hover:bg-amber-50 flex items-center justify-center transition-all group-hover:shadow-md mt-1"
                     >
-                      {playingId === episode.number ? (
-                        <Pause className="h-5 w-5 text-amber-600" />
-                      ) : (
-                        <Music className="h-5 w-5 text-slate-600 group-hover:text-amber-600 transition-colors" />
-                      )}
+                      <Music className="h-5 w-5 text-slate-600 group-hover:text-amber-600 transition-colors" />
                     </button>
                   </div>
                 </div>
