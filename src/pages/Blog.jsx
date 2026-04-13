@@ -167,10 +167,12 @@ export default function Blog() {
                     </div>
 
                     {/* Read More Button */}
-                    <button className="text-amber-600 hover:text-amber-700 font-medium text-sm flex items-center gap-2 transition-colors">
-                      Read More
-                      <ArrowRight className="h-3 w-3" />
-                    </button>
+                    <Link to={`/blog/${post.id}`}>
+                      <button className="text-amber-600 hover:text-amber-700 font-medium text-sm flex items-center gap-2 transition-colors">
+                        Read More
+                        <ArrowRight className="h-3 w-3" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </AnimatedSection>

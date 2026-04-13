@@ -8,6 +8,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Blog from '@/pages/Blog';
+import BlogPost from '@/pages/BlogPost';
 import Videos from '@/pages/Videos';
 import Podcasts from '@/pages/Podcasts';
 
@@ -66,6 +67,14 @@ const AuthenticatedApp = () => {
         element={
           <LayoutWrapper currentPageName="Blog">
             <Blog />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/blog/:id"
+        element={
+          <LayoutWrapper currentPageName="Blog">
+            <BlogPost />
           </LayoutWrapper>
         }
       />
