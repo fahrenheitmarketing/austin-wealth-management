@@ -72,11 +72,13 @@ export default function Investing() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/2 -right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
-        </div>
+      <section className="relative py-32 bg-slate-950 overflow-hidden">
+        <img 
+          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/9a4bbf517_generated_image.png" 
+          alt="Investment Management"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-slate-950/70" />
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div
