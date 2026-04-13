@@ -11,6 +11,9 @@ const navigation = [
   { name: 'Investing', href: 'Investing' },
   { name: 'Team', href: 'Team' },
   { name: 'Education', href: 'Education' },
+  { name: 'Blog', href: 'Blog' },
+  { name: 'Videos', href: 'Videos' },
+  { name: 'Podcasts', href: 'Podcasts' },
   { name: 'Contact', href: 'Contact' }
 ];
 

@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
+import Blog from '@/pages/Blog';
+import Videos from '@/pages/Videos';
+import Podcasts from '@/pages/Podcasts';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -58,6 +61,30 @@ const AuthenticatedApp = () => {
           }
         />
       ))}
+      <Route
+        path="/Blog"
+        element={
+          <LayoutWrapper currentPageName="Blog">
+            <Blog />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/Videos"
+        element={
+          <LayoutWrapper currentPageName="Videos">
+            <Videos />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/Podcasts"
+        element={
+          <LayoutWrapper currentPageName="Podcasts">
+            <Podcasts />
+          </LayoutWrapper>
+        }
+      />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
