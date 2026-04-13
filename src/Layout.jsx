@@ -163,8 +163,27 @@ export default function Layout({ children, currentPageName }) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-950 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-16">
+      <footer className="relative bg-slate-950 text-white overflow-hidden">
+        {/* Geometric pattern background */}
+        <svg className="absolute inset-0 w-full h-full opacity-20" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 400">
+          <defs>
+            <pattern id="hexPattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+              <g stroke="#D4A574" strokeWidth="1" fill="none">
+                {/* Left diamond */}
+                <polygon points="20,0 40,10 40,30 20,40 0,30 0,10" />
+                {/* Right diamond */}
+                <polygon points="60,0 80,10 80,30 60,40 40,30 40,10" />
+                {/* Bottom left diamond */}
+                <polygon points="20,40 40,50 40,70 20,80 0,70 0,50" />
+                {/* Bottom right diamond */}
+                <polygon points="60,40 80,50 80,70 60,80 40,70 40,50" />
+              </g>
+            </pattern>
+          </defs>
+          <rect width="1200" height="400" fill="url(#hexPattern)" />
+        </svg>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
               <div className="mb-6">
@@ -213,7 +232,7 @@ export default function Layout({ children, currentPageName }) {
             </div>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="relative z-10 mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-slate-500 text-sm">
               © {new Date().getFullYear()} Austin Wealth Management. All rights reserved.
             </p>
