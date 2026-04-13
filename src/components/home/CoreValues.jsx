@@ -15,14 +15,14 @@ const values = [
     title: "Advocacy",
     subtitle: "Your advisor should be an advocate",
     description: "When it comes to your finances, you deserve someone who can step into your shoes, assess your overall financial health and make recommendations in your best interests.",
-    color: "emerald"
+    color: "amber"
   },
   {
     icon: Target,
     title: "Accountability",
     subtitle: "Accountability leads to progress",
     description: "We believe both advisor and client should be accountable to executing the strategy. Accountability is the glue that helps you stay on track to achieve your most important financial objectives.",
-    color: "sky"
+    color: "amber"
   }
 ];
 
