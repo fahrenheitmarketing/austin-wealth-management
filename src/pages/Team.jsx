@@ -212,7 +212,16 @@ export default function Team() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
+      <section className="relative py-32 overflow-hidden">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1542401886-65d27afda266?w=1920&q=80)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        <div className="absolute inset-0 bg-slate-950/75" />
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
         </div>
