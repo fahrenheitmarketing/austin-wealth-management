@@ -171,11 +171,11 @@ export default function Layout({ children, currentPageName }) {
             backgroundImage: 'url(https://media.base44.com/images/public/6960325a10892c1a1fc0a802/0c9997446_intricate-geometric-pattern-stockcake.jpg)',
             backgroundRepeat: 'repeat',
             backgroundSize: 'auto',
-            backgroundColor: '#0f172a',
-            backgroundBlendMode: 'overlay',
-            opacity: 0.04
+            backgroundBlendMode: 'screen',
+            opacity: 0.08
           }}
         />
+        <div className="absolute inset-0 bg-blue-950/50" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-4 gap-12">
