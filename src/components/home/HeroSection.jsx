@@ -11,9 +11,9 @@ export default function HeroSection() {
       {/* City skyline background */}
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&q=80" 
-          alt="City skyline"
-          className="w-full h-full object-cover grayscale"
+          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/a3ce6fac0_image.png" 
+          alt="Austin skyline"
+          className="w-full h-full object-cover"
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/60" />
