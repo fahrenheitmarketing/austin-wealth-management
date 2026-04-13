@@ -14,7 +14,7 @@ const blogPosts = [
     author: "Manisha Gupta, CFP®, MBA",
     date: "April 1, 2026",
     category: "Saving",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&q=80"
+    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/5b61ef198_generated_image.png"
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const blogPosts = [
     author: "Sheila Schmitt",
     date: "March 13, 2026",
     category: "Tax Planning",
-    image: "https://images.unsplash.com/photo-1554224311-beee415c15a9?w=800&q=80"
+    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/93ab674b1_generated_image.png"
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const blogPosts = [
     author: "Nikki Yates, CFP®",
     date: "December 9, 2025",
     category: "Charity",
-    image: "https://images.unsplash.com/photo-1532635255-8a8bcae9c73c?w=800&q=80"
+    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/dd3bd6b8c_generated_image.png"
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const blogPosts = [
     author: "Parker Manson",
     date: "December 6, 2025",
     category: "Investing",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80"
+    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/d9b999426_generated_image.png"
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const blogPosts = [
     author: "Manisha Gupta, CFP®, MBA",
     date: "December 5, 2025",
     category: "Tax Planning",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/a7013e32d_generated_image.png"
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ const blogPosts = [
     author: "Sheila Schmitt",
     date: "December 1, 2025",
     category: "Tax Planning",
-    image: "https://images.unsplash.com/photo-1606857521620-cfb367c3b0d5?w=800&q=80"
+    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/ef2470b97_generated_image.png"
   }
 ];
 
