@@ -93,22 +93,21 @@ const qaData = [
   }
 ];
 
-function QAItem({ question, answer }) {
-  const [open, setOpen] = useState(false);
+function QAItem({ question, answer, isOpen, onToggle }) {
   return (
     <div className="border border-slate-200 rounded-2xl overflow-hidden">
       <button
-        onClick={() => setOpen(!open)}
+        onClick={onToggle}
         className="w-full text-left flex items-start justify-between gap-4 p-6 hover:bg-slate-50 transition-colors"
       >
         <span className="text-slate-900 font-medium leading-snug">{question}</span>
-        {open
+        {isOpen
           ? <ChevronUp className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" />
           : <ChevronDown className="h-5 w-5 text-slate-400 shrink-0 mt-0.5" />
         }
       </button>
       <AnimatePresence initial={false}>
-        {open && (
+        {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -126,6 +125,8 @@ function QAItem({ question, answer }) {
 }
 
 export default function QuestionsAnswers() {
+  const [openItem, setOpenItem] = useState(null); // "sectionIndex-questionIndex"
+
   return (
     <main className="bg-white">
       {/* Hero */}
@@ -173,10 +174,20 @@ export default function QuestionsAnswers() {
                   <div className="h-px flex-1 bg-slate-200" />
                 </div>
                 <div className="space-y-3">
-                  {section.questions.map((item, qi) => (
-                    <QAItem key={qi} question={item.q} answer={item.a} />
-                  ))}
+                  {section.questions.map((item, qi) => {
+                    const key = `${si}-${qi}`;
+                    return (
+                      <QAItem
+                        key={qi}
+                        question={item.q}
+                        answer={item.a}
+                        isOpen={openItem === key}
+                        onToggle={() => setOpenItem(openItem === key ? null : key)}
+                      />
+                    );
+                  })}
                 </div>
+
               </div>
             </AnimatedSection>
           ))}
