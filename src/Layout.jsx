@@ -1,16 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Menu, X, Phone, Mail, ArrowRight, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navigation = [
   { name: 'Planning', href: 'Planning' },
   { name: 'Investing', href: 'Investing' },
   { name: 'Team', href: 'Team' },
-  { name: 'Education', href: 'Education' },
+  { 
+    name: 'Education', 
+    href: 'Education',
+    submenu: [
+      { name: 'Education', href: 'Education' },
+      { name: 'Questions & Answers', href: 'QuestionsAnswers' }
+    ]
+  },
   { name: 'Blog', href: 'Blog' },
   { name: 'Videos', href: 'Videos' },
   { name: 'Podcasts', href: 'Podcasts' },
@@ -20,8 +27,20 @@ const navigation = [
 export default function Layout({ children, currentPageName }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [educationOpen, setEducationOpen] = useState(false);
+  const educationRef = useRef(null);
   const location = useLocation();
   const isHome = currentPageName === 'Home';
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (educationRef.current && !educationRef.current.contains(e.target)) {
+        setEducationOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,21 +79,67 @@ export default function Layout({ children, currentPageName }) {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={createPageUrl(item.href)}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    currentPageName === item.href
-                      ? scrolled || !isHome 
-                        ? 'text-amber-600 bg-amber-50' 
-                        : 'text-amber-400 bg-white/10'
-                      : scrolled || !isHome
-                        ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-                        : 'text-slate-300 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                item.submenu ? (
+                  <div key={item.name} className="relative" ref={educationRef}>
+                    <button
+                      onClick={() => setEducationOpen(!educationOpen)}
+                      className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                        currentPageName === item.href || currentPageName === 'QuestionsAnswers'
+                          ? scrolled || !isHome
+                            ? 'text-amber-600 bg-amber-50'
+                            : 'text-amber-400 bg-white/10'
+                          : scrolled || !isHome
+                            ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                            : 'text-slate-300 hover:text-white hover:bg-white/10'
+                      }`}
+                    >
+                      {item.name}
+                      <ChevronDown className={`h-3.5 w-3.5 transition-transform ${educationOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    <AnimatePresence>
+                      {educationOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden z-50"
+                        >
+                          {item.submenu.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              to={createPageUrl(sub.href)}
+                              onClick={() => setEducationOpen(false)}
+                              className={`block px-4 py-3 text-sm font-medium transition-colors ${
+                                currentPageName === sub.href
+                                  ? 'text-amber-600 bg-amber-50'
+                                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                              }`}
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={createPageUrl(item.href)}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                      currentPageName === item.href
+                        ? scrolled || !isHome 
+                          ? 'text-amber-600 bg-amber-50' 
+                          : 'text-amber-400 bg-white/10'
+                        : scrolled || !isHome
+                          ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                          : 'text-slate-300 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </nav>
 
@@ -118,17 +183,38 @@ export default function Layout({ children, currentPageName }) {
                   
                   <nav className="flex-1 p-6 space-y-2">
                     {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={createPageUrl(item.href)}
-                        className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                          currentPageName === item.href
-                            ? 'bg-amber-50 text-amber-600'
-                            : 'text-slate-600 hover:bg-slate-50'
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
+                      item.submenu ? (
+                        <div key={item.name}>
+                          <div className="px-4 py-2 text-xs font-semibold tracking-widest text-amber-600 uppercase mt-2">
+                            {item.name}
+                          </div>
+                          {item.submenu.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              to={createPageUrl(sub.href)}
+                              className={`block px-6 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                                currentPageName === sub.href
+                                  ? 'bg-amber-50 text-amber-600'
+                                  : 'text-slate-600 hover:bg-slate-50'
+                              }`}
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </div>
+                      ) : (
+                        <Link
+                          key={item.name}
+                          to={createPageUrl(item.href)}
+                          className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                            currentPageName === item.href
+                              ? 'bg-amber-50 text-amber-600'
+                              : 'text-slate-600 hover:bg-slate-50'
+                          }`}
+                        >
+                          {item.name}
+                        </Link>
+                      )
                     ))}
                   </nav>
 

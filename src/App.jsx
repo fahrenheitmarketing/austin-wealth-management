@@ -11,6 +11,7 @@ import Blog from '@/pages/Blog';
 import BlogPost from '@/pages/BlogPost';
 import Videos from '@/pages/Videos';
 import Podcasts from '@/pages/Podcasts';
+import QuestionsAnswers from '@/pages/QuestionsAnswers';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -91,6 +92,14 @@ const AuthenticatedApp = () => {
         element={
           <LayoutWrapper currentPageName="Podcasts">
             <Podcasts />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/QuestionsAnswers"
+        element={
+          <LayoutWrapper currentPageName="QuestionsAnswers">
+            <QuestionsAnswers />
           </LayoutWrapper>
         }
       />
