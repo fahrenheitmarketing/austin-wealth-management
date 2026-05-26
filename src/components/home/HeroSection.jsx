@@ -36,10 +36,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-tight tracking-tight"
         >
-          All of the financial options,
+          Delivering A-Ha moments
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
-            none of the pressure.
+            for a richer life.
           </span>
         </motion.h1>
 
@@ -49,8 +49,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           className="mt-8 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed"
         >
-          We serve as professional educators and advocates for the financial well-being 
-          of families in Central Texas.
+          We help young professionals, executives with equity compensation, and business owners 
+          navigate complex financial decisions — with education, advocacy, and no sales pressure.
         </motion.p>
 
         <motion.div

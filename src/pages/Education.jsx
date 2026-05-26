@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, TrendingUp, Wallet, GraduationCap, Shield, Heart, Users, Scale, PiggyBank, Home, MessageCircle } from 'lucide-react';
+import { ArrowRight, TrendingUp, Wallet, GraduationCap, Shield, Heart, Users, Scale, PiggyBank, MessageCircle, Briefcase, BarChart2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -15,52 +15,52 @@ const educationTopics = [
   {
     icon: TrendingUp,
     title: "Amateur vs. Professional Investing",
-    description: "According to several studies, the average amateur investor significantly under performs the average professional. Let's change that by giving you the knowledge and strategies used by professionals."
+    description: "According to several studies, the average amateur investor significantly underperforms the average professional. We give you the knowledge and strategies used by professionals."
   },
   {
     icon: PiggyBank,
     title: "Increasing Savings Rates",
-    description: "Most young families under save with the expectation they can make it up later. We can show you why you should save 20-30% of your gross pay, and how you can make it happen."
-  },
-  {
-    icon: GraduationCap,
-    title: "Preparing for College",
-    description: "What will college tuition look like when your one year old applies 18 years from now? Are you ready for college expenses to be $250,000? We can help you prepare."
+    description: "Most young families undersave expecting to make it up later. We show you why saving 20–30% of gross pay matters — and how to actually make it happen."
   },
   {
     icon: Wallet,
     title: "Budgeting",
-    description: "Do you have a budget you can realistically follow each month? We can help identify spending patterns, where your money is really going and create a budget you can actually stick to."
+    description: "Do you have a budget you can realistically follow each month? We help identify spending patterns, where your money is really going, and create a budget you can stick to."
   },
   {
     icon: Shield,
-    title: "Massive Debt",
-    description: "We understand getting out of debt is difficult. We can help you attack your payments and create a step ladder to get your family out of the pit of debt."
+    title: "Debt Management",
+    description: "We understand getting out of debt is difficult. We can help you attack your payments and create a step-by-step strategy to get your family out of the pit of debt."
   },
   {
-    icon: Home,
-    title: "Retirement Expectations",
-    description: "What retirement expectations are realistic? Can you travel to Paris and Venice or will you have trouble with the grocery store? We can help create a confident retirement plan."
+    icon: Briefcase,
+    title: "Equity Compensation",
+    description: "RSUs, ESPPs, ISOs — equity compensation is powerful but complex. We teach you how each type works, how they're taxed, and how to build a smart strategy around them."
+  },
+  {
+    icon: BarChart2,
+    title: "Business Owner Finances",
+    description: "Running a business adds a layer of complexity to personal finances. We help business owners understand how to pay themselves, plan for retirement, and eventually exit."
   },
   {
     icon: Heart,
     title: "Income Plans",
-    description: "We can help you create a well thought out income plan that takes into account possible future health expenses. We'll make sure you're prepared."
+    description: "We help you create a well-thought-out income plan that accounts for possible future health expenses and ensures you're prepared for life's changes."
   },
   {
     icon: Users,
     title: "Lack of Trust",
-    description: "There are many valid reasons to be skeptical and distrustful of the financial services industry. It is our responsibility to rebuild that trust through integrity and transparency."
+    description: "There are many valid reasons to be skeptical of the financial services industry. It is our responsibility to rebuild that trust through integrity and transparency."
   },
   {
-    icon: TrendingUp,
+    icon: GraduationCap,
     title: "Fear of the Stock Market",
-    description: "We understand many people are distrustful of the stock market because they've been burned in the past. We can help make sure you're aware of investment risks."
+    description: "We understand many people are distrustful of the stock market because they've been burned in the past. We help make sure you're aware of investment risks and realistic expectations."
   },
   {
     icon: MessageCircle,
     title: "Household Communication",
-    description: "We understand that different people view and think about financials very differently. We can help you and your spouse communicate effectively about finances."
+    description: "Different people view money very differently. We help you and your partner communicate effectively about finances so you're working as a team."
   }
 ];
 
@@ -86,10 +86,10 @@ export default function Education() {
               Education
             </span>
             <h1 className="text-4xl md:text-6xl font-light text-white tracking-tight leading-tight">
-              No Sales Pitch,
+              Knowledge Creates
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
-                Just Education
+                A-Ha Moments
               </span>
             </h1>
             <p className="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">

@@ -8,36 +8,36 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const lifeStages = [
   {
-    title: "Early Career",
-    households: "118",
+    title: "Young Adults (25–45)",
+    households: "120+",
     questions: [
-      "How much should we save?",
-      "Which house can we afford?",
-      "What to do about college funding?",
+      "How much should we save each month?",
+      "Which house can we actually afford?",
+      "What's a smart, low-cost way to invest?",
       "How much life insurance do we need?",
-      "What is a smart, low cost way to invest?"
+      "How do we build wealth while raising a family?"
     ]
   },
   {
-    title: "Late Career",
-    households: "105",
+    title: "Professionals & Executives",
+    households: "100+",
     questions: [
-      "How do our finances compare to our peers?",
-      "How can we save on taxes?",
-      "Are we on track to help our kids with college?",
-      "We are thinking about starting a business.",
-      "Do we have enough insurance?"
+      "When should I exercise my stock options?",
+      "How do RSUs affect my tax bill?",
+      "What's the best strategy for my ESPP?",
+      "How do I diversify out of company stock?",
+      "How can we save more on taxes with equity comp?"
     ]
   },
   {
-    title: "Retired",
-    households: "90",
+    title: "Business Owners",
+    households: "80+",
     questions: [
-      "What kind of lifestyle can I afford in retirement?",
-      "Am I taking too little / too much risk investing?",
-      "Is there anything we can do to lower taxes?",
-      "Does long term care make sense for us?",
-      "How will our Estate be taken care of?"
+      "How do I pay myself efficiently from my business?",
+      "What retirement plan is right for my business?",
+      "How do I separate business and personal finances?",
+      "What's my business worth, and how do I protect it?",
+      "How do I plan for an eventual exit or transition?"
     ]
   }
 ];
@@ -45,7 +45,7 @@ const lifeStages = [
 const planningAreas = [
   { icon: Shield, title: "Financial Security", items: ["Bank & cash management", "Budgeting", "Debt pay down", "Company benefits", "Insurance coverage", "Estate planning"] },
   { icon: TrendingUp, title: "Building Wealth", items: ["How much to save", "Account types (401k, Roth, Trust)", "Investment risk assessment", "Tax efficiency", "Cost control"] },
-  { icon: Landmark, title: "Retirement Income", items: ["Spending budget", "Which accounts to draw from", "Social Security choices", "Pension choices", "Inflation protection"] }
+  { icon: Landmark, title: "Equity Compensation", items: ["RSU vesting & tax planning", "ESPP strategy & timing", "ISO & NSO option exercises", "Concentrated stock diversification", "AMT planning for ISOs"] }
 ];
 
 const process = [
