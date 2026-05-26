@@ -321,6 +321,11 @@ export default function Layout({ children, currentPageName }) {
               <a href="#" className="hover:text-amber-400 transition-colors">Terms of Service</a>
             </div>
           </div>
+          <div className="relative z-10 mt-8 pt-6 border-t border-slate-800 flex items-center justify-center">
+            <a href="https://www.fahrenheitmarketing.com" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-amber-400 transition-colors text-sm">
+              Designed and developed by Fahrenheit Marketing
+            </a>
+          </div>
         </div>
       </footer>
     </div>
