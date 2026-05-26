@@ -190,7 +190,7 @@ export default function Planning() {
             {process.map((item, index) => (
               <AnimatedSection key={item.step} delay={index * 0.1}>
                 <div className="relative">
-                  <div className="text-6xl font-light text-amber-500/20 mb-4">{item.step}</div>
+                  <div className="text-7xl font-bold text-amber-500 mb-4 leading-none">{item.step}</div>
                   <h3 className="text-lg font-medium text-white mb-2">{item.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
                 </div>
