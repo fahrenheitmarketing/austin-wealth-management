@@ -58,14 +58,41 @@ const feeTiers = [
   { range: "Over $5M", rate: "0.35%" }
 ];
 
+const investmentViews = [
+  {
+    title: "Simplicity First",
+    description: "Start with simple & practical strategies. Only add complexity if it is definitely worth it. Complexity often creates hidden costs and confusion without meaningful benefit."
+  },
+  {
+    title: "Cash Flow is the Foundation",
+    description: "Daily decisions about cash and cash flow make a BIG long-term impact. Have plenty of access to cash before tying up investments — liquidity is an asset."
+  },
+  {
+    title: "Sequence Matters",
+    description: "The planning sequence matters. Each decision impacts the next, creating a compounding effect. Getting the order right can mean the difference between success and costly mistakes."
+  },
+  {
+    title: "No Single 'Right' Way to Invest",
+    description: "There is no single correct way to invest, but there are many bad ways. We use the most compelling evidence to construct portfolios — not trends, not emotion."
+  },
+  {
+    title: "Diversify Before You Need To",
+    description: "Diversification only works if it's in place BEFORE the market turns. Waiting until volatility arrives is too late — we build resilient portfolios proactively."
+  },
+  {
+    title: "Tax Strategy is Year-Round",
+    description: "Tax strategy needs to happen throughout the year, not just at tax time. Proactive coordination with your CPA can dramatically improve after-tax returns."
+  }
+];
+
 const differentiators = [
-  "No sales pressure. We don't have a boss with quotas.",
-  "We pay attention to the little things that matter a lot.",
-  "We make practical recommendations from personal experience.",
-  "We coordinate with your CPAs, attorney, and other professionals.",
-  "We follow our own advice.",
-  "We use the most compelling evidence to construct investment portfolios.",
-  "We offer the latest technology to keep your financial info in one place."
+  { title: "No Sales Pressure", description: "We don't have a boss with quotas. Our only obligation is to you. Every recommendation we make is driven by your best interest, not a product commission." },
+  { title: "We Pay Attention to the Details", description: "The little things matter a lot in wealth management. Small optimizations in fees, taxes, and timing compound into meaningful results over time." },
+  { title: "Practical, Personal Recommendations", description: "We make recommendations from personal experience — we follow our own advice and invest alongside our clients using the same strategies we recommend." },
+  { title: "We Coordinate Your Full Team", description: "We work alongside your CPAs, attorneys, and other professionals to make sure every piece of your financial life is working together efficiently." },
+  { title: "No Minimum Requirements", description: "We don't have a minimum account size or requirements. We serve clients based on fit and commitment, not arbitrary asset thresholds." },
+  { title: "Evidence-Based Portfolios", description: "We use the most compelling academic evidence to construct investment portfolios — not market trends or speculation. Our approach is disciplined and time-tested." },
+  { title: "Technology That Works for You", description: "We offer the latest technology to keep your financial information in one place — giving you a clear, real-time picture of your complete financial life." }
 ];
 
 export default function Investing() {
@@ -176,33 +203,64 @@ export default function Investing() {
         </div>
       </section>
 
+      {/* Investment Philosophy */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-xs font-medium tracking-widest text-amber-600 uppercase">
+              Our Thinking
+            </span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-light text-slate-900 tracking-tight">
+              Our Investment Philosophy
+            </h2>
+            <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
+              These are the core beliefs that guide every portfolio we build and every recommendation we make.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {investmentViews.map((view, index) => (
+              <AnimatedSection key={view.title} delay={index * 0.1}>
+                <div className="h-full p-6 rounded-2xl bg-white border border-slate-200 hover:shadow-lg hover:border-amber-200 transition-all duration-300">
+                  <div className="w-2 h-8 rounded-full bg-amber-500 mb-4" />
+                  <h3 className="text-base font-semibold text-slate-900 mb-2">{view.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{view.description}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Different */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection direction="left">
-              <span className="text-xs font-medium tracking-widest text-amber-600 uppercase">
-                The AWM Difference
-              </span>
-              <h2 className="mt-4 text-3xl md:text-4xl font-light text-slate-900 tracking-tight">
-                How is AWM Different?
-              </h2>
-              <p className="mt-4 text-slate-500">
-                We've built our practice around what we believe financial advice should be — 
-                client-focused, evidence-based, and delivered with care.
-              </p>
-            </AnimatedSection>
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-xs font-medium tracking-widest text-amber-600 uppercase">
+              The AWM Difference
+            </span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-light text-slate-900 tracking-tight">
+              How is AWM Different?
+            </h2>
+            <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
+              We've built our practice around what financial advice should be — client-focused, evidence-based, and delivered with care.
+            </p>
+          </AnimatedSection>
 
-            <AnimatedSection direction="right">
-              <div className="space-y-4">
-                {differentiators.map((item, index) => (
-                  <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-slate-50 hover:bg-amber-50 transition-colors">
-                    <CheckCircle className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700 text-sm">{item}</span>
+          <div className="grid md:grid-cols-2 gap-6">
+            {differentiators.map((item, index) => (
+              <AnimatedSection key={index} delay={index * 0.05}>
+                <div className="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 hover:bg-amber-50 border border-transparent hover:border-amber-100 transition-all duration-300">
+                  <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle className="h-4 w-4 text-amber-600" />
                   </div>
-                ))}
-              </div>
-            </AnimatedSection>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 text-sm mb-1">{item.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
