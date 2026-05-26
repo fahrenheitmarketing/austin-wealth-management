@@ -16,11 +16,11 @@ const navigation = [
     submenu: [
       { name: 'Education', href: 'Education' },
       { name: 'Questions & Answers', href: 'QuestionsAnswers' },
-      { name: 'Podcasts', href: 'Podcasts' }
+      { name: 'Podcasts', href: 'Podcasts' },
+      { name: 'Videos', href: 'Videos' }
     ]
   },
   { name: 'Blog', href: 'Blog' },
-  { name: 'Videos', href: 'Videos' },
   { name: 'Contact', href: 'Contact' }
 ];
 
