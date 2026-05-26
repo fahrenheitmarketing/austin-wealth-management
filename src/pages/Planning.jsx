@@ -174,6 +174,45 @@ export default function Planning() {
         </div>
       </section>
 
+      {/* Female Clients */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection direction="left">
+              <span className="text-xs font-medium tracking-widest text-amber-600 uppercase">
+                Niche Markets
+              </span>
+              <h2 className="mt-4 text-3xl md:text-4xl font-light text-slate-900 tracking-tight">
+                Serving Female Clients
+              </h2>
+              <p className="mt-6 text-slate-600 leading-relaxed">
+                Divorcees, widows, and single women often prefer working with female financial advisors. 
+                We have a team of women assembled to serve this market and their unique needs.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection direction="right">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { name: "Anna Bell Gall", role: "Lead Financial Advisor" },
+                  { name: "Manisha Gupta", role: "Head of Financial Planning" },
+                  { name: "Nikki Yates", role: "Financial Planner" },
+                  { name: "Sheila Schmitt", role: "Head of Client Services" }
+                ].map((person) => (
+                  <div key={person.name} className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center mb-3">
+                      <span className="text-amber-700 font-medium text-sm">{person.name.charAt(0)}</span>
+                    </div>
+                    <p className="font-medium text-slate-900 text-sm">{person.name}</p>
+                    <p className="text-slate-500 text-xs mt-1">{person.role}</p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section className="py-24 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6">
