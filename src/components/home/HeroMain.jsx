@@ -83,23 +83,23 @@ export default function HeroMain() {
         {/* Two CTA Cards */}
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {/* Card 1: Life Event */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35 }}
-            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 flex flex-col"
-          >
-            <h3 className="text-2xl font-semibold text-white mb-5 leading-snug">
-              I have an important life decision and need help now.
-            </h3>
-            <ul className="space-y-1.5 mb-8 flex-1">
-              {lifeEventItems.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-slate-300 text-sm">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-amber-400 flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+           <motion.div
+             initial={{ opacity: 0, y: 30 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.7, delay: 0.35 }}
+             className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 flex flex-col"
+           >
+             <h3 className="text-2xl font-semibold text-white mb-5 leading-snug">
+               I have an important life decision and need help now.
+             </h3>
+             <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-8 flex-1">
+               {lifeEventItems.map((item) => (
+                 <li key={item} className="flex items-start gap-2 text-slate-300 text-sm list-none">
+                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-amber-400 flex-shrink-0" />
+                   {item}
+                 </li>
+               ))}
+             </div>
             <Link to={createPageUrl('LifeEventForm')}>
               <button className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold rounded-full py-3 px-6 flex items-center justify-center gap-2 transition-colors">
                 I want a plan for a life event
@@ -118,14 +118,14 @@ export default function HeroMain() {
             <h3 className="text-2xl font-semibold text-white mb-5 leading-snug">
               I want a big picture financial plan for my future.
             </h3>
-            <ul className="space-y-1.5 mb-8 flex-1">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-8 flex-1">
               {bigPictureItems.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-slate-300 text-sm">
+                <li key={item} className="flex items-start gap-2 text-slate-300 text-sm list-none">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-amber-400 flex-shrink-0" />
                   {item}
                 </li>
               ))}
-            </ul>
+            </div>
             <Link to={createPageUrl('BigPicturePlanningForm')}>
               <button className="w-full bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold rounded-full py-3 px-6 flex items-center justify-center gap-2 transition-colors">
                 I want to plan ahead
