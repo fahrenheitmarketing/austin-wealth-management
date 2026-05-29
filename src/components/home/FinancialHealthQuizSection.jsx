@@ -28,7 +28,7 @@ export default function FinancialHealthQuizSection() {
               In less than 3 minutes, you'll know exactly where you stand and{' '}
               <strong>how to begin.</strong>
             </p>
-            <Link to={createPageUrl('Contact')}>
+            <Link to={createPageUrl('FinancialHealthQuiz')}>
               <button className="bg-slate-700 hover:bg-slate-800 text-white font-semibold rounded-full py-3 px-8 transition-colors">
                 Take the Financial Health Quiz
               </button>
