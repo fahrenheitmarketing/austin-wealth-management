@@ -96,7 +96,59 @@ export default function HeroMain() {
             onClick={() => active !== 'life' && setActive('life')}
           >
             <h3 className={`font-semibold text-white leading-snug transition-all duration-300 ${active === 'big' ? 'text-base mb-0' : 'text-xl mb-4'}`}>
-              I have a decision to make. I need help.
+              I have an important life decision and need help now.
+            </h3>
+
+            <AnimatePresence>
+              {active === 'life' && (
+                <motion.div
+                  key="life-content"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.35 }}
+                  className="overflow-hidden"
+                >
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-6 mt-2">
+                    {lifeEventItems.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-slate-300 text-sm list-none">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-amber-400 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </div>
+                  <Link to={createPageUrl('LifeEventForm')} onClick={(e) => e.stopPropagation()}>
+                    <button className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold rounded-full py-3 px-6 flex items-center justify-center gap-2 transition-colors">
+                      I want a plan for a life event
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {active !== 'life' && (
+              <button
+                className="mt-4 self-start bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold rounded-full py-2 px-5 text-sm transition-colors"
+                onClick={(e) => { e.stopPropagation(); setActive('life'); }}
+              >
+                This Is Me
+              </button>
+            )}
+          </motion.div>
+
+          {/* Card 2: Big Picture */}
+          <motion.div
+            layout
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: active ? 0 : 0.45 }}
+            style={{ flex: active === 'life' ? '0 0 220px' : '1 1 0%', minWidth: 0 }}
+            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex flex-col transition-all duration-500 cursor-pointer"
+            onClick={() => active !== 'big' && setActive('big')}
+          >
+            <h3 className={`font-semibold text-white leading-snug transition-all duration-300 ${active === 'life' ? 'text-base mb-0' : 'text-xl mb-4'}`}>
+              I want a big picture financial plan for my future.
             </h3>
 
             <AnimatePresence>
