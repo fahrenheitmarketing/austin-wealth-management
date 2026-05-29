@@ -93,8 +93,8 @@ export default function TeamIntroSection() {
                 <p className="text-xs font-bold tracking-widest text-slate-400 uppercase text-center">OTHER PROFESSIONALS</p>
                 <div className="grid grid-cols-2 gap-2">
                   {['Banker', 'Accountant', 'Insurance', 'Estate Lawyer'].map((pro) => (
-                    <div key={pro} className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center">
-                      <span className="text-slate-300 text-xs font-medium text-center leading-tight">{pro.split(' ')[0]}</span>
+                    <div key={pro} className="w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center p-2">
+                      <span className="text-slate-300 text-xs font-medium text-center leading-tight">{pro}</span>
                     </div>
                   ))}
                 </div>
