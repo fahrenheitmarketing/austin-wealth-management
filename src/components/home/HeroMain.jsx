@@ -85,7 +85,9 @@ export default function HeroMain() {
         </motion.div>
 
         {/* Two CTA Cards */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto relative">
+          {/* Dark overlay behind cards */}
+          <div className="absolute -inset-8 bg-black/30 rounded-3xl blur-xl -z-10" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
 
             {/* Card 1: Life Event */}
