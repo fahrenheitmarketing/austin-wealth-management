@@ -52,7 +52,7 @@ export default function HeroMain() {
           transition={{ duration: 0.7 }}
           className="text-center mb-4"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight drop-shadow-lg">
             All of the financial options,<br />
             <span className="font-semibold">without the pressure.</span>
           </h2>
@@ -64,7 +64,7 @@ export default function HeroMain() {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="text-center mb-4"
         >
-          <p className="text-xl md:text-2xl text-slate-200 font-light">
+          <p className="text-xl md:text-2xl text-slate-200 font-light drop-shadow-lg">
             Make financial decisions that make sense to <strong className="font-semibold">you</strong>.
           </p>
         </motion.div>
@@ -75,7 +75,7 @@ export default function HeroMain() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="text-center mb-14"
         >
-          <div className="flex items-center justify-center gap-2 text-amber-400 text-base font-medium flex-wrap">
+          <div className="flex items-center justify-center gap-2 text-amber-400 text-base font-medium flex-wrap drop-shadow-md">
             <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors">High-Income Households</Link>
             <span className="text-slate-500">|</span>
             <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors">Business Owners</Link>
