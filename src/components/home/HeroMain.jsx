@@ -100,7 +100,7 @@ export default function HeroMain() {
               }`}
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="text-lg font-semibold text-white leading-snug">
+                <h3 className="text-lg font-semibold text-amber-400 leading-snug">
                   I have an important life decision and need help now.
                 </h3>
                 <span className={`mt-1 flex-shrink-0 h-5 w-5 rounded-full border-2 transition-all duration-300 ${
@@ -123,7 +123,7 @@ export default function HeroMain() {
               }`}
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="text-lg font-semibold text-white leading-snug">
+                <h3 className="text-lg font-semibold text-amber-400 leading-snug">
                   I want a big picture financial plan for my future.
                 </h3>
                 <span className={`mt-1 flex-shrink-0 h-5 w-5 rounded-full border-2 transition-all duration-300 ${
