@@ -70,8 +70,8 @@ export default function LifeStageSection() {
               <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 10 }}>
                 <defs>
                   <linearGradient id="wealthGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#1e6ea0" stopOpacity={0.85} />
-                    <stop offset="95%" stopColor="#1e6ea0" stopOpacity={0.1} />
+                    <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.85} />
+                    <stop offset="95%" stopColor="#14b8a6" stopOpacity={0.1} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
@@ -79,7 +79,7 @@ export default function LifeStageSection() {
                 <YAxis hide />
                 <ReferenceLine x="30" stroke="#94a3b8" strokeDasharray="4 4" />
                 <ReferenceLine x="60" stroke="#94a3b8" strokeDasharray="4 4" />
-                <Area type="monotone" dataKey="wealth" stroke="#1e6ea0" fill="url(#wealthGrad)" strokeWidth={2} />
+                <Area type="monotone" dataKey="wealth" stroke="#14b8a6" fill="url(#wealthGrad)" strokeWidth={2} />
               </AreaChart>
             </ResponsiveContainer>
 
