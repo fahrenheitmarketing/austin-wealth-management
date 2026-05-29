@@ -8,6 +8,8 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Blog from '@/pages/Blog';
+import LifeEventForm from '@/pages/LifeEventForm';
+import BigPicturePlanningForm from '@/pages/BigPicturePlanningForm';
 import BlogPost from '@/pages/BlogPost';
 import Videos from '@/pages/Videos';
 import Podcasts from '@/pages/Podcasts';
@@ -100,6 +102,22 @@ const AuthenticatedApp = () => {
         element={
           <LayoutWrapper currentPageName="QuestionsAnswers">
             <QuestionsAnswers />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/LifeEventForm"
+        element={
+          <LayoutWrapper currentPageName="LifeEventForm">
+            <LifeEventForm />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/BigPicturePlanningForm"
+        element={
+          <LayoutWrapper currentPageName="BigPicturePlanningForm">
+            <BigPicturePlanningForm />
           </LayoutWrapper>
         }
       />

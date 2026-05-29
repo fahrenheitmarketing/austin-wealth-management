@@ -1,20 +1,23 @@
-import React from 'react';
-import HeroSection from '@/components/home/HeroSection';
+import HeroMain from '@/components/home/HeroMain';
+import LifeStageSection from '@/components/home/LifeStageSection';
+import FinancialHealthQuizSection from '@/components/home/FinancialHealthQuizSection';
+import HowWereDifferent from '@/components/home/HowWereDifferent';
+import TeamIntroSection from '@/components/home/TeamIntroSection';
 import CoreValues from '@/components/home/CoreValues';
-import ServicesPreview from '@/components/home/ServicesPreview';
-import ClientQuestions from '@/components/home/ClientQuestions';
-import TeamPreview from '@/components/home/TeamPreview';
-import CTASection from '@/components/home/CTASection';
+import EducationBlogSection from '@/components/home/EducationBlogSection';
+import TestimonialsSection from '@/components/home/TestimonialsSection';
 
 export default function Home() {
   return (
-    <main className="bg-white">
-      <HeroSection />
+    <div className="bg-white">
+      <HeroMain />
+      <LifeStageSection />
+      <FinancialHealthQuizSection />
+      <HowWereDifferent />
+      <TeamIntroSection />
       <CoreValues />
-      <ServicesPreview />
-      <ClientQuestions />
-      <TeamPreview />
-      <CTASection />
-    </main>
+      <EducationBlogSection />
+      <TestimonialsSection />
+    </div>
   );
 }
