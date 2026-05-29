@@ -75,12 +75,14 @@ export default function HeroMain() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="text-center mb-14"
         >
-          <div className="flex items-center justify-center gap-2 text-amber-400 text-base font-medium flex-wrap drop-shadow-md">
-            <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors drop-shadow-lg">High-Income Households</Link>
-            <span className="text-slate-500">|</span>
-            <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors drop-shadow-lg">Business Owners</Link>
-            <span className="text-slate-500">|</span>
-            <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors drop-shadow-lg">Retirees</Link>
+          <div className="inline-block bg-black/40 backdrop-blur-md border border-white/20 rounded-full px-6 py-3">
+            <div className="flex items-center justify-center gap-2 text-amber-400 text-base font-medium flex-wrap drop-shadow-md">
+              <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors drop-shadow-lg">High-Income Households</Link>
+              <span className="text-slate-500">|</span>
+              <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors drop-shadow-lg">Business Owners</Link>
+              <span className="text-slate-500">|</span>
+              <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors drop-shadow-lg">Retirees</Link>
+            </div>
           </div>
         </motion.div>
 
