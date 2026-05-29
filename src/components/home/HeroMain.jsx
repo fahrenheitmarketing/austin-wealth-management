@@ -41,8 +41,8 @@ export default function HeroMain() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=1920&q=80)' }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-orange-950/70 via-red-900/60 to-orange-950/70" />
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-600/15 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-orange-950/50 via-red-900/40 to-orange-950/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-600/8 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20">
         {/* Top headline */}
