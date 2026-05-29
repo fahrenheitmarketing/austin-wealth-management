@@ -84,132 +84,93 @@ export default function HeroMain() {
         </motion.div>
 
         {/* Two CTA Cards */}
-        <motion.div className="flex flex-col md:flex-row gap-4 max-w-5xl mx-auto">
-          {/* Card 1: Life Event */}
-          <motion.div
-            layout
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35, type: 'spring', stiffness: 80, damping: 15 }}
-            style={{ flex: active === 'big' ? '0 0 240px' : active === 'life' ? '1 1 0%' : '1 1 0%', minWidth: 0 }}
-            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex flex-col cursor-pointer overflow-hidden"
-            onClick={() => active !== 'life' && setActive('life')}
-          >
-            <motion.h3
-              animate={{ fontSize: active === 'big' ? '0.875rem' : '1.25rem', marginBottom: active === 'big' ? 0 : 16 }}
-              transition={{ duration: 0.4, type: 'spring', stiffness: 80, damping: 15 }}
-              className="font-semibold text-white leading-snug"
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+
+            {/* Card 1: Life Event */}
+            <motion.button
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              onClick={() => setActive(active === 'life' ? null : 'life')}
+              className={`text-left rounded-2xl p-6 border transition-all duration-300 ${
+                active === 'life'
+                  ? 'bg-white/20 border-amber-400/60 shadow-lg shadow-amber-500/10'
+                  : 'bg-white/10 border-white/20 hover:bg-white/15 hover:border-white/30'
+              }`}
             >
-              I have an important life decision and need help now.
-            </motion.h3>
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="text-lg font-semibold text-white leading-snug">
+                  I have an important life decision and need help now.
+                </h3>
+                <span className={`mt-1 flex-shrink-0 h-5 w-5 rounded-full border-2 transition-all duration-300 ${
+                  active === 'life' ? 'bg-amber-400 border-amber-400' : 'border-white/40'
+                }`} />
+              </div>
+              <p className="text-slate-300 text-sm mt-2">Job changes, inheritance, retirement, major purchases &amp; more.</p>
+            </motion.button>
 
-            <AnimatePresence mode="wait">
-              {active === 'life' && (
-                <motion.div
-                  key="life-content"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
+            {/* Card 2: Big Picture */}
+            <motion.button
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              onClick={() => setActive(active === 'big' ? null : 'big')}
+              className={`text-left rounded-2xl p-6 border transition-all duration-300 ${
+                active === 'big'
+                  ? 'bg-white/20 border-amber-400/60 shadow-lg shadow-amber-500/10'
+                  : 'bg-white/10 border-white/20 hover:bg-white/15 hover:border-white/30'
+              }`}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="text-lg font-semibold text-white leading-snug">
+                  I want a big picture financial plan for my future.
+                </h3>
+                <span className={`mt-1 flex-shrink-0 h-5 w-5 rounded-full border-2 transition-all duration-300 ${
+                  active === 'big' ? 'bg-amber-400 border-amber-400' : 'border-white/40'
+                }`} />
+              </div>
+              <p className="text-slate-300 text-sm mt-2">Tax planning, retirement, investments, business exit &amp; more.</p>
+            </motion.button>
+          </div>
+
+          {/* Expanded detail panel */}
+          <AnimatePresence mode="wait">
+            {active && (
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6"
+              >
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2 mb-6">
+                  {(active === 'life' ? lifeEventItems : bigPictureItems).map((item) => (
+                    <div key={item} className="flex items-center gap-2 text-slate-200 text-sm">
+                      <span className="h-1.5 w-1.5 rounded-full bg-amber-400 flex-shrink-0" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  to={createPageUrl(active === 'life' ? 'LifeEventForm' : 'BigPicturePlanningForm')}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-6 mt-4">
-                    {lifeEventItems.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-slate-300 text-sm list-none">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-amber-400 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </div>
-                  <Link to={createPageUrl('LifeEventForm')} onClick={(e) => e.stopPropagation()}>
-                    <button className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold rounded-full py-3 px-6 flex items-center justify-center gap-2 transition-colors">
-                      I want a plan for a life event
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
-                  </Link>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait">
-              {active !== 'life' && (
-                <motion.button
-                  key="life-btn"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="mt-4 self-start bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold rounded-full py-2 px-5 text-sm transition-colors"
-                  onClick={(e) => { e.stopPropagation(); setActive('life'); }}
-                >
-                  This Is Me
-                </motion.button>
-              )}
-            </AnimatePresence>
-          </motion.div>
-
-          {/* Card 2: Big Picture */}
-          <motion.div
-           layout
-           initial={{ opacity: 0, y: 30 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.6, delay: 0.45, type: 'spring', stiffness: 80, damping: 15 }}
-           style={{ flex: active === 'life' ? '0 0 240px' : active === 'big' ? '1 1 0%' : '1 1 0%', minWidth: 0 }}
-           className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex flex-col cursor-pointer overflow-hidden"
-           onClick={() => active !== 'big' && setActive('big')}
-          >
-           <motion.h3
-             animate={{ fontSize: active === 'life' ? '0.875rem' : '1.25rem', marginBottom: active === 'life' ? 0 : 16 }}
-             transition={{ duration: 0.4, type: 'spring', stiffness: 80, damping: 15 }}
-             className="font-semibold text-white leading-snug"
-           >
-             I want a big picture financial plan for my future.
-           </motion.h3>
-
-           <AnimatePresence mode="wait">
-             {active === 'big' && (
-               <motion.div
-                 key="big-content"
-                 initial={{ opacity: 0 }}
-                 animate={{ opacity: 1 }}
-                 exit={{ opacity: 0 }}
-                 transition={{ duration: 0.4, delay: 0.1 }}
-               >
-                 <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-6 mt-4">
-                   {bigPictureItems.map((item) => (
-                     <li key={item} className="flex items-start gap-2 text-slate-300 text-sm list-none">
-                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-amber-400 flex-shrink-0" />
-                       {item}
-                     </li>
-                   ))}
-                 </div>
-                 <Link to={createPageUrl('BigPicturePlanningForm')} onClick={(e) => e.stopPropagation()}>
-                   <button className="w-full bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold rounded-full py-3 px-6 flex items-center justify-center gap-2 transition-colors">
-                     I want to plan ahead
-                     <ArrowRight className="h-4 w-4" />
-                   </button>
-                 </Link>
-               </motion.div>
-             )}
-           </AnimatePresence>
-
-           <AnimatePresence mode="wait">
-             {active !== 'big' && (
-               <motion.button
-                 key="big-btn"
-                 initial={{ opacity: 0 }}
-                 animate={{ opacity: 1 }}
-                 exit={{ opacity: 0 }}
-                 transition={{ duration: 0.3 }}
-                 className="mt-4 self-start bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold rounded-full py-2 px-5 text-sm transition-colors"
-                 onClick={(e) => { e.stopPropagation(); setActive('big'); }}
-               >
-                 This Is Me
-               </motion.button>
-             )}
-           </AnimatePresence>
-          </motion.div>
-            </motion.div>
-            </div>
-    </section>
+                  <button className={`rounded-full py-3 px-8 font-semibold flex items-center gap-2 transition-colors ${
+                    active === 'life'
+                      ? 'bg-amber-500 hover:bg-amber-400 text-slate-950'
+                      : 'bg-white/15 hover:bg-white/25 border border-white/30 text-white'
+                  }`}>
+                    {active === 'life' ? 'I want a plan for a life event' : 'I want to plan ahead'}
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+        </div>
+        </section>
   );
 }
