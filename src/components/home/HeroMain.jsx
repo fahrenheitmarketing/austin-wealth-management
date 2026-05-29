@@ -76,11 +76,11 @@ export default function HeroMain() {
           className="text-center mb-14"
         >
           <div className="flex items-center justify-center gap-2 text-amber-400 text-base font-medium flex-wrap drop-shadow-md">
-            <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors">High-Income Households</Link>
+            <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors drop-shadow-lg">High-Income Households</Link>
             <span className="text-slate-500">|</span>
-            <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors">Business Owners</Link>
+            <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors drop-shadow-lg">Business Owners</Link>
             <span className="text-slate-500">|</span>
-            <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors">Retirees</Link>
+            <Link to={createPageUrl('Planning')} className="hover:text-amber-300 transition-colors drop-shadow-lg">Retirees</Link>
           </div>
         </motion.div>
 
