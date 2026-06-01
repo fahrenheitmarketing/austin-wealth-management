@@ -508,6 +508,31 @@ export default function BlogPost() {
             ))}
           </AnimatedSection>
 
+          {/* Related Posts */}
+          {(() => {
+            const related = blogPosts.filter(p => p.id !== post.id && p.category === post.category).slice(0, 3);
+            const fallback = related.length === 0 ? blogPosts.filter(p => p.id !== post.id).slice(0, 3) : related;
+            return fallback.length > 0 ? (
+              <AnimatedSection className="mt-16 pt-12 border-t border-slate-200">
+                <h3 className="text-xl font-semibold text-slate-900 mb-6">Related Topics</h3>
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                  {fallback.map(rel => (
+                    <Link key={rel.id} to={`/blog/${rel.id}`} className="group block rounded-2xl overflow-hidden border border-slate-200 hover:shadow-md transition-shadow">
+                      <div className="h-36 overflow-hidden">
+                        <img src={rel.image} alt={rel.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="p-4">
+                        <span className="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">{rel.category}</span>
+                        <h4 className="mt-2 text-sm font-semibold text-slate-900 leading-snug group-hover:text-amber-600 transition-colors line-clamp-2">{rel.title}</h4>
+                        <p className="mt-1 text-xs text-slate-500">{rel.date}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </AnimatedSection>
+            ) : null;
+          })()}
+
           {/* CTA Section */}
           <AnimatedSection className="mt-16 pt-12 border-t border-slate-200">
             <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center">
