@@ -5,7 +5,7 @@ import HowWereDifferent from '@/components/home/HowWereDifferent';
 import TeamIntroSection from '@/components/home/TeamIntroSection';
 import CoreValues from '@/components/home/CoreValues';
 import EducationBlogSection from '@/components/home/EducationBlogSection';
-import TestimonialsSection from '@/components/home/TestimonialsSection';
+
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <TeamIntroSection />
       <CoreValues />
       <EducationBlogSection />
-      <TestimonialsSection />
+
     </div>
   );
 }
