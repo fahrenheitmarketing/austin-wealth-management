@@ -12,8 +12,7 @@ import FinancialHealthQuiz from '@/pages/FinancialHealthQuiz';
 import LifeEventForm from '@/pages/LifeEventForm';
 import BigPicturePlanningForm from '@/pages/BigPicturePlanningForm';
 import BlogPost from '@/pages/BlogPost';
-import Videos from '@/pages/Videos';
-import Podcasts from '@/pages/Podcasts';
+
 import QuestionsAnswers from '@/pages/QuestionsAnswers';
 
 const { Pages, Layout, mainPage } = pagesConfig;
@@ -82,22 +81,7 @@ const AuthenticatedApp = () => {
           </LayoutWrapper>
         }
       />
-      <Route
-        path="/Videos"
-        element={
-          <LayoutWrapper currentPageName="Videos">
-            <Videos />
-          </LayoutWrapper>
-        }
-      />
-      <Route
-        path="/Podcasts"
-        element={
-          <LayoutWrapper currentPageName="Podcasts">
-            <Podcasts />
-          </LayoutWrapper>
-        }
-      />
+
       <Route
         path="/QuestionsAnswers"
         element={

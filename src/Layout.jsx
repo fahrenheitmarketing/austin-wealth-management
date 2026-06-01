@@ -15,9 +15,7 @@ const navigation = [
     href: 'Education',
     submenu: [
       { name: 'Education', href: 'Education' },
-      { name: 'Questions & Answers', href: 'QuestionsAnswers' },
-      { name: 'Podcasts', href: 'Podcasts' },
-      { name: 'Videos', href: 'Videos' }
+      { name: 'Questions & Answers', href: 'QuestionsAnswers' }
     ]
   },
   { name: 'Blog', href: 'Blog' },
