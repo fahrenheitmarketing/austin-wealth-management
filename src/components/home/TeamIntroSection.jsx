@@ -72,17 +72,17 @@ export default function TeamIntroSection() {
               {/* YOUR AWM TEAM */}
               <div className="flex flex-col items-center gap-3">
                 <p className="text-xs font-bold tracking-widest text-slate-400 uppercase text-center">YOUR AWM TEAM</p>
-                <div className="w-16 h-16 rounded-full bg-teal-700 flex items-center justify-center">
+                <div className="w-20 h-20 rounded-full bg-teal-700 flex items-center justify-center">
                   <span className="text-white text-xs font-semibold text-center leading-tight">Lead<br/>Advisor</span>
                 </div>
-                <div className="w-14 h-14 rounded-full bg-teal-600 flex items-center justify-center">
+                <div className="w-18 h-18 rounded-full bg-teal-600 flex items-center justify-center">
                   <span className="text-white text-xs font-semibold">Planner</span>
                 </div>
                 <div className="flex gap-2">
-                  <div className="w-12 h-12 rounded-full bg-teal-500 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center">
                     <span className="text-white text-xs font-semibold text-center leading-tight">Admin</span>
                   </div>
-                  <div className="w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-blue-700 flex items-center justify-center">
                     <span className="text-white text-xs font-semibold text-center leading-tight">Invest</span>
                   </div>
                 </div>
@@ -93,7 +93,7 @@ export default function TeamIntroSection() {
                 <p className="text-xs font-bold tracking-widest text-slate-400 uppercase text-center">OTHER PROFESSIONALS</p>
                 <div className="grid grid-cols-2 gap-2">
                   {['Banker', 'Accountant', 'Insurance', 'Estate Lawyer'].map((pro) => (
-                    <div key={pro} className="w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center p-2">
+                    <div key={pro} className="w-20 h-20 rounded-full bg-slate-700 flex items-center justify-center p-2">
                       <span className="text-slate-300 text-xs font-medium text-center leading-tight">{pro}</span>
                     </div>
                   ))}
