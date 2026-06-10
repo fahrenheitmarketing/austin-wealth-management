@@ -38,9 +38,8 @@ export default function HeroMain() {
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Background with Ken Burns zoom-in */}
       <motion.div
-        initial={{ scale: 1 }}
-        animate={{ scale: 1.08 }}
-        transition={{ duration: 20, ease: 'linear' }}
+        animate={{ scale: [1, 1.18, 1] }}
+        transition={{ duration: 20, ease: 'linear', repeat: Infinity }}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat origin-center"
         style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=1920&q=80)' }}
       />
