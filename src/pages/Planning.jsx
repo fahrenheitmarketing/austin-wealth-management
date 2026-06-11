@@ -289,7 +289,7 @@ export default function Planning() {
               </div>
               <div className="p-8 rounded-3xl bg-white border border-slate-200">
                 <h3 className="text-lg font-medium text-slate-900 mb-2">Ongoing Financial Planning</h3>
-                <div className="text-3xl font-light text-amber-600 mb-2">$250/month</div>
+                <div className="text-3xl font-light text-amber-600 mb-2">$250 - $500/month</div>
                 <p className="text-slate-500 text-sm">Continuous support and guidance</p>
               </div>
             </div>
@@ -306,6 +306,15 @@ export default function Planning() {
               </Link>
             </div>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Disclaimer */}
+      <section className="py-8 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-xs text-slate-400 leading-relaxed">
+            *Disclaimer: The fees shown are average or typical fees and are provided for informational purposes only. Actual fees may vary based on factors including, but not limited to, the scope of services provided, account size, complexity of the engagement, and other client-specific considerations.
+          </p>
         </div>
       </section>
     </main>
