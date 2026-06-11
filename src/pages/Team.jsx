@@ -94,15 +94,6 @@ const teamMembers = [
     bio: `Manisha is driven by the belief that the future depends on what you do today. Every small step that you take in the right direction is going to lead you towards your goal. She is a firm believer that if we take action at the right time, in the right direction, we will be able to achieve the financial freedom that we all strive for.\n\nManisha was born and brought up in India. She moved to California in 2001, where she pursued her Masters in Economics. She started her career as a branch manager in the Banking industry. Manisha moved to Austin, Texas in 2010.\n\nManisha lives in North Austin with her husband Vipul and their two kids Arsh and Nishka. During her free time, Manisha loves to play board games with her kids and is passionate about cooking, spending weekends recreating dishes from MasterChef.`
   },
   {
-    name: "Parker Manson",
-    title: "MBA",
-    role: "Trading & Data Specialist",
-    initials: "PM",
-    email: "parker@austinwealthmgmt.com",
-    photo: "https://austinwealthmgmt.com/wp-content/uploads/2025/04/HiRes-Parker_Manson-9148-Retouched-scaled-e1745275106240-265x300.jpg",
-    bio: `Parker brings a diverse background in wealth management and trading, with hands-on experience from various firms in the industry. He began his finance career at just 19 years old with J.P. Morgan, where he discovered his passion for both investments and client relationships. Most recently, he was part of the trading team at Orion, where he refined his expertise in trading mechanics and database management.\n\nOriginally from Orlando, FL, he moved to Georgia at 17 and later attended Georgia State University, earning a degree in Finance with a minor in Economics. He holds a Series 65 license.\n\nHe now lives in Metro Atlanta, where he recently purchased a home. A lifelong golfer, he has competed at every level of the sport. Outside of work, he enjoys cooking and taking on DIY projects around the house.`
-  },
-  {
     name: "David Lowe",
     title: "CFP®",
     role: "Financial Planner",
