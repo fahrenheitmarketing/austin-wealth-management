@@ -72,7 +72,7 @@ export default function Planning() {
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 
-          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/ee6c58b2b_generated_image.png" 
+          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/acdd787df_generated_image.png" 
           alt="Financial Planning"
           className="absolute inset-0 w-full h-full object-cover"
         />
