@@ -63,7 +63,7 @@ const blogPosts = [
   }
 ];
 
-const categories = ["All", "Saving", "Tax Planning", "Charity", "Investing", "Retirement"];
+const categories = ["All", "Saving", "Tax Planning", "Charity", "Investing", "Business Exit Planning", "Retirement"];
 
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("All");
