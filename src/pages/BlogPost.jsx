@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Calendar, User } from 'lucide-react';
+import { ArrowLeft, ArrowRight, User } from 'lucide-react';
 import { createPageUrl } from '@/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
@@ -12,9 +12,9 @@ const blogPosts = [
     title: "SpaceX IPO: What Investors Need to Know",
     excerpt: "SpaceX is going public in one of the largest IPOs in history. Austin Wealth Management breaks down the valuation, the risks, and three investing scenarios — from pre-IPO allocation to long-term index exposure.",
     author: "Kevin Smith, CFA®",
-    date: "May 29, 2026",
     category: "Investing",
-    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/af5683011_generated_image.png",
+    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/a37fa9773_unnamed5.png",
+    chartImage: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/4ee9fd5de_unnamed4.png",
     content: `SpaceX is Elon Musk's rocket and satellite business, which includes his AI company. SpaceX is going public, and it is a big deal.
 
 This event is referred to as an IPO (initial public offering). The purpose of this IPO is to raise $75 billion from investors by selling shares to the public. That would make it the biggest IPO in history by more than 3X — for reference, Alibaba raised $22B in 2014.
@@ -562,10 +562,6 @@ export default function BlogPost() {
           <AnimatedSection className="mb-8 pb-8 border-b border-slate-200">
             <div className="flex flex-wrap items-center gap-6 text-sm text-slate-600">
               <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                {post.date}
-              </div>
-              <div className="flex items-center gap-2">
                 <User className="h-4 w-4" />
                 {post.author}
               </div>
@@ -575,9 +571,20 @@ export default function BlogPost() {
           {/* Article Body */}
           <AnimatedSection className="prose prose-slate max-w-none">
             {post.content.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-slate-700 leading-relaxed mb-6">
-                {paragraph}
-              </p>
+              <React.Fragment key={index}>
+                <p className="text-slate-700 leading-relaxed mb-6">
+                  {paragraph}
+                </p>
+                {post.chartImage && paragraph.startsWith('2021:') && (
+                  <div className="my-8">
+                    <img
+                      src={post.chartImage}
+                      alt="2020 IPO performance chart"
+                      className="w-full rounded-xl border border-slate-200 shadow-sm"
+                    />
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </AnimatedSection>
 
@@ -597,7 +604,6 @@ export default function BlogPost() {
                       <div className="p-4">
                         <span className="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">{rel.category}</span>
                         <h4 className="mt-2 text-sm font-semibold text-slate-900 leading-snug group-hover:text-amber-600 transition-colors line-clamp-2">{rel.title}</h4>
-                        <p className="mt-1 text-xs text-slate-500">{rel.date}</p>
                       </div>
                     </Link>
                   ))}

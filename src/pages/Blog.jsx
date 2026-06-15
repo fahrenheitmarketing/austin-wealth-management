@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, User } from 'lucide-react';
+import { ArrowRight, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -12,9 +12,8 @@ const blogPosts = [
     title: "SpaceX IPO: What Investors Need to Know",
     excerpt: "SpaceX is going public in one of the largest IPOs in history. Austin Wealth Management breaks down the valuation, the risks, and three investing scenarios — from pre-IPO allocation to long-term index exposure.",
     author: "Kevin Smith, CFA®",
-    date: "May 29, 2026",
     category: "Investing",
-    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/af5683011_generated_image.png"
+    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/a37fa9773_unnamed5.png"
   },
   {
     id: 1,
@@ -165,10 +164,6 @@ export default function Blog() {
 
                     {/* Meta */}
                     <div className="flex items-center gap-4 text-xs text-slate-500 mb-4 border-t border-slate-100 pt-4">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-3 w-3" />
-                        {post.date}
-                      </div>
                       <div className="flex items-center gap-1">
                         <User className="h-3 w-3" />
                         {post.author}
