@@ -8,6 +8,15 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const blogPosts = [
   {
+    id: 7,
+    title: "SpaceX IPO: What Investors Need to Know",
+    excerpt: "SpaceX is going public in one of the largest IPOs in history. Austin Wealth Management breaks down the valuation, the risks, and three investing scenarios — from pre-IPO allocation to long-term index exposure.",
+    author: "Kevin Smith, CFA®",
+    date: "May 29, 2026",
+    category: "Investing",
+    image: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/af5683011_generated_image.png"
+  },
+  {
     id: 1,
     title: "Trump Savings Accounts",
     excerpt: "The 2025 passage of the One Big Beautiful Bill Act introduced the Trump Account, a unique custodial investment tool designed to jumpstart savings for young Americans. For nearly three decades, families have relied on 529 plans...",
