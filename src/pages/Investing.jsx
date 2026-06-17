@@ -297,7 +297,7 @@ export default function Investing() {
               ))}
             </div>
 
-            <p className="mt-4 text-xs text-slate-500 px-1">
+            <p className="mt-4 text-xs text-slate-500 px-1 text-center">
               *A minimum fee of $250/month for ongoing planning applies in addition to the managed assets fee.
             </p>
 
