@@ -52,10 +52,13 @@ const investingProcess = [
 ];
 
 const feeTiers = [
-  { range: "First $1M", rate: "1.00%" },
-  { range: "$1M - $3M", rate: "0.75%" },
-  { range: "$3M - $5M", rate: "0.50%" },
-  { range: "Over $5M", rate: "0.35%" }
+  { range: "First $250,000", rate: "Included" },
+  { range: "Next $250,000", rate: "0.90%" },
+  { range: "Next $500,000", rate: "0.80%" },
+  { range: "Next $500,000", rate: "0.70%" },
+  { range: "Next $500,000", rate: "0.60%" },
+  { range: "Next $3,000,000", rate: "0.50%" },
+  { range: "Over $5,000,000", rate: "Custom" }
 ];
 
 const investmentViews = [
@@ -283,8 +286,8 @@ export default function Investing() {
           <AnimatedSection>
             <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden">
               <div className="grid grid-cols-2 bg-slate-900 text-white">
-                <div className="p-4 text-sm font-medium">Assets Under Management</div>
-                <div className="p-4 text-sm font-medium text-right">Annual Fee</div>
+                <div className="p-4 text-sm font-medium">Total Household Managed Assets</div>
+                <div className="p-4 text-sm font-medium text-right">Annual % of Managed Assets Fee*</div>
               </div>
               {feeTiers.map((tier, index) => (
                 <div key={index} className={`grid grid-cols-2 ${index !== feeTiers.length - 1 ? 'border-b border-slate-100' : ''}`}>
@@ -293,6 +296,10 @@ export default function Investing() {
                 </div>
               ))}
             </div>
+
+            <p className="mt-4 text-xs text-slate-500 px-1">
+              *A minimum fee of $250/month for ongoing planning applies in addition to the managed assets fee.
+            </p>
 
             <div className="mt-12 text-center">
               <Link to={createPageUrl('Contact')}>
