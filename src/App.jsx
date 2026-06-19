@@ -15,6 +15,7 @@ import BlogPost from '@/pages/BlogPost';
 
 import QuestionsAnswers from '@/pages/QuestionsAnswers';
 import Careers from '@/pages/Careers';
+import CareerDetail from '@/pages/CareerDetail';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -88,6 +89,14 @@ const AuthenticatedApp = () => {
         element={
           <LayoutWrapper currentPageName="Careers">
             <Careers />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/careers/:slug"
+        element={
+          <LayoutWrapper currentPageName="Careers">
+            <CareerDetail />
           </LayoutWrapper>
         }
       />
