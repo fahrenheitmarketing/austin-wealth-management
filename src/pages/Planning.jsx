@@ -46,12 +46,12 @@ const lifeStages = [
 const planningAreas = [
 { icon: Shield, title: "Financial Security", items: ["Bank & cash management", "Budgeting", "Debt pay down", "Company benefits", "Insurance coverage", "Estate planning"] },
 { icon: TrendingUp, title: "Building Wealth", items: ["How much to save", "Account types (401k, Roth, Trust)", "Investment risk assessment", "Tax efficiency", "Cost control"] },
-{ icon: Landmark, title: "Equity Compensation", items: ["RSU vesting & tax planning", "ESPP strategy & timing", "ISO & NSO option exercises", "Concentrated stock diversification", "AMT planning for ISOs"] }];
+{ icon: Landmark, title: "Equity Compensation", items: ["RSU vesting & tax planning", "ESPP strategy & timing", "ISO & NSO option exercises", "Concentrated stock diversification", "AMT planning for ISOs"], link: { text: "See our detailed RSU, ESPP & ISO answers →", to: "/questions-answers" } }];
 
 
 const process = [
 { step: "01", title: "Organize Everything", description: "Live data feeds, spending tracking, investments, insurance docs, legal & tax docs" },
-{ step: "02", title: "Education & Options", description: "Goals & priorities, practical budgets, debt strategy, tax planning, risk management" },
+{ step: "02", title: "Education & Options", description: "Goals & priorities, practical budgets, debt strategy, tax planning, risk management. Learn more on our Education page.", educationLink: true },
 { step: "03", title: "Make Changes & Automate", description: "Deploy cash, direct deposits, 401(k) strategy, investment changes, estate plan docs" },
 { step: "04", title: "Measure Results", description: "Track spending, investments, cash balance, debt, and net worth over time" }];
 
@@ -145,6 +145,11 @@ export default function Planning() {
                       </li>
                   )}
                   </ul>
+                  {area.link && (
+                    <Link to={area.link.to} className="inline-block mt-5 text-sm text-amber-600 hover:text-amber-700 font-medium">
+                      {area.link.text}
+                    </Link>
+                  )}
                 </div>
               </AnimatedSection>
             )}
@@ -246,7 +251,14 @@ export default function Planning() {
                 <div className="relative">
                   <div className="text-7xl font-bold text-amber-500 mb-4 leading-none">{item.step}</div>
                   <h3 className="text-lg font-medium text-white mb-2">{item.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+                  {item.educationLink ? (
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      Goals & priorities, practical budgets, debt strategy, tax planning, risk management. Learn more on our{' '}
+                      <Link to={createPageUrl('Education')} className="text-amber-400 hover:text-amber-300">Education page</Link>.
+                    </p>
+                  ) : (
+                    <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+                  )}
                 </div>
               </AnimatedSection>
             )}
@@ -309,7 +321,7 @@ export default function Planning() {
               </div>
             </div>
 
-            <div className="mt-12">
+            <div className="mt-12 flex flex-col items-center gap-4">
               <Link to={createPageUrl('Contact')}>
                 <Button
                   size="lg"
@@ -319,6 +331,10 @@ export default function Planning() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
+              <p className="text-sm text-slate-500">
+                Explore our{' '}
+                <Link to={createPageUrl('Investing')} className="text-amber-600 hover:text-amber-700">investment approach →</Link>
+              </p>
             </div>
           </AnimatedSection>
         </div>

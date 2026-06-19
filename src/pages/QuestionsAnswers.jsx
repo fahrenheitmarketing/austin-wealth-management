@@ -303,6 +303,26 @@ export default function QuestionsAnswers() {
           {qaData.map((section, si) => (
             <AnimatedSection key={section.category} delay={si * 0.1}>
               <div>
+                {(section.category === "Restricted Stock Units (RSUs)" || section.category === "Employee Stock Purchase Plan (ESPP)" || section.category === "Incentive Stock Options (ISOs)") && si === 0 && (
+                  <p className="mb-6 text-sm text-slate-500">
+                    These topics are also covered in depth on our{' '}
+                    <Link to={createPageUrl('Planning')} className="text-amber-600 hover:text-amber-700">Financial Planning page</Link>
+                    {' '}and{' '}
+                    <Link to={createPageUrl('Education')} className="text-amber-600 hover:text-amber-700">Education page</Link>.
+                  </p>
+                )}
+                {section.category === "Retirement Planning ($2M+ Saved)" && (
+                  <p className="mb-6 text-sm text-slate-500">
+                    Ready to build your retirement plan?{' '}
+                    <Link to={createPageUrl('Contact')} className="text-amber-600 hover:text-amber-700">Talk to an advisor →</Link>
+                  </p>
+                )}
+                {section.category === "Business Owners ($3M+ Business)" && (
+                  <p className="mb-6 text-sm text-slate-500">
+                    Learn more about our approach to{' '}
+                    <Link to={createPageUrl('Planning')} className="text-amber-600 hover:text-amber-700">business owner financial planning →</Link>
+                  </p>
+                )}
                 <div className="flex items-center gap-3 mb-8">
                   <div className="h-px flex-1 bg-slate-200" />
                   <span className="text-xs font-semibold tracking-widest text-amber-600 uppercase whitespace-nowrap">

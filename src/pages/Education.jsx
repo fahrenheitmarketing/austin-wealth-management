@@ -36,12 +36,14 @@ const educationTopics = [
   {
     icon: Briefcase,
     title: "Equity Compensation",
-    description: "RSUs, ESPPs, ISOs — equity compensation is powerful but complex. We teach you how each type works, how they're taxed, and how to build a smart strategy around them."
+    description: "RSUs, ESPPs, ISOs — equity compensation is powerful but complex. We teach you how each type works, how they're taxed, and how to build a smart strategy around them.",
+    link: { text: "See our full RSU, ESPP, and ISO Q&A →", to: "/questions-answers" }
   },
   {
     icon: BarChart2,
     title: "Business Owner Finances",
-    description: "Running a business adds a layer of complexity to personal finances. We help business owners understand how to pay themselves, plan for retirement, and eventually exit."
+    description: "Running a business adds a layer of complexity to personal finances. We help business owners understand how to pay themselves, plan for retirement, and eventually exit.",
+    link: { text: "See our business owner Q&A →", to: "/questions-answers" }
   },
   {
     icon: Heart,
@@ -156,6 +158,11 @@ export default function Education() {
                   </div>
                   <h3 className="text-lg font-medium text-slate-900 mb-2">{topic.title}</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">{topic.description}</p>
+                  {topic.link && (
+                    <Link to={topic.link.to} className="inline-block mt-3 text-sm text-amber-600 hover:text-amber-700 font-medium">
+                      {topic.link.text}
+                    </Link>
+                  )}
                 </div>
               </AnimatedSection>
             ))}
@@ -187,6 +194,10 @@ export default function Education() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
+              <p className="mt-6 text-sm text-slate-400">
+                Browse our{' '}
+                <Link to={createPageUrl('Blog')} className="text-amber-400 hover:text-amber-300">latest financial insights →</Link>
+              </p>
             </div>
           </AnimatedSection>
         </div>

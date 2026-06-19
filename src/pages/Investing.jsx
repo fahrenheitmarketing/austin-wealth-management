@@ -164,6 +164,12 @@ export default function Investing() {
                 These are the questions we hear most often from clients. 
                 We're here to help you find the right answers.
               </p>
+              <p className="mt-6 text-sm text-slate-500">
+                Recent insights:{' '}
+                <Link to="/blog/spacex-ipo" className="text-amber-600 hover:text-amber-700">SpaceX IPO: What Investors Need to Know</Link>
+                {' · '}
+                <Link to="/blog/portfolio-rebalancing" className="text-amber-600 hover:text-amber-700">How Portfolio Rebalancing Improves Client Outcomes</Link>
+              </p>
             </AnimatedSection>
 
             <AnimatedSection direction="right">
@@ -326,6 +332,10 @@ export default function Investing() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
+              <p className="mt-6 text-sm text-slate-500">
+                Investing works best as part of a broader plan.{' '}
+                <Link to={createPageUrl('Planning')} className="text-amber-600 hover:text-amber-700">See how we approach financial planning →</Link>
+              </p>
             </div>
           </AnimatedSection>
         </div>

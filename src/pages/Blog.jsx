@@ -217,13 +217,32 @@ export default function Blog() {
             <p className="mt-4 text-slate-600">
               Schedule a consultation with one of our financial advisors to discuss your unique situation.
             </p>
-            <div className="mt-8">
-              <Link to={createPageUrl('Contact')}>
-                <Button className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-medium">
-                  Schedule a Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+            <p className="mt-3 text-sm text-slate-500">
+              Looking for answers to specific financial questions?{' '}
+              <Link to="/questions-answers" className="text-amber-600 hover:text-amber-700">Browse our Q&A →</Link>
+            </p>
+            <div className="mt-8 space-y-3">
+              <div>
+                <Link to={createPageUrl('Contact')}>
+                  <Button className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-medium">
+                    Schedule a Consultation
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+              {selectedCategory === 'Investing' && (
+                <p className="text-sm text-slate-500">
+                  Explore our{' '}
+                  <Link to={createPageUrl('Investing')} className="text-amber-600 hover:text-amber-700">investment management approach →</Link>
+                </p>
+              )}
+              {selectedCategory === 'Tax Planning' && (
+                <p className="text-sm text-slate-500">
+                  See our{' '}
+                  <Link to="/questions-answers" className="text-amber-600 hover:text-amber-700">financial Q&A</Link>
+                  {' '}for tax planning questions.
+                </p>
+              )}
             </div>
           </AnimatedSection>
         </div>

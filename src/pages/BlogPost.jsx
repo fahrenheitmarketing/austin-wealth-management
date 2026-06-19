@@ -634,6 +634,21 @@ export default function BlogPost() {
             ))}
           </AnimatedSection>
 
+          {/* Contextual Internal Links */}
+          <AnimatedSection className="mt-12 pt-8 border-t border-slate-200">
+            <div className="text-sm text-slate-500 space-y-2">
+              {post.category === 'Investing' && (
+                <p><Link to={createPageUrl('Investing')} className="text-amber-600 hover:text-amber-700">Learn about our investment approach →</Link></p>
+              )}
+              {(post.category === 'Tax Planning' || post.category === 'Saving') && (
+                <p><Link to={createPageUrl('Planning')} className="text-amber-600 hover:text-amber-700">See how we approach financial planning →</Link></p>
+              )}
+              {post.category === 'Charity' && (
+                <p><Link to="/questions-answers" className="text-amber-600 hover:text-amber-700">Browse our financial Q&A →</Link></p>
+              )}
+            </div>
+          </AnimatedSection>
+
           {/* Related Posts */}
           {(() => {
             const related = blogPosts.filter(p => p.id !== post.id && p.category === post.category).slice(0, 3);
