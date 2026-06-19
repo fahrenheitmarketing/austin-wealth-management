@@ -10,6 +10,7 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 const blogPosts = [
   {
     id: 7,
+    slug: "spacex-ipo",
     title: "SpaceX IPO: What Investors Need to Know",
     excerpt: "SpaceX is going public in one of the largest IPOs in history. Austin Wealth Management breaks down the valuation, the risks, and three investing scenarios — from pre-IPO allocation to long-term index exposure.",
     author: "Kevin Smith, CFA®",
@@ -83,6 +84,7 @@ Our preferred strategy for investing in stocks is to buy more of them when they 
   },
   {
     id: 1,
+    slug: "trump-savings-accounts",
     title: "Trump Savings Accounts",
     excerpt: "The 2025 passage of the One Big Beautiful Bill Act introduced the Trump Account, a unique custodial investment tool designed to jumpstart savings for young Americans. For nearly three decades, families have relied on 529 plans...",
     author: "Manisha Gupta, CFP®, MBA",
@@ -121,6 +123,7 @@ Schedule a consultation with our team to learn more about how Trump Accounts and
   },
   {
     id: 2,
+    slug: "2025-tax-documents",
     title: "Accessing Your 2025 Tax Documents",
     excerpt: "Your 2025 tax forms are available for download from Charles Schwab. If you opted to receive your tax documents by mail, they should arrive soon. How to Access Your Tax Forms Online: Charles Schwab Client Portal...",
     author: "Sheila Schmitt",
@@ -183,6 +186,7 @@ Austin Wealth Management can help you coordinate with your tax preparer to ensur
   },
   {
     id: 3,
+    slug: "charitable-giving-101",
     title: "Charitable Giving 101: A Beginner's Guide to Tax-Smart Donation Strategies",
     excerpt: "The holiday season is upon us, and with that often comes a desire to give back. Whether through volunteering your time, sharing your expertise, or donating resources like clothing, food, and money...",
     author: "Nikki Yates, CFP®",
@@ -241,6 +245,7 @@ Let's talk about how you can give back while optimizing your tax situation. Sche
   },
   {
     id: 4,
+    slug: "portfolio-rebalancing",
     title: "How Portfolio Rebalancing and Tax-Loss Harvesting Help Austin Wealth Management Improve Client Outcomes",
     excerpt: "Behind every AWM advisor is a dedicated team of investment professionals meticulously looking at each client account and watching for opportunities to improve our clients investment performance...",
     author: "Parker Manson",
@@ -313,6 +318,7 @@ If you're curious about how portfolio rebalancing and tax-loss harvesting could 
   },
   {
     id: 5,
+    slug: "2026-irs-limits",
     title: "New 2026 IRS Limits: Bigger Breaks, Bigger Planning Opportunities",
     excerpt: "The IRS and Social Security Administration have released key numbers for 2026, including new federal income tax brackets, a higher standard deduction, bigger retirement and HSA contribution limits...",
     author: "Manisha Gupta, CFP®, MBA",
@@ -391,6 +397,7 @@ Let's make sure you're taking full advantage of these 2026 changes. Schedule a c
   },
   {
     id: 6,
+    slug: "year-end-deadlines",
     title: "Final Countdown: Your Year-End Contribution and Transaction Deadlines",
     excerpt: "December is a good time to review deadlines for contributions, distributions, charitable giving, and account updates. Many account actions must be completed before December 31...",
     author: "Sheila Schmitt",
@@ -507,8 +514,8 @@ Schedule a consultation with us before year-end to ensure you're taking full adv
 ];
 
 export default function BlogPost() {
-  const { id } = useParams();
-  const post = blogPosts.find(p => p.id === parseInt(id));
+  const { slug } = useParams();
+  const post = blogPosts.find(p => p.slug === slug);
 
   if (!post) {
     return (
@@ -541,7 +548,7 @@ export default function BlogPost() {
     },
     "description": post.excerpt,
     "image": post.image,
-    "url": `https://www.austinwealthmgmt.com/blog/${post.id}`,
+    "url": `https://www.austinwealthmgmt.com/blog/${post.slug}`,
     ...(post.date && { "datePublished": post.date })
   };
 
@@ -565,7 +572,7 @@ export default function BlogPost() {
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" },
             { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.austinwealthmgmt.com/Blog" },
-            { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.austinwealthmgmt.com/blog/${post.id}` }
+            { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.austinwealthmgmt.com/blog/${post.slug}` }
           ]
         })}</script>
       </Helmet>
@@ -636,7 +643,7 @@ export default function BlogPost() {
                 <h3 className="text-xl font-semibold text-slate-900 mb-6">Related Topics</h3>
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                   {fallback.map(rel => (
-                    <Link key={rel.id} to={`/blog/${rel.id}`} className="group block rounded-2xl overflow-hidden border border-slate-200 hover:shadow-md transition-shadow">
+                    <Link key={rel.id} to={`/blog/${rel.slug}`} className="group block rounded-2xl overflow-hidden border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="h-36 overflow-hidden">
                         <img src={rel.image} alt={rel.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>

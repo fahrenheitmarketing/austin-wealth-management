@@ -79,7 +79,7 @@ const AuthenticatedApp = () => {
         }
       />
       <Route
-        path="/blog/:id"
+        path="/blog/:slug"
         element={
           <LayoutWrapper currentPageName="Blog">
             <BlogPost />

@@ -10,6 +10,7 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 const blogPosts = [
   {
     id: 7,
+    slug: "spacex-ipo",
     title: "SpaceX IPO: What Investors Need to Know",
     excerpt: "SpaceX is going public in one of the largest IPOs in history. Austin Wealth Management breaks down the valuation, the risks, and three investing scenarios — from pre-IPO allocation to long-term index exposure.",
     author: "Kevin Smith, CFA®",
@@ -18,6 +19,7 @@ const blogPosts = [
   },
   {
     id: 1,
+    slug: "trump-savings-accounts",
     title: "Trump Savings Accounts",
     excerpt: "The 2025 passage of the One Big Beautiful Bill Act introduced the Trump Account, a unique custodial investment tool designed to jumpstart savings for young Americans. For nearly three decades, families have relied on 529 plans...",
     author: "Manisha Gupta, CFP®, MBA",
@@ -27,6 +29,7 @@ const blogPosts = [
   },
   {
     id: 2,
+    slug: "2025-tax-documents",
     title: "Accessing Your 2025 Tax Documents",
     excerpt: "Your 2025 tax forms are available for download from Charles Schwab. If you opted to receive your tax documents by mail, they should arrive soon. How to Access Your Tax Forms Online: Charles Schwab Client Portal...",
     author: "Sheila Schmitt",
@@ -36,6 +39,7 @@ const blogPosts = [
   },
   {
     id: 3,
+    slug: "charitable-giving-101",
     title: "Charitable Giving 101: A Beginner's Guide to Tax-Smart Donation Strategies",
     excerpt: "The holiday season is upon us, and with that often comes a desire to give back. Whether through volunteering your time, sharing your expertise, or donating resources like clothing, food, and money...",
     author: "Nikki Yates, CFP®",
@@ -45,6 +49,7 @@ const blogPosts = [
   },
   {
     id: 4,
+    slug: "portfolio-rebalancing",
     title: "How Portfolio Rebalancing and Tax-Loss Harvesting Help Austin Wealth Management Improve Client Outcomes",
     excerpt: "Behind every AWM advisor is a dedicated team of investment professionals meticulously looking at each client account and watching for opportunities to improve our clients investment performance...",
     author: "Parker Manson",
@@ -54,6 +59,7 @@ const blogPosts = [
   },
   {
     id: 5,
+    slug: "2026-irs-limits",
     title: "New 2026 IRS Limits: Bigger Breaks, Bigger Planning Opportunities",
     excerpt: "The IRS and Social Security Administration have released key numbers for 2026, including new federal income tax brackets, a higher standard deduction, bigger retirement and HSA contribution limits...",
     author: "Manisha Gupta, CFP®, MBA",
@@ -63,6 +69,7 @@ const blogPosts = [
   },
   {
     id: 6,
+    slug: "year-end-deadlines",
     title: "Final Countdown: Your Year-End Contribution and Transaction Deadlines",
     excerpt: "December is a good time to review deadlines for contributions, distributions, charitable giving, and account updates. Many account actions must be completed before December 31...",
     author: "Sheila Schmitt",
@@ -186,7 +193,7 @@ export default function Blog() {
                     </div>
 
                     {/* Read More Button */}
-                    <Link to={`/blog/${post.id}`}>
+                    <Link to={`/blog/${post.slug}`}>
                       <button className="text-amber-600 hover:text-amber-700 font-medium text-sm flex items-center gap-2 transition-colors">
                         Read More
                         <ArrowRight className="h-3 w-3" />
