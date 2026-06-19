@@ -234,6 +234,21 @@ function QAItem({ question, answer, isOpen, onToggle }) {
 export default function QuestionsAnswers() {
   const [openItem, setOpenItem] = useState(null); // "sectionIndex-questionIndex"
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": qaData.flatMap(category =>
+      category.questions.map(({ q, a }) => ({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": a
+        }
+      }))
+    )
+  };
+
   return (
     <main className="bg-white">
       <Helmet>
@@ -248,6 +263,7 @@ export default function QuestionsAnswers() {
         <meta name="twitter:title" content="Financial Questions & Answers | Austin Wealth Management" />
         <meta name="twitter:description" content="Answers to the financial questions Austin families ask most — from investing basics to tax strategy and retirement planning." />
         <meta name="twitter:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Questions & Answers", "item": "https://www.austinwealthmgmt.com/questions-answers" }] })}</script>
       </Helmet>
       {/* Hero */}
