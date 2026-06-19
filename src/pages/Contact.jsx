@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -58,6 +59,14 @@ export default function Contact() {
 
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>Contact Us | Austin Wealth Management</title>
+        <meta name="description" content="Schedule a consultation with the Austin Wealth Management team. Fee-only financial planning for Central Texas families." />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/Contact" />
+        <meta property="og:title" content="Contact Us | Austin Wealth Management" />
+        <meta property="og:description" content="Schedule a consultation with the Austin Wealth Management team. Fee-only financial planning for Central Texas families." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 

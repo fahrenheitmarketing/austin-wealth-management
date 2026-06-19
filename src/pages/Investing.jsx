@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, BookOpen, BarChart3, Settings, Play, LineChart } from 'lucide-react';
@@ -101,6 +102,14 @@ const differentiators = [
 export default function Investing() {
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>Investment Management | Austin Wealth Management</title>
+        <meta name="description" content="Evidence-based investment strategies built around your goals. Austin Wealth Management designs custom portfolios for Central Texas families." />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/Investing" />
+        <meta property="og:title" content="Investment Management | Austin Wealth Management" />
+        <meta property="og:description" content="Evidence-based investment strategies built around your goals. Austin Wealth Management designs custom portfolios for Central Texas families." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Mail } from 'lucide-react';
@@ -23,8 +24,23 @@ export default function TeamMemberProfile() {
     );
   }
 
+  const pageTitle = member.title
+    ? `${member.name}, ${member.title} | Austin Wealth Management`
+    : `${member.name} | Austin Wealth Management`;
+  const pageDesc = member.bio
+    ? member.bio.split('\n\n')[0].split('. ')[0] + '.'
+    : `${member.name} is a member of the Austin Wealth Management team.`;
+
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={`https://www.austinwealthmgmt.com/team/${generateSlug(member.name)}`} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img

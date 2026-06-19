@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Network, Heart } from 'lucide-react';
@@ -31,6 +32,14 @@ const principles = [
 export default function Team() {
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>Meet Our Team | Austin Wealth Management</title>
+        <meta name="description" content="Get to know our team of CFPs, CFAs, and financial specialists dedicated to serving Central Texas families." />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/Team" />
+        <meta property="og:title" content="Meet Our Team | Austin Wealth Management" />
+        <meta property="og:description" content="Get to know our team of CFPs, CFAs, and financial specialists dedicated to serving Central Texas families." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 

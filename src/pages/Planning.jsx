@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Wallet, TrendingUp, Landmark, Home, Shield, FileText, Clock } from 'lucide-react';
@@ -69,6 +70,14 @@ const differentiators = [
 export default function Planning() {
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>Financial Planning Services | Austin Wealth Management</title>
+        <meta name="description" content="Personalized financial planning for every life stage — from young families to business owners and retirees. Austin-based, fee-only advisors." />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/Planning" />
+        <meta property="og:title" content="Financial Planning Services | Austin Wealth Management" />
+        <meta property="og:description" content="Personalized financial planning for every life stage — from young families to business owners and retirees. Austin-based, fee-only advisors." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/9e71a1ef7_Gemini_Generated_Image_ur30bxur30bxur30_1.png"

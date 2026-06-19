@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Wallet, GraduationCap, Shield, Heart, Users, Scale, PiggyBank, MessageCircle, Briefcase, BarChart2 } from 'lucide-react';
@@ -67,6 +68,14 @@ const educationTopics = [
 export default function Education() {
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>Financial Education Resources | Austin Wealth Management</title>
+        <meta name="description" content="Plain-language financial education on investing, budgeting, taxes, and more. Austin Wealth Management helps families make smarter financial decisions." />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/Education" />
+        <meta property="og:title" content="Financial Education Resources | Austin Wealth Management" />
+        <meta property="og:description" content="Plain-language financial education on investing, budgeting, taxes, and more. Austin Wealth Management helps families make smarter financial decisions." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 

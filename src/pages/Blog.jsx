@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, User } from 'lucide-react';
@@ -82,6 +83,14 @@ export default function Blog() {
 
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>Financial Insights & Blog | Austin Wealth Management</title>
+        <meta name="description" content="Expert commentary on investing, tax planning, and financial news from the advisors at Austin Wealth Management." />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/Blog" />
+        <meta property="og:title" content="Financial Insights & Blog | Austin Wealth Management" />
+        <meta property="og:description" content="Expert commentary on investing, tax planning, and financial news from the advisors at Austin Wealth Management." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img 
