@@ -14,6 +14,7 @@ import BigPicturePlanningForm from '@/pages/BigPicturePlanningForm';
 import BlogPost from '@/pages/BlogPost';
 
 import QuestionsAnswers from '@/pages/QuestionsAnswers';
+import Careers from '@/pages/Careers';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -82,6 +83,14 @@ const AuthenticatedApp = () => {
         }
       />
 
+      <Route
+        path="/Careers"
+        element={
+          <LayoutWrapper currentPageName="Careers">
+            <Careers />
+          </LayoutWrapper>
+        }
+      />
       <Route
         path="/QuestionsAnswers"
         element={

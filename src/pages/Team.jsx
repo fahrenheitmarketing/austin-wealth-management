@@ -287,11 +287,7 @@ export default function Team() {
           </div>
 
           <AnimatedSection className="mt-16 text-center">
-            <a 
-              href="https://austinwealthmgmt.com/careers" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
+            <Link to="/Careers">
               <Button 
                 variant="outline" 
                 size="lg"
@@ -300,7 +296,7 @@ export default function Team() {
                 Interested in Joining Our Team?
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </a>
+            </Link>
           </AnimatedSection>
         </div>
       </section>
