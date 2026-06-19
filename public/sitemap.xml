@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.austinwealthmgmt.com/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.austinwealthmgmt.com/planning</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.austinwealthmgmt.com/investing</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.austinwealthmgmt.com/team</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.austinwealthmgmt.com/education</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <!-- Core pages -->
+  <url><loc>https://www.austinwealthmgmt.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/planning</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/investing</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/education</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.austinwealthmgmt.com/questions-answers</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.austinwealthmgmt.com/blog</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.austinwealthmgmt.com/contact</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.austinwealthmgmt.com/careers</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <!-- Team member profiles -->
+  <url><loc>https://www.austinwealthmgmt.com/team/kevin-x-smith</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/derek-ripp</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/julie-hayes</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/anna-bell-gall</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/john-toungate</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/shane-mcdougald</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/erin-hay</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/sheila-schmitt</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/manisha-gupta</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/david-lowe</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/nikki-yates</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/cody-kesterke</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/brooke-cole</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/nader-youssef</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/jaci-osborne</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/haley-spies</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/julia-wasson</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.austinwealthmgmt.com/team/jennifer-martin</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <!-- Blog posts -->
   <url><loc>https://www.austinwealthmgmt.com/blog/spacex-ipo</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.austinwealthmgmt.com/blog/trump-savings-accounts</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.austinwealthmgmt.com/blog/2025-tax-documents</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /life-event-form
+Disallow: /financial-health-quiz
+Disallow: /big-picture-planning-form
+Disallow: /generate-logo
+
+Sitemap: https://www.austinwealthmgmt.com/sitemap.xml
