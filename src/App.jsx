@@ -71,7 +71,7 @@ const AuthenticatedApp = () => {
         />
       ))}
       <Route
-        path="/Blog"
+        path="/blog"
         element={
           <LayoutWrapper currentPageName="Blog">
             <Blog />
@@ -88,7 +88,7 @@ const AuthenticatedApp = () => {
       />
 
       <Route
-        path="/Careers"
+        path="/careers"
         element={
           <LayoutWrapper currentPageName="Careers">
             <Careers />
@@ -112,7 +112,7 @@ const AuthenticatedApp = () => {
         }
       />
       <Route
-        path="/QuestionsAnswers"
+        path="/questions-answers"
         element={
           <LayoutWrapper currentPageName="QuestionsAnswers">
             <QuestionsAnswers />
@@ -120,7 +120,7 @@ const AuthenticatedApp = () => {
         }
       />
       <Route
-        path="/LifeEventForm"
+        path="/life-event-form"
         element={
           <LayoutWrapper currentPageName="LifeEventForm">
             <LifeEventForm />
@@ -128,7 +128,7 @@ const AuthenticatedApp = () => {
         }
       />
       <Route
-        path="/FinancialHealthQuiz"
+        path="/financial-health-quiz"
         element={
           <LayoutWrapper currentPageName="FinancialHealthQuiz">
             <FinancialHealthQuiz />
@@ -136,7 +136,7 @@ const AuthenticatedApp = () => {
         }
       />
       <Route
-        path="/BigPicturePlanningForm"
+        path="/big-picture-planning-form"
         element={
           <LayoutWrapper currentPageName="BigPicturePlanningForm">
             <BigPicturePlanningForm />

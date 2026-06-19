@@ -58,13 +58,13 @@ import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "Contact": Contact,
-    "Education": Education,
-    "GenerateLogo": GenerateLogo,
+    "contact": Contact,
+    "education": Education,
+    "generate-logo": GenerateLogo,
     "Home": Home,
-    "Investing": Investing,
-    "Planning": Planning,
-    "Team": Team,
+    "investing": Investing,
+    "planning": Planning,
+    "team": Team,
 }
 
 export const pagesConfig = {
