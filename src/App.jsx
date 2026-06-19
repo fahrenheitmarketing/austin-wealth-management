@@ -14,6 +14,7 @@ import BigPicturePlanningForm from '@/pages/BigPicturePlanningForm';
 import BlogPost from '@/pages/BlogPost';
 
 import QuestionsAnswers from '@/pages/QuestionsAnswers';
+import TeamMemberProfile from '@/pages/TeamMemberProfile';
 import Careers from '@/pages/Careers';
 import CareerDetail from '@/pages/CareerDetail';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
@@ -99,6 +100,14 @@ const AuthenticatedApp = () => {
         element={
           <LayoutWrapper currentPageName="Careers">
             <CareerDetail />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/team/:slug"
+        element={
+          <LayoutWrapper currentPageName="Team">
+            <TeamMemberProfile />
           </LayoutWrapper>
         }
       />
