@@ -28,6 +28,7 @@ export default function Careers() {
         <meta property="og:description" content="Join the Austin Wealth Management team. We're looking for financial professionals who share our commitment to education, advocacy, and integrity." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Careers", "item": "https://www.austinwealthmgmt.com/careers" }] })}</script>
       </Helmet>
       {/* Hero */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">

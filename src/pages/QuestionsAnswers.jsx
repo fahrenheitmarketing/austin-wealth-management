@@ -244,6 +244,7 @@ export default function QuestionsAnswers() {
         <meta property="og:description" content="Answers to the financial questions Austin families ask most — from investing basics to tax strategy and retirement planning." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Questions & Answers", "item": "https://www.austinwealthmgmt.com/questions-answers" }] })}</script>
       </Helmet>
       {/* Hero */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
