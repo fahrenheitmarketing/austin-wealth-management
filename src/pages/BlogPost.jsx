@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -528,8 +529,38 @@ export default function BlogPost() {
     );
   }
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "author": { "@type": "Person", "name": post.author },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Austin Wealth Management",
+      "url": "https://www.austinwealthmgmt.com"
+    },
+    "description": post.excerpt,
+    "image": post.image,
+    "url": `https://www.austinwealthmgmt.com/blog/${post.id}`,
+    ...(post.date && { "datePublished": post.date })
+  };
+
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>{post.title} | Austin Wealth Management</title>
+        <meta name="description" content={post.excerpt} />
+        <script type="application/ld+json">{JSON.stringify(blogPostingSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.austinwealthmgmt.com/Blog" },
+            { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.austinwealthmgmt.com/blog/${post.id}` }
+          ]
+        })}</script>
+      </Helmet>
       {/* Hero Section with Image */}
       <section className="relative h-96 md:h-[500px] overflow-hidden">
         <img 

@@ -90,6 +90,7 @@ export default function Blog() {
         <meta property="og:title" content="Financial Insights & Blog | Austin Wealth Management" />
         <meta property="og:description" content="Expert commentary on investing, tax planning, and financial news from the advisors at Austin Wealth Management." />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.austinwealthmgmt.com/Blog" }] })}</script>
       </Helmet>
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">

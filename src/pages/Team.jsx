@@ -39,6 +39,7 @@ export default function Team() {
         <meta property="og:title" content="Meet Our Team | Austin Wealth Management" />
         <meta property="og:description" content="Get to know our team of CFPs, CFAs, and financial specialists dedicated to serving Central Texas families." />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Team", "item": "https://www.austinwealthmgmt.com/Team" }] })}</script>
       </Helmet>
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">

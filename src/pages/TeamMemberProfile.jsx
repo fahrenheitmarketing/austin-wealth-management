@@ -40,6 +40,30 @@ export default function TeamMemberProfile() {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDesc} />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": member.name,
+          "jobTitle": member.role,
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Austin Wealth Management",
+            "url": "https://www.austinwealthmgmt.com"
+          },
+          ...(member.email && { "email": member.email }),
+          ...(member.photo && { "image": member.photo }),
+          "url": `https://www.austinwealthmgmt.com/team/${generateSlug(member.name)}`,
+          "description": pageDesc
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" },
+            { "@type": "ListItem", "position": 2, "name": "Team", "item": "https://www.austinwealthmgmt.com/Team" },
+            { "@type": "ListItem", "position": 3, "name": member.name, "item": `https://www.austinwealthmgmt.com/team/${generateSlug(member.name)}` }
+          ]
+        })}</script>
       </Helmet>
       {/* Hero */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">

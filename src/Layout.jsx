@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { Button } from "@/components/ui/button";
@@ -52,8 +53,33 @@ export default function Layout({ children, currentPageName }) {
     setMobileOpen(false);
   }, [location]);
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": ["FinancialService", "LocalBusiness"],
+    "name": "Austin Wealth Management",
+    "url": "https://www.austinwealthmgmt.com",
+    "logo": "https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-logo.png",
+    "email": "info@austinwealthmgmt.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Texas"
+    },
+    "description": "Fee-only financial planning and investment management for families in Central Texas.",
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 09:00-17:00"
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+      </Helmet>
       {/* Header */}
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
