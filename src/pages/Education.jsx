@@ -71,7 +71,7 @@ export default function Education() {
       <Helmet>
         <title>Financial Education Resources | Austin Wealth Management</title>
         <meta name="description" content="Plain-language financial education on investing, budgeting, taxes, and more. Austin Wealth Management helps families make smarter financial decisions." />
-        <link rel="canonical" href="https://www.austinwealthmgmt.com/Education" />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/education" />
         <meta property="og:title" content="Financial Education Resources | Austin Wealth Management" />
         <meta property="og:description" content="Plain-language financial education on investing, budgeting, taxes, and more. Austin Wealth Management helps families make smarter financial decisions." />
         <meta property="og:type" content="website" />

@@ -86,7 +86,7 @@ export default function Blog() {
       <Helmet>
         <title>Financial Insights & Blog | Austin Wealth Management</title>
         <meta name="description" content="Expert commentary on investing, tax planning, and financial news from the advisors at Austin Wealth Management." />
-        <link rel="canonical" href="https://www.austinwealthmgmt.com/Blog" />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/blog" />
         <meta property="og:title" content="Financial Insights & Blog | Austin Wealth Management" />
         <meta property="og:description" content="Expert commentary on investing, tax planning, and financial news from the advisors at Austin Wealth Management." />
         <meta property="og:type" content="website" />

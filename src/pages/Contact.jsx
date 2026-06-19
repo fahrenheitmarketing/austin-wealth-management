@@ -63,7 +63,7 @@ export default function Contact() {
       <Helmet>
         <title>Contact Us | Austin Wealth Management</title>
         <meta name="description" content="Schedule a consultation with the Austin Wealth Management team. Fee-only financial planning for Central Texas families." />
-        <link rel="canonical" href="https://www.austinwealthmgmt.com/Contact" />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/contact" />
         <meta property="og:title" content="Contact Us | Austin Wealth Management" />
         <meta property="og:description" content="Schedule a consultation with the Austin Wealth Management team. Fee-only financial planning for Central Texas families." />
         <meta property="og:type" content="website" />

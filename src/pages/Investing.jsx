@@ -105,7 +105,7 @@ export default function Investing() {
       <Helmet>
         <title>Investment Management | Austin Wealth Management</title>
         <meta name="description" content="Evidence-based investment strategies built around your goals. Austin Wealth Management designs custom portfolios for Central Texas families." />
-        <link rel="canonical" href="https://www.austinwealthmgmt.com/Investing" />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/investing" />
         <meta property="og:title" content="Investment Management | Austin Wealth Management" />
         <meta property="og:description" content="Evidence-based investment strategies built around your goals. Austin Wealth Management designs custom portfolios for Central Texas families." />
         <meta property="og:type" content="website" />

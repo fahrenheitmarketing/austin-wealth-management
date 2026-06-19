@@ -73,7 +73,7 @@ export default function Planning() {
       <Helmet>
         <title>Financial Planning Services | Austin Wealth Management</title>
         <meta name="description" content="Personalized financial planning for every life stage — from young families to business owners and retirees. Austin-based, fee-only advisors." />
-        <link rel="canonical" href="https://www.austinwealthmgmt.com/Planning" />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/planning" />
         <meta property="og:title" content="Financial Planning Services | Austin Wealth Management" />
         <meta property="og:description" content="Personalized financial planning for every life stage — from young families to business owners and retirees. Austin-based, fee-only advisors." />
         <meta property="og:type" content="website" />

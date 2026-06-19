@@ -35,7 +35,7 @@ export default function Team() {
       <Helmet>
         <title>Meet Our Team | Austin Wealth Management</title>
         <meta name="description" content="Get to know our team of CFPs, CFAs, and financial specialists dedicated to serving Central Texas families." />
-        <link rel="canonical" href="https://www.austinwealthmgmt.com/Team" />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/team" />
         <meta property="og:title" content="Meet Our Team | Austin Wealth Management" />
         <meta property="og:description" content="Get to know our team of CFPs, CFAs, and financial specialists dedicated to serving Central Texas families." />
         <meta property="og:type" content="website" />
