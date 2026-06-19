@@ -7,6 +7,13 @@ import { ArrowLeft, ArrowRight, User } from 'lucide-react';
 import { createPageUrl } from '@/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
+const authorSlugs = {
+  "Kevin Smith, CFA®": "kevin-x-smith",
+  "Manisha Gupta, CFP®, MBA": "manisha-gupta",
+  "Sheila Schmitt": "sheila-schmitt",
+  "Nikki Yates, CFP®": "nikki-yates",
+};
+
 const blogPosts = [
   {
     id: 7,
@@ -540,7 +547,13 @@ export default function BlogPost() {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
-    "author": { "@type": "Person", "name": post.author },
+    "author": {
+      "@type": "Person",
+      "name": post.author,
+      ...(authorSlugs[post.author] && {
+        "url": `https://www.austinwealthmgmt.com/team/${authorSlugs[post.author]}`
+      })
+    },
     "publisher": {
       "@type": "Organization",
       "name": "Austin Wealth Management",
@@ -609,7 +622,10 @@ export default function BlogPost() {
             <div className="flex flex-wrap items-center gap-6 text-sm text-slate-600">
               <div className="flex items-center gap-2">
                 <User className="h-4 w-4" />
-                {post.author}
+                {authorSlugs[post.author]
+                  ? <Link to={`/team/${authorSlugs[post.author]}`} className="text-amber-600 hover:text-amber-700 font-medium transition-colors">{post.author}</Link>
+                  : post.author
+                }
               </div>
             </div>
           </AnimatedSection>

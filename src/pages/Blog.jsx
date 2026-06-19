@@ -79,6 +79,13 @@ const blogPosts = [
   }
 ];
 
+const authorSlugs = {
+  "Kevin Smith, CFA®": "kevin-x-smith",
+  "Manisha Gupta, CFP®, MBA": "manisha-gupta",
+  "Sheila Schmitt": "sheila-schmitt",
+  "Nikki Yates, CFP®": "nikki-yates",
+};
+
 const categories = ["All", "Saving", "Tax Planning", "Charity", "Investing", "Business Exit Planning", "Retirement"];
 
 export default function Blog() {
@@ -188,7 +195,10 @@ export default function Blog() {
                     <div className="flex items-center gap-4 text-xs text-slate-500 mb-4 border-t border-slate-100 pt-4">
                       <div className="flex items-center gap-1">
                         <User className="h-3 w-3" />
-                        {post.author}
+                        {authorSlugs[post.author]
+                          ? <Link to={`/team/${authorSlugs[post.author]}`} className="hover:text-amber-600 transition-colors">{post.author}</Link>
+                          : post.author
+                        }
                       </div>
                     </div>
 
