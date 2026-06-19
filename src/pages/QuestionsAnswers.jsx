@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -235,6 +236,14 @@ export default function QuestionsAnswers() {
 
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>Financial Questions & Answers | Austin Wealth Management</title>
+        <meta name="description" content="Answers to the financial questions Austin families ask most — from investing basics to tax strategy and retirement planning." />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/questions-answers" />
+        <meta property="og:title" content="Financial Questions & Answers | Austin Wealth Management" />
+        <meta property="og:description" content="Answers to the financial questions Austin families ask most — from investing basics to tax strategy and retirement planning." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img

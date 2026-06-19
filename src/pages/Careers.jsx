@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
@@ -19,6 +20,14 @@ const openRoles = [
 export default function Careers() {
   return (
     <main className="bg-white">
+      <Helmet>
+        <title>Careers | Austin Wealth Management</title>
+        <meta name="description" content="Join the Austin Wealth Management team. We're looking for financial professionals who share our commitment to education, advocacy, and integrity." />
+        <link rel="canonical" href="https://www.austinwealthmgmt.com/careers" />
+        <meta property="og:title" content="Careers | Austin Wealth Management" />
+        <meta property="og:description" content="Join the Austin Wealth Management team. We're looking for financial professionals who share our commitment to education, advocacy, and integrity." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img
