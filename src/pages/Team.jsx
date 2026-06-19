@@ -39,6 +39,7 @@ export default function Team() {
         <meta property="og:title" content="Meet Our Team | Austin Wealth Management" />
         <meta property="og:description" content="Get to know our team of CFPs, CFAs, and financial specialists dedicated to serving Central Texas families." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.austinwealthmgmt.com/team" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Meet Our Team | Austin Wealth Management" />
