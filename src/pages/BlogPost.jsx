@@ -573,6 +573,7 @@ export default function BlogPost() {
         <meta property="og:title" content={`${post.title} | Austin Wealth Management`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://www.austinwealthmgmt.com/blog/${post.slug}`} />
         <meta property="og:image" content={post.image || "https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg"} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Austin Wealth Management`} />

@@ -77,6 +77,7 @@ export default function Education() {
         <meta property="og:title" content="Financial Education Resources | Austin Wealth Management" />
         <meta property="og:description" content="Plain-language financial education on investing, budgeting, taxes, and more. Austin Wealth Management helps families make smarter financial decisions." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.austinwealthmgmt.com/education" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Financial Education Resources | Austin Wealth Management" />

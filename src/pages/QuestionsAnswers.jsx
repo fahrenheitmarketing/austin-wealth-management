@@ -258,6 +258,7 @@ export default function QuestionsAnswers() {
         <meta property="og:title" content="Financial Questions & Answers | Austin Wealth Management" />
         <meta property="og:description" content="Answers to the financial questions Austin families ask most — from investing basics to tax strategy and retirement planning." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.austinwealthmgmt.com/questions-answers" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Financial Questions & Answers | Austin Wealth Management" />

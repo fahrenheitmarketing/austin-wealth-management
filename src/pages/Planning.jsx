@@ -77,6 +77,7 @@ export default function Planning() {
         <meta property="og:title" content="Financial Planning Services | Austin Wealth Management" />
         <meta property="og:description" content="Personalized financial planning for every life stage — from young families to business owners and retirees. Austin-based, fee-only advisors." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.austinwealthmgmt.com/planning" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Financial Planning Services | Austin Wealth Management" />

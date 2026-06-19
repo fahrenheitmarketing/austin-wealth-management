@@ -104,6 +104,7 @@ export default function Blog() {
         <meta property="og:title" content="Financial Insights & Blog | Austin Wealth Management" />
         <meta property="og:description" content="Expert commentary on investing, tax planning, and financial news from the advisors at Austin Wealth Management." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.austinwealthmgmt.com/blog" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Financial Insights & Blog | Austin Wealth Management" />
