@@ -550,6 +550,10 @@ export default function BlogPost() {
       <Helmet>
         <title>{post.title} | Austin Wealth Management</title>
         <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={`${post.title} | Austin Wealth Management`} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={post.image || "https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg"} />
         <script type="application/ld+json">{JSON.stringify(blogPostingSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

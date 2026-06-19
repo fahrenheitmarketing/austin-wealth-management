@@ -75,6 +75,7 @@ export default function Education() {
         <meta property="og:title" content="Financial Education Resources | Austin Wealth Management" />
         <meta property="og:description" content="Plain-language financial education on investing, budgeting, taxes, and more. Austin Wealth Management helps families make smarter financial decisions." />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Education", "item": "https://www.austinwealthmgmt.com/Education" }] })}</script>
       </Helmet>
       {/* Hero Section */}

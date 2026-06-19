@@ -40,6 +40,7 @@ export default function TeamMemberProfile() {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDesc} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={member.photo || "https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg"} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",

@@ -109,6 +109,7 @@ export default function Investing() {
         <meta property="og:title" content="Investment Management | Austin Wealth Management" />
         <meta property="og:description" content="Evidence-based investment strategies built around your goals. Austin Wealth Management designs custom portfolios for Central Texas families." />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Investing", "item": "https://www.austinwealthmgmt.com/Investing" }] })}</script>
       </Helmet>
       {/* Hero Section */}
