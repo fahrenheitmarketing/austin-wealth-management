@@ -41,6 +41,10 @@ export default function TeamMemberProfile() {
         <meta property="og:description" content={pageDesc} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={member.photo || "https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg"} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content={member.photo || "https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg"} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",

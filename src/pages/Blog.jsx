@@ -91,6 +91,10 @@ export default function Blog() {
         <meta property="og:description" content="Expert commentary on investing, tax planning, and financial news from the advisors at Austin Wealth Management." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Financial Insights & Blog | Austin Wealth Management" />
+        <meta name="twitter:description" content="Expert commentary on investing, tax planning, and financial news from the advisors at Austin Wealth Management." />
+        <meta name="twitter:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.austinwealthmgmt.com/Blog" }] })}</script>
       </Helmet>
       {/* Hero Section */}

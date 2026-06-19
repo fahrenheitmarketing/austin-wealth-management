@@ -554,6 +554,10 @@ export default function BlogPost() {
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={post.image || "https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg"} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.title} | Austin Wealth Management`} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={post.image || "https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg"} />
         <script type="application/ld+json">{JSON.stringify(blogPostingSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

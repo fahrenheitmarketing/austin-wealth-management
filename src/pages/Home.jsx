@@ -18,6 +18,11 @@ export default function Home() {
         <meta property="og:title" content="Fee-Only Financial Planning & Wealth Management | Austin Wealth Management" />
         <meta property="og:description" content="Austin Wealth Management provides fee-only financial planning and investment management for families in Central Texas. No sales pitch — just education and advocacy." />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Fee-Only Financial Planning & Wealth Management | Austin Wealth Management" />
+        <meta name="twitter:description" content="Austin Wealth Management provides fee-only financial planning and investment management for families in Central Texas. No sales pitch — just education and advocacy." />
+        <meta name="twitter:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
       </Helmet>
       <HeroMain />
       <LifeStageSection />

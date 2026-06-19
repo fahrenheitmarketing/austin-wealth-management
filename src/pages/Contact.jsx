@@ -68,6 +68,10 @@ export default function Contact() {
         <meta property="og:description" content="Schedule a consultation with the Austin Wealth Management team. Fee-only financial planning for Central Texas families." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us | Austin Wealth Management" />
+        <meta name="twitter:description" content="Schedule a consultation with the Austin Wealth Management team. Fee-only financial planning for Central Texas families." />
+        <meta name="twitter:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.austinwealthmgmt.com/Contact" }] })}</script>
       </Helmet>
       {/* Hero Section */}

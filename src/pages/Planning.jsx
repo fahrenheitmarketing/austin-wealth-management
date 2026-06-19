@@ -78,6 +78,10 @@ export default function Planning() {
         <meta property="og:description" content="Personalized financial planning for every life stage — from young families to business owners and retirees. Austin-based, fee-only advisors." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Financial Planning Services | Austin Wealth Management" />
+        <meta name="twitter:description" content="Personalized financial planning for every life stage — from young families to business owners and retirees. Austin-based, fee-only advisors." />
+        <meta name="twitter:image" content="https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-social-share.jpg" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Planning", "item": "https://www.austinwealthmgmt.com/Planning" }] })}</script>
       </Helmet>
       {/* Hero Section */}
