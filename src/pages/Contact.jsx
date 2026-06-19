@@ -13,12 +13,13 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Office Location",
-    details: ["Austin, Texas", "Central Texas Area"]
+    details: ["1301 S Capital of Texas Hwy", "Suite C-200, Austin, TX 78746"]
   },
   {
     icon: Phone,
     title: "Phone",
-    details: ["Contact us for phone details"]
+    details: ["(512) 467-2000"],
+    href: "tel:+15124672000"
   },
   {
     icon: Mail,
@@ -127,7 +128,9 @@ export default function Contact() {
                     <div>
                       <h3 className="font-medium text-slate-900">{item.title}</h3>
                       {item.details.map((detail, i) => (
-                        <p key={i} className="text-slate-500 text-sm">{detail}</p>
+                        item.href && i === 0
+                          ? <a key={i} href={item.href} className="text-slate-500 text-sm hover:text-amber-600">{detail}</a>
+                          : <p key={i} className="text-slate-500 text-sm">{detail}</p>
                       ))}
                     </div>
                   </div>

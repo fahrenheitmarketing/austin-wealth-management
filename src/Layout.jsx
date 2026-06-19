@@ -60,15 +60,18 @@ export default function Layout({ children, currentPageName }) {
     "url": "https://www.austinwealthmgmt.com",
     "logo": "https://austinwealthmgmt.com/wp-content/uploads/2020/08/awm-logo.png",
     "email": "info@austinwealthmgmt.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Austin",
-      "addressRegion": "TX",
-      "addressCountry": "US"
-    },
     "areaServed": {
       "@type": "State",
       "name": "Texas"
+    },
+    "telephone": "(512) 467-2000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1301 S Capital of Texas Hwy, Suite C-200",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "postalCode": "78746",
+      "addressCountry": "US"
     },
     "description": "Fee-only financial planning and investment management for families in Central Texas.",
     "priceRange": "$$",
@@ -250,10 +253,10 @@ export default function Layout({ children, currentPageName }) {
                       </Button>
                     </Link>
                     <div className="flex items-center justify-center gap-6 text-sm text-slate-500">
-                      <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-amber-600">
-                        <Phone className="h-4 w-4" />
-                        Call Us
-                      </a>
+                      <a href="tel:+15124672000" className="flex items-center gap-2 hover:text-amber-600">
+                              <Phone className="h-4 w-4" />
+                              (512) 467-2000
+                            </a>
                       <a href="mailto:info@austinwealthmgmt.com" className="flex items-center gap-2 hover:text-amber-600">
                         <Mail className="h-4 w-4" />
                         Email
