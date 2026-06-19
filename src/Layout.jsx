@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navigation = [
   { name: 'Planning', href: 'Planning' },
   { name: 'Investing', href: 'Investing' },
+  { name: '401(k)', href: 'Plan401Pro' },
   { name: 'Team', href: 'Team' },
   { 
     name: 'Education', 
