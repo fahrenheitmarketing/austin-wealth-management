@@ -52,7 +52,6 @@ import Education from './pages/Education';
 import GenerateLogo from './pages/GenerateLogo';
 import Home from './pages/Home';
 import Investing from './pages/Investing';
-import Plan401Pro from './pages/Plan401Pro';
 import Planning from './pages/Planning';
 import Team from './pages/Team';
 import __Layout from './Layout.jsx';
@@ -64,7 +63,6 @@ export const PAGES = {
     "generate-logo": GenerateLogo,
     "Home": Home,
     "investing": Investing,
-    "Plan401Pro": Plan401Pro,
     "planning": Planning,
     "team": Team,
 }

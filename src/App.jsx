@@ -8,7 +8,6 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Blog from '@/pages/Blog';
-import Plan401Pro from '@/pages/Plan401Pro';
 import FinancialHealthQuiz from '@/pages/FinancialHealthQuiz';
 import LifeEventForm from '@/pages/LifeEventForm';
 import BigPicturePlanningForm from '@/pages/BigPicturePlanningForm';
@@ -71,14 +70,6 @@ const AuthenticatedApp = () => {
           }
         />
       ))}
-      <Route
-        path="/401pro"
-        element={
-          <LayoutWrapper currentPageName="Plan401Pro">
-            <Plan401Pro />
-          </LayoutWrapper>
-        }
-      />
       <Route
         path="/blog"
         element={
