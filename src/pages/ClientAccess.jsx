@@ -47,21 +47,32 @@ export default function ClientAccess() {
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.austinwealthmgmt.com" }, { "@type": "ListItem", "position": 2, "name": "Client Access", "item": "https://www.austinwealthmgmt.com/client-access" }] })}</script>
       </Helmet>
 
-      {/* Header */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      {/* Hero Section */}
+      <section className="relative py-32 bg-slate-950 overflow-hidden">
+        <img
+          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/82615d4ac_generated_image.png"
+          alt="Client Access"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-slate-950/70" />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
-            <span className="text-xs font-medium tracking-widest text-amber-600 uppercase">
+            <span className="inline-block px-4 py-1.5 mb-8 text-xs font-medium tracking-widest text-amber-400 uppercase border border-amber-400/30 rounded-full">
               Client Portal
             </span>
-            <h1 className="mt-4 text-3xl md:text-4xl font-light text-slate-900 tracking-tight">
-              Client Access
+            <h1 className="text-4xl md:text-6xl font-light text-white tracking-tight leading-tight">
+              Client
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
+                Access
+              </span>
             </h1>
-            <p className="mt-4 text-slate-500">
+            <p className="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
               Log in directly to your accounts below.
             </p>
           </motion.div>
