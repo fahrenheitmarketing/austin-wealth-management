@@ -99,7 +99,7 @@ export default function ClientAccess() {
                     />
                   </div>
                   <h3 className="text-xl font-medium text-slate-900 mb-3">{portal.name}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow w-full">
                     {portal.description}
                   </p>
                   <a href={portal.url} target="_blank" rel="noopener noreferrer">
