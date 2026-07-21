@@ -9,7 +9,7 @@ const portals = [
   {
     name: "eMoney",
     description: "Access your comprehensive financial plan, net worth summary, and budget tracking tools.",
-    url: "https://wealth.emoneyadvisor.com",
+    url: "https://wealth.emaplan.com/ema/signin",
     logo: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/a65392227_e-money.png"
   },
   {
