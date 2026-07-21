@@ -98,7 +98,7 @@ export default function ClientAccess() {
                   <div className="w-44 h-32 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-3 p-3">
                     <img
                       src={portal.logo}
-                      alt={`${portal.name} logo`}
+                      alt={`${portal.name} logo — secure client login portal`}
                       className={portal.logoClass}
                     />
                   </div>
