@@ -20,7 +20,8 @@ const navigation = [
     ]
   },
   { name: 'Blog', href: 'Blog' },
-  { name: 'Contact', href: 'Contact' }
+  { name: 'Contact', href: 'Contact' },
+  { name: 'Client Access', href: 'ClientAccess' }
 ];
 
 export default function Layout({ children, currentPageName }) {
