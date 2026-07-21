@@ -95,7 +95,7 @@ export default function ClientAccess() {
               <AnimatedSection key={portal.name} delay={index * 0.08}>
                 <div className="h-full p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 flex flex-col items-center text-center">
                   {/* Logo */}
-                  <div className="w-44 h-32 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-8 p-3">
+                  <div className="w-44 h-32 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-3 p-3">
                     <img
                       src={portal.logo}
                       alt={`${portal.name} logo`}
