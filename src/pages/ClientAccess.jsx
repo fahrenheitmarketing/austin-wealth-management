@@ -10,25 +10,29 @@ const portals = [
     name: "eMoney",
     description: "Access your comprehensive financial plan, net worth summary, and budget tracking tools.",
     url: "https://wealth.emaplan.com/ema/signin",
-    logo: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/a65392227_e-money.png"
+    logo: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/a65392227_e-money.png",
+    logoClass: "max-w-full max-h-full object-contain"
   },
   {
     name: "Orion",
     description: "View your detailed investment performance reports, account statements, and tax documents.",
     url: "https://portal.orionadvisor.com/",
-    logo: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/5a8a7304b_orion.png"
+    logo: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/5a8a7304b_orion.png",
+    logoClass: "max-w-full max-h-full object-contain"
   },
   {
     name: "Schwab",
     description: "Direct access to your Schwab brokerage accounts, trade history, and account features.",
     url: "https://client.schwab.com/",
-    logo: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/e7e046b5d_charles-schwab.png"
+    logo: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/e7e046b5d_charles-schwab.png",
+    logoClass: "max-h-[72%] w-auto object-contain"
   },
   {
     name: "Fidelity",
     description: "Direct access to your Fidelity brokerage accounts, trade history, and account features.",
     url: "https://digital.fidelity.com/prgw/digital/signin/retail",
-    logo: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/626b286d8_fidelity.png"
+    logo: "https://media.base44.com/images/public/6960325a10892c1a1fc0a802/626b286d8_fidelity.png",
+    logoClass: "max-w-full max-h-full object-contain"
   }
 ];
 
@@ -91,14 +95,13 @@ export default function ClientAccess() {
               <AnimatedSection key={portal.name} delay={index * 0.08}>
                 <div className="h-full p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 flex flex-col items-center text-center">
                   {/* Logo */}
-                  <div className="w-28 h-20 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-6 p-2">
+                  <div className="w-44 h-32 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-8 p-3">
                     <img
                       src={portal.logo}
                       alt={`${portal.name} logo`}
-                      className="max-w-full max-h-full object-contain"
+                      className={portal.logoClass}
                     />
                   </div>
-                  <h3 className="text-xl font-medium text-slate-900 mb-3">{portal.name}</h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow max-w-[400px]">
                     {portal.description}
                   </p>
