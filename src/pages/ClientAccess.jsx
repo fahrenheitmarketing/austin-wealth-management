@@ -80,7 +80,7 @@ export default function ClientAccess() {
       </section>
 
       {/* Portal Cards */}
-      <section className="pb-24 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8">
             {portals.map((portal, index) => (
