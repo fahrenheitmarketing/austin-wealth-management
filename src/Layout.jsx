@@ -31,6 +31,7 @@ export default function Layout({ children, currentPageName }) {
   const educationRef = useRef(null);
   const location = useLocation();
   const isHome = currentPageName === 'Home';
+  const activePage = (currentPageName || '').toLowerCase();
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -112,7 +113,7 @@ export default function Layout({ children, currentPageName }) {
                     <button
                       onClick={() => setEducationOpen(!educationOpen)}
                       className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                        currentPageName === item.href || currentPageName === 'QuestionsAnswers'
+                        activePage === item.href.toLowerCase() || activePage === 'questionsanswers'
                           ? scrolled || !isHome
                             ? 'text-amber-600 bg-amber-50'
                             : 'text-amber-400 bg-white/10'
@@ -139,7 +140,7 @@ export default function Layout({ children, currentPageName }) {
                               to={createPageUrl(sub.href)}
                               onClick={() => setEducationOpen(false)}
                               className={`block px-4 py-3 text-sm font-medium transition-colors ${
-                                currentPageName === sub.href
+                                activePage === sub.href.toLowerCase()
                                   ? 'text-amber-600 bg-amber-50'
                                   : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                               }`}
@@ -156,7 +157,7 @@ export default function Layout({ children, currentPageName }) {
                     key={item.name}
                     to={createPageUrl(item.href)}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                      currentPageName === item.href
+                      activePage === item.href.toLowerCase()
                         ? scrolled || !isHome 
                           ? 'text-amber-600 bg-amber-50' 
                           : 'text-amber-400 bg-white/10'
@@ -221,7 +222,7 @@ export default function Layout({ children, currentPageName }) {
                               key={sub.name}
                               to={createPageUrl(sub.href)}
                               className={`block px-6 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                                currentPageName === sub.href
+                                activePage === sub.href.toLowerCase()
                                   ? 'bg-amber-50 text-amber-600'
                                   : 'text-slate-600 hover:bg-slate-50'
                               }`}
@@ -235,7 +236,7 @@ export default function Layout({ children, currentPageName }) {
                           key={item.name}
                           to={createPageUrl(item.href)}
                           className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                            currentPageName === item.href
+                            activePage === item.href.toLowerCase()
                               ? 'bg-amber-50 text-amber-600'
                               : 'text-slate-600 hover:bg-slate-50'
                           }`}
