@@ -54,7 +54,7 @@ export default function ClientAccess() {
       {/* Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden">
         <img
-          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/82615d4ac_generated_image.png"
+          src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/5a70b7aee_Gemini_Generated_Image_bjvpojbjvpojbjvp.png"
           alt="Client Access"
           className="absolute inset-0 w-full h-full object-cover"
         />
