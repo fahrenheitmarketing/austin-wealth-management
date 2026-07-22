@@ -56,7 +56,7 @@ export default function ClientAccess() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative py-32 bg-slate-950 overflow-hidden">
+      <section className="relative py-40 bg-slate-950 overflow-hidden flex items-center justify-center">
         <img
           src="https://media.base44.com/images/public/6960325a10892c1a1fc0a802/5a70b7aee_Gemini_Generated_Image_bjvpojbjvpojbjvp.png"
           alt="Client Access"
@@ -70,9 +70,6 @@ export default function ClientAccess() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-4 py-1.5 mb-8 text-xs font-medium tracking-widest text-amber-400 uppercase border border-amber-400/30 rounded-full">
-              Client Portal
-            </span>
             <h1 className="text-4xl md:text-6xl font-light text-white tracking-tight leading-tight">
               Client
               <br />
