@@ -20,6 +20,7 @@ import CareerDetail from '@/pages/CareerDetail';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import TermsOfService from '@/pages/TermsOfService';
 import ClientAccess from '@/pages/ClientAccess';
+import SocialPosts from '@/pages/SocialPosts';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -149,6 +150,14 @@ const AuthenticatedApp = () => {
         element={
           <LayoutWrapper currentPageName="ClientAccess">
             <ClientAccess />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/social-posts"
+        element={
+          <LayoutWrapper currentPageName="SocialPosts">
+            <SocialPosts />
           </LayoutWrapper>
         }
       />

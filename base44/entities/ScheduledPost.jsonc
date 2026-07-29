@@ -1,0 +1,51 @@
+{
+  "name": "ScheduledPost",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "description": "The post text content"
+    },
+    "link": {
+      "type": "string",
+      "description": "Optional URL to attach to the post"
+    },
+    "page_id": {
+      "type": "string",
+      "description": "Facebook Page ID the post targets"
+    },
+    "page_name": {
+      "type": "string",
+      "description": "Facebook Page name the post targets"
+    },
+    "scheduled_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the post should be published"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "published",
+        "failed"
+      ],
+      "default": "pending",
+      "description": "Current publishing status"
+    },
+    "facebook_post_id": {
+      "type": "string",
+      "description": "ID returned by Facebook after publishing"
+    },
+    "error_message": {
+      "type": "string",
+      "description": "Error details if publishing failed"
+    }
+  },
+  "required": [
+    "message",
+    "page_id",
+    "page_name",
+    "scheduled_time"
+  ]
+}
