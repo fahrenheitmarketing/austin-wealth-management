@@ -1,23 +1,29 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 
+const GRAPH = 'https://graph.facebook.com/v25.0';
+
+// Resolve a Page access token for a single Page by querying the Page node
+// directly with the user token. This works for Facebook's New Pages Experience
+// where /me/accounts returns empty even for granted Pages.
+async function resolvePageAccessToken(headers, pageId) {
+  const res = await fetch(`${GRAPH}/${pageId}?fields=access_token`, { headers });
+  const data = await res.json();
+  if (data.access_token) return data.access_token;
+
+  // Fallback to the /me/accounts edge (classic Pages).
+  const accountsRes = await fetch(`${GRAPH}/me/accounts?fields=id,access_token`, { headers });
+  const accountsData = await accountsRes.json();
+  const match = (accountsData.data || []).find((p) => p.id === pageId);
+  return match?.access_token || null;
+}
+
 export default async function(req) {
   try {
     const base44 = createClientFromRequest(req);
 
     // Service-role: invoked by the scheduled workflow (no user context).
     const { accessToken } = await base44.asServiceRole.connectors.getConnection('facebook_pages');
-
-    // Resolve page access tokens for all managed Pages.
-    const accountsRes = await fetch(
-      'https://graph.facebook.com/v25.0/me/accounts?fields=id,name,access_token',
-      { headers: { Authorization: `Bearer ${accessToken}` } }
-    );
-    const accountsData = await accountsRes.json();
-    if (accountsData.error) return Response.json({ error: accountsData.error.message }, { status: 400 });
-    const pageTokens = {};
-    for (const p of accountsData.data || []) {
-      pageTokens[p.id] = p.access_token;
-    }
+    const headers = { Authorization: `Bearer ${accessToken}` };
 
     const now = new Date().toISOString();
     const duePosts = await base44.asServiceRole.entities.ScheduledPost.filter({
@@ -27,7 +33,7 @@ export default async function(req) {
 
     const results = [];
     for (const post of duePosts) {
-      const pageToken = pageTokens[post.page_id];
+      const pageToken = await resolvePageAccessToken(headers, post.page_id);
       if (!pageToken) {
         await base44.asServiceRole.entities.ScheduledPost.update(post.id, {
           status: 'failed',
@@ -42,7 +48,7 @@ export default async function(req) {
       if (post.link) body.append('link', post.link);
       body.append('published', 'true');
 
-      const publishRes = await fetch(`https://graph.facebook.com/v25.0/${post.page_id}/feed`, {
+      const publishRes = await fetch(`${GRAPH}/${post.page_id}/feed`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${pageToken}` },
         body
