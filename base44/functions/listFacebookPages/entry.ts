@@ -5,8 +5,10 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 // directly still returns a valid Page access token, so we fall back to that.
 const KNOWN_PAGE_IDS = [
   '479143628835632', // Austin Wealth Management
-  '201778773221996', // Greenspoint Dental
 ];
+
+// Publishing is restricted to this Page only.
+const ALLOWED_PAGE_ID = '479143628835632';
 
 const GRAPH = 'https://graph.facebook.com/v25.0';
 

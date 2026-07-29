@@ -31,8 +31,18 @@ export default async function(req) {
       scheduled_time: { $lte: now }
     });
 
+    const ALLOWED_PAGE_ID = '479143628835632'; // Austin Wealth Management only
+
     const results = [];
     for (const post of duePosts) {
+      if (post.page_id !== ALLOWED_PAGE_ID) {
+        await base44.asServiceRole.entities.ScheduledPost.update(post.id, {
+          status: 'failed',
+          error_message: 'Publishing is restricted to the Austin Wealth Management page only.'
+        });
+        results.push({ id: post.id, status: 'failed', reason: 'page not allowed' });
+        continue;
+      }
       const pageToken = await resolvePageAccessToken(headers, post.page_id);
       if (!pageToken) {
         await base44.asServiceRole.entities.ScheduledPost.update(post.id, {
