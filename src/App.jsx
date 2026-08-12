@@ -21,6 +21,7 @@ import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import TermsOfService from '@/pages/TermsOfService';
 import ClientAccess from '@/pages/ClientAccess';
 import SocialPosts from '@/pages/SocialPosts';
+import SocialBlogStudio from '@/pages/SocialBlogStudio';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -158,6 +159,14 @@ const AuthenticatedApp = () => {
         element={
           <LayoutWrapper currentPageName="SocialPosts">
             <SocialPosts />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/social-blog-studio"
+        element={
+          <LayoutWrapper currentPageName="SocialBlogStudio">
+            <SocialBlogStudio />
           </LayoutWrapper>
         }
       />

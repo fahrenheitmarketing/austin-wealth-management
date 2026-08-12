@@ -1,0 +1,82 @@
+{
+  "name": "SocialPost",
+  "type": "object",
+  "properties": {
+    "platform": {
+      "type": "string",
+      "enum": [
+        "Facebook",
+        "LinkedIn",
+        "Google Business Profile"
+      ]
+    },
+    "publish_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "week": {
+      "type": "string"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "segment": {
+      "type": "string",
+      "enum": [
+        "Young Adults",
+        "Professionals & Executives",
+        "Business Owners"
+      ]
+    },
+    "copy": {
+      "type": "string"
+    },
+    "hashtags": {
+      "type": "string"
+    },
+    "disclaimer": {
+      "type": "string"
+    },
+    "image_description": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "short_link": {
+      "type": "string"
+    },
+    "brand_pillar": {
+      "type": "string",
+      "enum": [
+        "Education",
+        "Advacy",
+        "Systems",
+        "Accountability",
+        "Adaptation"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "QA Review",
+        "Approved for Schedule",
+        "Approved for Publish"
+      ],
+      "default": "Draft"
+    },
+    "escalated": {
+      "type": "boolean",
+      "default": false
+    },
+    "clickup_task_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "platform",
+    "segment",
+    "topic"
+  ]
+}

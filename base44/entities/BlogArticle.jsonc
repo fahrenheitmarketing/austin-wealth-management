@@ -1,0 +1,126 @@
+{
+  "name": "BlogArticle",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "segment": {
+      "type": "string",
+      "enum": [
+        "Young Adults",
+        "Professionals & Executives",
+        "Business Owners"
+      ]
+    },
+    "publish_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "brand_pillar": {
+      "type": "string",
+      "enum": [
+        "Education",
+        "Advocacy",
+        "Systems",
+        "Accountability",
+        "Adaptation"
+      ]
+    },
+    "category": {
+      "type": "string"
+    },
+    "compliance_sensitivity": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "default": "Medium"
+    },
+    "featured_image_prompt": {
+      "type": "string"
+    },
+    "header_image_prompt": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "internal_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "anchor": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "external_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "anchor": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cta": {
+      "type": "string"
+    },
+    "disclaimer": {
+      "type": "string"
+    },
+    "featured_image_url": {
+      "type": "string"
+    },
+    "header_image_url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "QA Review",
+        "Approved for Schedule",
+        "Approved for Publish"
+      ],
+      "default": "Draft"
+    },
+    "escalated": {
+      "type": "boolean",
+      "default": false
+    },
+    "clickup_task_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "segment",
+    "brand_pillar"
+  ]
+}
