@@ -7,6 +7,12 @@ export const CLICKUP = {
   apiBase: 'https://api.clickup.com/api/v2'
 };
 
+// ClickUp user to assign generated content tasks to for first-pass QA (Louis Van Den Berg).
+export const ASSIGNEE_USER_ID = '87922087';
+
+// Content Strategy Brief doc in ClickUp (referenced for non-duplication).
+export const BRIEF_DOC_ID = 'xgk3x-20713';
+
 // AWM review workflow statuses + ClickUp status colors.
 export const REVIEW_STATUSES = ['Draft', 'QA Review', 'Approved for Schedule', 'Approved for Publish'];
 export const STATUS_COLORS = {

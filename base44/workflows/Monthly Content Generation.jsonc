@@ -1,0 +1,89 @@
+{
+  "name": "Monthly Content Generation",
+  "description": "First Monday of each month: researches, selects topics, posts a Topic Plan to ClickUp, waits a 1-hour hold window, then generates 8 blog articles + 20 social posts and uploads the full hierarchy to ClickUp for QA review.",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 9 * * 1",
+      "one_time_date": null,
+      "timezone": "America/Chicago",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "monthly_content_generation",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "prepare": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "prepareContentMonth",
+            "args": {}
+          },
+          "then": "check_run",
+          "x-base44": {
+            "title": "Prepare monthly content",
+            "description": "Research, topic plan, ClickUp hierarchy"
+          }
+        }
+      },
+      {
+        "check_run": {
+          "switch": [
+            {
+              "when": "${ .prepare.skipped == true }",
+              "then": "end"
+            },
+            {
+              "when": "${ true }",
+              "then": "hold_window"
+            }
+          ],
+          "x-base44": {
+            "title": "Check if first Monday",
+            "description": "Skip non-trigger Mondays"
+          }
+        }
+      },
+      {
+        "hold_window": {
+          "wait": "PT1H",
+          "then": "generate",
+          "x-base44": {
+            "title": "Hold window",
+            "description": "1h to post a hold comment"
+          }
+        }
+      },
+      {
+        "generate": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "generateContentMonth",
+            "args": {
+              "month": "${ .prepare.monthKey }"
+            }
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Generate all content",
+            "description": "28 pieces + ClickUp upload"
+          }
+        }
+      }
+    ]
+  }
+}
