@@ -101,7 +101,7 @@ PLATFORM TONE:
 - LinkedIn: authoritative, peer-level, substantive, no promotional feel; reader is a sophisticated professional evaluating a wealth management relationship.
 - Google Business Profile: warm, locally oriented, consultation-focused; reader found AWM via search.
 
-COPY RULES: no em dashes; no bare URLs visible (use short link placeholder https://b.link/[code]); no alarmist urgency ("last chance", "don't miss"); no unsubstantiated benefit claims (soften to "may make a meaningful difference"); breakeven/market claims attributed or softened; do not force the city name where irrelevant. Hashtags for Facebook and LinkedIn only (Google Business Profile: none). Include the platform-specific disclaimer verbatim in "disclaimer". Provide an "image_prompt" fully described and compliant with image rules. Return only the JSON object.`;
+COPY RULES: no em dashes; never include any URL inside the copy text itself (the short link is stored separately in the short_link field); no bare URLs visible; no alarmist urgency ("last chance", "don't miss"); no unsubstantiated benefit claims (soften to "may make a meaningful difference"); breakeven/market claims attributed or softened; do not force the city name where irrelevant. Hashtags for Facebook and LinkedIn only (Google Business Profile: none). Include the platform-specific disclaimer verbatim in "disclaimer". Provide an "image_prompt" fully described and compliant with image rules. Return only the JSON object.`;
 }
 
 export const socialJsonSchema = {
@@ -117,3 +117,35 @@ export const socialJsonSchema = {
   },
   required: ["copy", "topic", "disclaimer", "image_description", "image_prompt"]
 };
+
+export function buildBlogFeedbackPrompt({ article, feedback }) {
+  return `You are revising a blog article for Austin Wealth Management (AWM) based on reviewer feedback. Apply the same compliance, link, image, and writing rules as a fresh article. Keep the same segment and brand pillar. Return the full revised article as a JSON object matching the schema.
+
+ORIGINAL ARTICLE
+Segment: ${article.segment || ''}
+Brand pillar: ${article.brand_pillar || ''}
+Title: ${article.title || ''}
+Body:
+${article.body || ''}
+
+REVIEWER FEEDBACK:
+${feedback}
+
+Produce the revised article JSON now.`;
+}
+
+export function buildSocialFeedbackPrompt({ post, feedback }) {
+  return `You are revising a ${post.platform || ''} post for Austin Wealth Management (AWM) based on reviewer feedback. Apply the same compliance, image, and copy rules as a fresh post. Keep the same platform and segment. Return the full revised post as a JSON object matching the schema; never include any URL inside the copy text (the short link lives in the short_link field).
+
+ORIGINAL POST
+Platform: ${post.platform || ''}
+Segment: ${post.segment || ''}
+Topic: ${post.topic || ''}
+Copy:
+${post.copy || ''}
+
+REVIEWER FEEDBACK:
+${feedback}
+
+Produce the revised post JSON now.`;
+}

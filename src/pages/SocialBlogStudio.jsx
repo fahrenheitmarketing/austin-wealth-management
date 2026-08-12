@@ -51,10 +51,17 @@ export default function SocialBlogStudio() {
 
   const entFor = (item) => (item._type === 'Blog' ? base44.entities.BlogArticle : base44.entities.SocialPost);
 
+  const syncToClickUp = async (item) => {
+    try {
+      await base44.functions.invoke('syncContentToClickUp', { content_type: item._type === 'Blog' ? 'blog' : 'social', id: item.id });
+    } catch (e) { toast({ title: 'ClickUp sync failed', description: e.message, variant: 'destructive' }); }
+  };
+
   const handleStatus = async (item, status) => {
     try {
       await entFor(item).update(item.id, { status });
       toast({ title: 'Status updated', description: `${item._type} → ${status}` });
+      await syncToClickUp({ ...item, status });
       load();
     } catch (e) { toast({ title: 'Update failed', description: e.message, variant: 'destructive' }); }
   };
@@ -63,6 +70,7 @@ export default function SocialBlogStudio() {
     try {
       await entFor(item).update(item.id, { status: 'QA Review', escalated: true });
       toast({ title: 'Escalated', description: 'Flagged for Steven review' });
+      await syncToClickUp({ ...item, status: 'QA Review', escalated: true });
       load();
     } catch (e) { toast({ title: 'Escalate failed', description: e.message, variant: 'destructive' }); }
   };
@@ -93,6 +101,21 @@ export default function SocialBlogStudio() {
     } catch (e) { toast({ title: 'Image generation failed', description: e.message, variant: 'destructive' }); }
   };
 
+  const handleFeedback = async (item) => {
+    try {
+      const res = await base44.functions.invoke('processClickUpFeedback', { content_type: item._type === 'Blog' ? 'blog' : 'social', id: item.id });
+      if (res.data && res.data.feedback === 0) { toast({ title: 'No feedback yet', description: res.data.message || 'No ClickUp comments found' }); return; }
+      toast({ title: 'Content revised from feedback', description: `${res.data.feedback} comment(s) applied` });
+      load();
+    } catch (e) { toast({ title: 'Feedback failed', description: e.message, variant: 'destructive' }); }
+  };
+
+  const handleProcessFeedback = async () => {
+    const withTasks = items.filter((it) => it.clickup_task_id);
+    if (!withTasks.length) { toast({ title: 'Nothing to process', description: 'No content linked to ClickUp yet' }); return; }
+    for (const it of withTasks) { await handleFeedback(it); }
+  };
+
   const comingSoon = (label) => toast({ title: `${label} pending`, description: 'Available once ClickUp is connected.' });
 
   return (
@@ -107,7 +130,7 @@ export default function SocialBlogStudio() {
             <p className="text-slate-500 mt-1">Generate, review, and approve compliant content for Austin Wealth Management.</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Button variant="outline" onClick={() => comingSoon('Process Feedback')}><MessageSquare className="h-4 w-4 mr-2" />Process Feedback</Button>
+            <Button variant="outline" onClick={handleProcessFeedback}><MessageSquare className="h-4 w-4 mr-2" />Process Feedback</Button>
             <Button variant="outline" onClick={() => comingSoon('Generate Month')}><CalendarDays className="h-4 w-4 mr-2" />Generate Month</Button>
             <Button variant="outline" onClick={() => setGenSocialOpen(true)}><Share2 className="h-4 w-4 mr-2" />New Social Post</Button>
             <Button className="bg-amber-500 hover:bg-amber-600 text-slate-950" onClick={() => setGenBlogOpen(true)}><FileText className="h-4 w-4 mr-2" />New Blog Article</Button>
@@ -139,6 +162,7 @@ export default function SocialBlogStudio() {
                 onVariation={handleVariation}
                 onRegenImage={handleRegenImage}
                 onEdit={(it) => setEditItem(it)}
+                onFeedback={handleFeedback}
               />
             ))}
           </div>
@@ -149,8 +173,8 @@ export default function SocialBlogStudio() {
         </div>
       </div>
 
-      <GenerateBlogDialog open={genBlogOpen} onOpenChange={setGenBlogOpen} onCreated={load} />
-      <GenerateSocialDialog open={genSocialOpen} onOpenChange={setGenSocialOpen} onCreated={load} />
+      <GenerateBlogDialog open={genBlogOpen} onOpenChange={setGenBlogOpen} onCreated={(a) => { syncToClickUp({ ...a, _type: 'Blog' }).then(load); }} />
+      <GenerateSocialDialog open={genSocialOpen} onOpenChange={setGenSocialOpen} onCreated={(p) => { syncToClickUp({ ...p, _type: 'Social' }).then(load); }} />
       <EditContentDialog item={editItem} onOpenChange={(v) => !v && setEditItem(null)} onSaved={load} />
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Image as ImageIcon, Copy, Check, X, AlertTriangle, Pencil } from 'lucide-react';
+import { Image as ImageIcon, Copy, Check, X, AlertTriangle, Pencil, MessageSquare } from 'lucide-react';
 
 const statusColor = {
   'Draft': 'bg-slate-100 text-slate-700',
@@ -11,7 +11,7 @@ const statusColor = {
   'Approved for Publish': 'bg-emerald-100 text-emerald-800'
 };
 
-export default function ContentCard({ item, onStatus, onEscalate, onVariation, onRegenImage, onEdit }) {
+export default function ContentCard({ item, onStatus, onEscalate, onVariation, onRegenImage, onEdit, onFeedback }) {
   const isBlog = item._type === 'Blog';
   const preview = (isBlog ? item.body : item.copy) || '';
   const img = isBlog ? item.featured_image_url : item.image_url;
@@ -24,6 +24,7 @@ export default function ContentCard({ item, onStatus, onEscalate, onVariation, o
             <Badge variant="outline" className="text-xs">{item._type}</Badge>
             {!isBlog && item.platform && <Badge variant="outline" className="text-xs">{item.platform}</Badge>}
             {item.escalated && <Badge className="text-xs bg-red-100 text-red-800 border-0"><AlertTriangle className="h-3 w-3 mr-1" />Escalated</Badge>}
+            {item.clickup_task_id && <Badge variant="outline" className="text-xs bg-violet-50 text-violet-700 border-violet-200">ClickUp</Badge>}
           </div>
           <h3 className="font-semibold text-sm leading-snug line-clamp-2">{isBlog ? item.title : item.topic}</h3>
         </div>
@@ -53,6 +54,9 @@ export default function ContentCard({ item, onStatus, onEscalate, onVariation, o
         </Button>
         <Button size="sm" variant="outline" onClick={() => onEdit(item)}>
           <Pencil className="h-3.5 w-3.5 mr-1" />Edit
+        </Button>
+        <Button size="sm" variant="outline" onClick={() => onFeedback(item)}>
+          <MessageSquare className="h-3.5 w-3.5 mr-1" />Feedback
         </Button>
         <Button size="sm" variant="outline" className="text-amber-700" onClick={() => onEscalate(item)}>Escalate</Button>
         <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white" onClick={() => onStatus(item, 'Approved for Schedule')}>
