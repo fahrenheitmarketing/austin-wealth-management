@@ -31,6 +31,40 @@ export const LINK_STANDARDS = `LINKS — never show a raw URL as visible text; a
 
 export const WRITING_STANDARDS = `WRITING — no em dashes (use commas, semicolons, or restructure). Vary sentence rhythm. No listicle/textbook phrasing. Peer-level, direct, plain voice; no hand-holding. No hollow openers ("In today's world..."). No filler ("It's important to note..."). Educational: explain how things work, not what to do. Local references only where they add substance.`;
 
+export const AUDIENCE_SOPHISTICATION = `AUDIENCE SOPHISTICATION — never define basic financial vocabulary. These readers have 401(k)s, equity compensation, and existing financial plans; they want depth, nuance, and decision-making frameworks, not definitions. If a concept genuinely needs clarification, integrate it in one clause within the sentence where it first appears; never dedicate a paragraph to defining terms the audience already knows. Assume the reader has existing financial complexity (equity compensation, a business to protect, or a plan needing coordination). If the article could appear unmodified on a mass-market personal finance site, it is not written at the right level; elevate it.`;
+
+export const VOICE_TONE = `VOICE AND TONE — write as a knowledgeable advisor in conversation with a smart professional. Direct, plain, peer-level. No hand-holding.
+- No structural signpost openers to start sections ("The fundamental difference lies in," "Another critical factor involves," "It is important to understand," "Before examining this topic"). Open every section with the substantive point, not a label for what is coming.
+- No academic hedging ("it is worth noting that," "it should be observed," "one must consider").
+- No filler transitions ("additionally," "furthermore," "in conclusion," "with that said").
+- No passive constructions where an active sentence works better.
+- Vary sentence length throughout; mix short declarative sentences with longer explanatory ones. Uniform sentence structure reads as machine-generated.
+- The reader should feel they are getting a real conversation with an advisor who understands their situation, not reading a white paper or compliance document.`;
+
+export const OPENING_PARAGRAPH = `OPENING PARAGRAPH — the first paragraph must earn attention immediately. Lead with the tension, problem, or decision the reader is actually facing. Never open with: a generic statement about the importance of the topic; a definition of what the article will cover ("In this article, we will examine..."); a forced local reference ("Professionals working in Austin's growing tech sector..."); or a statement the reader already knows to be true. The first sentence must make a sophisticated reader feel the article was written for their specific situation. If it could open any article on any financial planning site, rewrite it.`;
+
+export const SECTION_DEPTH = `SECTION DEPTH — for every section, before submitting, ask: have I explained how this works and why it matters for this reader's decisions, or have I only identified that it exists? The audience does not need to be told a risk exists; they need the mechanics, the implications, and how to think about it in their own financial picture. Summarising is not explaining. Complex mechanisms (AMT calculation, 83(b) elections, post-termination exercise windows, qualified vs. disqualifying dispositions, RMD sequencing, business valuation methods) must go deep enough that a reader could act on the information with an advisor, not just recognise the term.`;
+
+export const LENGTH_TIERS = `ARTICLE LENGTH BY COMPLEXITY — length must reflect topic complexity. Do not pad to hit a number or cut an explanation short to stay under one. Calibrate:
+- General financial planning topics (savings rate, emergency fund, estate planning basics, open enrollment overview): 1,000 to 1,200 words.
+- Intermediate topics (Roth conversion strategy, 401(k) plan design for business owners, business compensation structure, college savings plan mechanics, rent vs. buy framework): 1,200 to 1,500 words.
+- Complex topics (equity compensation: ISOs, NSOs, RSUs, ESPPs, AMT planning, 83(b) elections; business exit structure; concentrated stock diversification; tax-loss harvesting strategy; business valuation methods; defined benefit plan design): 1,500 to 1,800 words.
+When in doubt about the tier, assign the higher tier. Going deeper is always better than leaving the reader with an incomplete picture.`;
+
+export const LOCAL_REFERENCES = `LOCAL REFERENCES — do not include Austin or Texas references unless the topic is genuinely location-dependent. Ask before any local reference: does Austin or Texas specifically change this content, or is it being added because it feels like something to add? Local references add value for: Austin housing market (prices, inventory, property tax rates, breakeven timelines); Texas-specific tax context (no state income tax, property tax implications); Austin tech sector equity compensation; Austin business community (commercial real estate, local M&A). Local references add no value and should be omitted for: equity compensation mechanics, AMT calculation, Roth conversion strategy, 401(k) contribution limits, estate planning fundamentals, business valuation methods, concentrated stock diversification. Overuse of the city name reads as templated and undermines credibility; when in doubt, leave it out.`;
+
+export const COMPLETENESS_CHECKLIST = `COMPLETENESS CHECKLIST — every article must include all of the following or it is incomplete and must not be submitted:
+- Slug: format /blog/[keyword-slug], 50 to 60 characters max, lowercase, hyphens only, primary keyword at or near the start, no stop words unless essential.
+- Audience segment, brand pillar, publish date.
+- Featured image prompt (1200x628, photographic style only, no vectors/illustrations, no financial documents or data visible, fully described per image rules).
+- Header image prompt (1920x1080, photographic style only, same compliance rules).
+- Full article body at the length the topic complexity requires; all sections explained to the depth the audience needs, not summarised.
+- SEO metadata: meta_title under 60 chars, meta_description under 160 chars, 6 to 8 target keywords.
+- Internal links: descriptive anchor text only, no bare URLs, confirmed live AWM pages only, max 2 to 3 per article.
+- External links: descriptive anchor text only, no bare URLs, authoritative sources only (IRS, SEC, DOL, SSA, SBA, Exit Planning Institute), max 2 per article, verified live.
+- CTA: anchor text "Austin Wealth Management" hyperlinked to https://austinwealthmgmt.com/make-an-appointment/ , no bare URL visible, positioned as the natural close of the final paragraph.
+- Compliance disclaimer: the full blog disclaimer appended after the final paragraph.`;
+
 export const IRS_NOTE = `IRS FIGURES — before including any contribution limit, tax bracket, wage base, or exclusion, verify current-year figures using the provided web context. Prefer irs.gov/newsroom. Specify filing status for tax brackets. If a figure cannot be verified, omit the specific number and describe the concept.`;
 
 export const compliantImagePrefix = "Compliant imagery per AWM rules:";
@@ -51,15 +85,30 @@ ${IMAGE_RULES}
 
 ${WRITING_STANDARDS}
 
+${AUDIENCE_SOPHISTICATION}
+
+${VOICE_TONE}
+
+${OPENING_PARAGRAPH}
+
+${SECTION_DEPTH}
+
+${LENGTH_TIERS}
+
+${LOCAL_REFERENCES}
+
 ${IRS_NOTE}
 
-REQUIREMENTS: minimum 800 words, target 1000-1400. Include the full blog disclaimer verbatim in the "disclaimer" field. Provide a featured_image_prompt (1200x628) and header_image_prompt (1920x1080), each fully described and compliant with the image rules. Provide meta_title (under 60 chars), meta_description (under 160 chars), 6-8 keywords, 2-3 internal links, max 2 external links, and a closing CTA using "Austin Wealth Management" as anchor text to the make-an-appointment URL. The body is the article text only; represent links via the internal_links/external_links/cta arrays, never inline raw URLs. Return only the JSON object.`;
+${COMPLETENESS_CHECKLIST}
+
+REQUIREMENTS: produce a "slug" field formatted /blog/[keyword-slug] (50 to 60 chars max, lowercase, hyphens only, primary keyword at or near the start). Set the body length to the tier the topic's complexity requires (general 1000 to 1200, intermediate 1200 to 1500, complex 1500 to 1800 words); when in doubt use the higher tier. Include the full blog disclaimer verbatim in the "disclaimer" field. Provide a featured_image_prompt (1200x628) and header_image_prompt (1920x1080), each photographic style only, fully described and compliant with the image rules. Provide meta_title (under 60 chars), meta_description (under 160 chars), 6 to 8 keywords, 2 to 3 internal links, max 2 external links, and a closing CTA using "Austin Wealth Management" as anchor text to the make-an-appointment URL. The body is the article text only; represent links via the internal_links/external_links/cta arrays, never inline raw URLs. Before returning, run the completeness checklist against your output. Return only the JSON object.`;
 }
 
 export const blogJsonSchema = {
   type: "object",
   properties: {
     title: { type: "string" },
+    slug: { type: "string" },
     segment: { type: "string", enum: ["Young Adults", "Professionals & Executives", "Business Owners"] },
     brand_pillar: { type: "string", enum: BRAND_PILLARS },
     category: { type: "string" },
@@ -76,7 +125,7 @@ export const blogJsonSchema = {
     body: { type: "string" },
     disclaimer: { type: "string" }
   },
-  required: ["title", "segment", "brand_pillar", "category", "compliance_sensitivity", "meta_title", "meta_description", "keywords", "internal_links", "external_links", "cta", "featured_image_prompt", "header_image_prompt", "body", "disclaimer"]
+  required: ["title", "slug", "segment", "brand_pillar", "category", "compliance_sensitivity", "meta_title", "meta_description", "keywords", "internal_links", "external_links", "cta", "featured_image_prompt", "header_image_prompt", "body", "disclaimer"]
 };
 
 export function platformDisclaimer(platform) {

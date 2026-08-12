@@ -81,7 +81,7 @@ export default async function(req) {
           prompt: `${compliantImagePrefix} ${article.header_image_prompt}. 1920x1080 wide hero composition, no text overlays, no charts or figures.`
         });
         const created = await base44.asServiceRole.entities.BlogArticle.create({
-          title: article.title, segment: article.segment || slot.segment,
+          title: article.title, slug: article.slug || '', segment: article.segment || slot.segment,
           publish_date: slot.date, brand_pillar: article.brand_pillar || slot.pillar || 'Education',
           category: article.category || '', compliance_sensitivity: article.compliance_sensitivity || 'Medium',
           featured_image_prompt: article.featured_image_prompt, header_image_prompt: article.header_image_prompt,

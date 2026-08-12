@@ -28,6 +28,7 @@ export default async function(req) {
 
     const created = await base44.entities.BlogArticle.create({
       title: article.title,
+      slug: article.slug || '',
       segment: article.segment,
       publish_date: article.publish_date || publishDate || '',
       brand_pillar: article.brand_pillar || pillar || 'Education',

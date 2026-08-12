@@ -5,6 +5,10 @@
     "title": {
       "type": "string"
     },
+    "slug": {
+      "type": "string",
+      "description": "URL slug, format /blog/[keyword-slug], 50 to 60 chars max"
+    },
     "segment": {
       "type": "string",
       "enum": [
