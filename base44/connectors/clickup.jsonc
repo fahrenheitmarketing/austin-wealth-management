@@ -1,0 +1,12 @@
+{
+  "type": "clickup",
+  "scopes": [
+    "read:task",
+    "write:task",
+    "read:comment",
+    "write:comment",
+    "read:doc",
+    "read:list",
+    "read:space"
+  ]
+}
