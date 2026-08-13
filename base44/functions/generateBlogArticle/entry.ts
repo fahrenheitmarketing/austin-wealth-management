@@ -13,7 +13,7 @@ export default async function(req) {
     const article = await base44.integrations.Core.InvokeLLM({
       prompt: buildBlogPrompt({ segment, topic, pillar, publishDate }),
       add_context_from_internet: true,
-      model: 'gemini_3_1_pro',
+      model: body.model || 'gemini_3_1_pro',
       response_json_schema: blogJsonSchema
     });
 
