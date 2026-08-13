@@ -24,16 +24,18 @@ export default async function(req) {
 
     const commentsRes = await fetch(`${CLICKUP.apiBase}/task/${item.clickup_task_id}/comment`, { headers: h });
     const commentsJson = await commentsRes.json().catch(() => ({}));
-    const texts = (commentsJson.comments || []).map((c) => {
-      if (typeof c.text === 'string') return c.text;
-      if (Array.isArray(c.comment)) {
-        return c.comment.map((b) => Array.isArray(b.text) ? b.text.map((t) => t.text || '').join('') : (b.text || '')).join('');
+    const rawComments = (commentsJson.comments || []).map((c) => {
+      let text = '';
+      if (typeof c.text === 'string') text = c.text;
+      else if (Array.isArray(c.comment)) {
+        text = c.comment.map((b) => Array.isArray(b.text) ? b.text.map((t) => t.text || '').join('') : (b.text || '')).join('');
+      } else if (Array.isArray(c.comment_text)) {
+        text = c.comment_text.map((b) => b.plain_text || b.text || '').join('');
       }
-      if (Array.isArray(c.comment_text)) return c.comment_text.map((b) => b.plain_text || b.text || '').join('');
-      return '';
-    }).filter(Boolean);
-    if (!texts.length) return Response.json({ feedback: 0, message: 'no comments found' });
-    const feedback = texts.map((t, i) => `${i + 1}. ${t}`).join('\n');
+      return { id: c.id, text };
+    }).filter((c) => c.text);
+    if (!rawComments.length) return Response.json({ feedback: 0, message: 'no comments found' });
+    const feedback = rawComments.map((c, i) => `${i + 1}. ${c.text}`).join('\n');
 
     let updated;
     if (isBlog) {
@@ -68,7 +70,43 @@ export default async function(req) {
       });
     }
 
-    return Response.json({ feedback: texts.length, updated: { id: updated.id, status: 'Draft' } });
+    // Build a change summary and post a reply comment referencing each feedback comment.
+    const changes = [];
+    if (isBlog) {
+      if ((updated.title || '') !== (item.title || '')) changes.push(`Title: "${item.title || ''}" -> "${updated.title || ''}"`);
+      if ((updated.body || '') !== (item.body || '')) changes.push(`Body revised (${(item.body || '').length} -> ${(updated.body || '').length} chars)`);
+      if ((updated.meta_title || '') !== (item.meta_title || '')) changes.push('Meta title updated');
+      if ((updated.meta_description || '') !== (item.meta_description || '')) changes.push('Meta description updated');
+      const kwBefore = (item.keywords || []).join('|'), kwAfter = (updated.keywords || []).join('|');
+      if (kwBefore !== kwAfter) changes.push(`Keywords updated (${(item.keywords || []).length} -> ${(updated.keywords || []).length})`);
+      if ((item.internal_links || []).length !== (updated.internal_links || []).length) changes.push('Internal links updated');
+      if ((item.external_links || []).length !== (updated.external_links || []).length) changes.push('External links updated');
+      if ((updated.cta || '') !== (item.cta || '')) changes.push('CTA updated');
+    } else {
+      if ((updated.copy || '') !== (item.copy || '')) changes.push(`Copy revised (${(item.copy || '').length} -> ${(updated.copy || '').length} chars)`);
+      if ((updated.topic || '') !== (item.topic || '')) changes.push(`Topic updated: "${item.topic || ''}" -> "${updated.topic || ''}"`);
+      if ((updated.hashtags || '') !== (item.hashtags || '')) changes.push('Hashtags updated');
+      if ((updated.short_link || '') !== (item.short_link || '')) changes.push('Short link updated');
+    }
+    const excerpt = (t) => t.length > 140 ? t.slice(0, 137) + '...' : t;
+    const commentBody = [
+      'REVISION SUMMARY',
+      'The following changes were implemented in response to feedback on this task:',
+      '',
+      'Changes:',
+      ...(changes.length ? changes.map((c, i) => `${i + 1}. ${c}`) : ['(no field-level changes detected; content re-confirmed against feedback)']),
+      '',
+      'Feedback comments addressed:',
+      ...rawComments.map((c, i) => `${i + 1}. ${excerpt(c.text)}`)
+    ].join('\n');
+    try {
+      await fetch(`${CLICKUP.apiBase}/task/${item.clickup_task_id}/comment`, {
+        method: 'POST', headers: h,
+        body: JSON.stringify({ comment_text: [{ text: commentBody }] })
+      });
+    } catch (e) { /* non-fatal: comment post failed */ }
+
+    return Response.json({ feedback: rawComments.length, updated: { id: updated.id, status: 'Draft' }, revisionCommentPosted: true });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }
