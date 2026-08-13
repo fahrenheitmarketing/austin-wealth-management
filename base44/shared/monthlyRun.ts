@@ -269,6 +269,22 @@ export async function cuDeleteTask(h, taskId) {
   return res.ok;
 }
 
+export async function cuAttachImage(authToken, taskId, imageUrl, filename) {
+  try {
+    const imgRes = await fetch(imageUrl);
+    if (!imgRes.ok) return false;
+    const blob = await imgRes.blob();
+    const form = new FormData();
+    form.append('attachment', blob, filename);
+    const res = await fetch(`${CLICKUP.apiBase}/task/${taskId}/attachment`, {
+      method: 'POST',
+      headers: { Authorization: authToken },
+      body: form
+    });
+    return res.ok;
+  } catch (e) { return false; }
+}
+
 export async function cuComment(h, taskId, text) {
   const res = await fetch(`${CLICKUP.apiBase}/task/${taskId}/comment`, {
     method: 'POST', headers: h,
@@ -285,6 +301,24 @@ export async function cuGetComments(h, taskId) {
     if (Array.isArray(c.comment)) return c.comment.map((b) => Array.isArray(b.text) ? b.text.map((t) => t.text || '').join('') : (b.text || '')).join('');
     return '';
   }).filter(Boolean);
+}
+
+export async function cuGetCommentList(h, taskId) {
+  const res = await fetch(`${CLICKUP.apiBase}/task/${taskId}/comment`, { headers: h });
+  const j = await res.json().catch(() => ({}));
+  return (j.comments || []).map((c) => {
+    let text = '';
+    if (typeof c.text === 'string') text = c.text;
+    else if (Array.isArray(c.comment)) text = c.comment.map((b) => Array.isArray(b.text) ? b.text.map((t) => t.text || '').join('') : (b.text || '')).join('');
+    return { id: c.id, text };
+  }).filter((c) => c.id);
+}
+
+export async function cuDeleteComment(h, taskId, commentId) {
+  const res = await fetch(`${CLICKUP.apiBase}/comment/${commentId}`, {
+    method: 'DELETE', headers: h
+  });
+  return res.ok;
 }
 
 // Collect previously covered blog topics from the list (names containing "[Blog]").

@@ -1,7 +1,7 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 import {
   MONTH_NAMES, buildSchedule, ensureStatuses, cuCreateTask, cuComment, cuGetComments,
-  cuUpdateTask, cuDeleteTask, blogCommentText, REVIEW_STATUSES,
+  cuGetCommentList, cuDeleteComment, cuUpdateTask, cuDeleteTask, cuAttachImage, REVIEW_STATUSES,
   socialDescription, socialTaskName, ASSIGNEE_USER_ID, CLICKUP
 } from '../../shared/monthlyRun.ts';
 import {
@@ -64,18 +64,73 @@ export default async function(req) {
 
     const blogTaskId = envelope.blogsTaskId;
 
-    // Consolidate any previously created per-article tasks into the single blog task:
-    // re-post each article as a comment on the shared blog task, point the entity at it,
-    // and remove the old per-article task so all articles live in one place.
+    // Order articles by their schedule slot so the description reads Article 1..N in order.
+    const slotIndexOf = (art) => {
+      const i = envelope.blogs.findIndex((b) => b.date === art.publish_date && b.segment === art.segment);
+      return i === -1 ? 999 : i;
+    };
+    const orderArticles = (arts) => arts.slice().sort((a, b) => slotIndexOf(a) - slotIndexOf(b));
+
+    // Build a single description containing all month's articles, labeled Article 1..N.
+    const buildArticlesDesc = (arts) => orderArticles(arts).map((art, i) => {
+      const links = (art.internal_links || []).concat(art.external_links || [])
+        .map((l) => `${l.anchor}: ${l.url}`).join('\n');
+      return [
+        `ARTICLE ${i + 1}: ${art.title}`,
+        `Publish: ${art.publish_date || ''} | Segment: ${art.segment || ''} | Pillar: ${art.brand_pillar || ''} | Category: ${art.category || ''}`,
+        `Slug: ${art.slug || ''}`,
+        `Meta title: ${art.meta_title || ''}`,
+        `Meta description: ${art.meta_description || ''}`,
+        `Keywords: ${(art.keywords || []).join(', ')}`,
+        '',
+        art.body || '',
+        '',
+        `CTA: ${art.cta || ''}`,
+        links ? `Links:\n${links}` : '',
+        `Featured image: ${art.featured_image_url || ''}`,
+        `Header image: ${art.header_image_url || ''}`,
+        '',
+        `Disclaimer: ${art.disclaimer || ''}`
+      ].filter(Boolean).join('\n');
+    }).join('\n\n---\n\n');
+
+    // Attach an article's featured image to the task (best-effort; no Content-Type header).
+    const attachFeatured = async (art, idx) => {
+      if (!art.featured_image_url) return;
+      const slugPart = (art.slug || art.title || `article-${idx + 1}`).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+      await cuAttachImage(h.Authorization, blogTaskId, art.featured_image_url, `article-${idx + 1}-${slugPart}.png`);
+    };
+
+    // Consolidate existing articles into the single blog task.
+    // 1. Migrate any old per-article tasks: point the entity at the shared task and remove the old task.
     for (const art of existingBlogs) {
-      if (!art.clickup_task_id || art.clickup_task_id === blogTaskId) continue;
-      try {
-        await cuComment(h, blogTaskId, blogCommentText(art));
-        await base44.asServiceRole.entities.BlogArticle.update(art.id, { clickup_task_id: blogTaskId });
-        await cuDeleteTask(h, art.clickup_task_id);
-      } catch (e) {
-        summary.errors.push({ consolidate: art.title, error: e.message });
+      if (art.clickup_task_id && art.clickup_task_id !== blogTaskId) {
+        try { await cuDeleteTask(h, art.clickup_task_id); } catch (e) {}
+        try { await base44.asServiceRole.entities.BlogArticle.update(art.id, { clickup_task_id: blogTaskId }); } catch (e) {}
       }
+    }
+    // 2. Remove old article comments left by the previous comment-based approach.
+    try {
+      const list = await cuGetCommentList(h, blogTaskId);
+      for (const c of list) {
+        if (c.text && c.text.includes('BLOG ARTICLE')) {
+          try { await cuDeleteComment(h, blogTaskId, c.id); } catch (e) {}
+        }
+      }
+    } catch (e) {}
+    // 3. Write all existing articles into the task description and attach their featured images (once).
+    if (existingBlogs.length) {
+      try { await cuUpdateTask(h, blogTaskId, { description: buildArticlesDesc(existingBlogs) }); } catch (e) {
+        summary.errors.push({ description: 'existing', error: e.message });
+      }
+      try {
+        const aRes = await fetch(`${CLICKUP.apiBase}/task/${blogTaskId}/attachment`, { headers: h });
+        const aJson = await aRes.json().catch(() => ({}));
+        if ((aJson.attachments || []).length === 0) {
+          const ordered = orderArticles(existingBlogs);
+          for (let i = 0; i < ordered.length; i++) await attachFeatured(ordered[i], i);
+        }
+      } catch (e) {}
     }
 
     // Move the shared blog task to Draft if it hasn't entered a review stage yet.
@@ -118,8 +173,15 @@ export default async function(req) {
           disclaimer: BLOG_DISCLAIMER, featured_image_url: featured.url, header_image_url: header.url,
           status: 'Draft', escalated: false
         });
-        await cuComment(h, blogTaskId, blogCommentText(created));
         await base44.asServiceRole.entities.BlogArticle.update(created.id, { clickup_task_id: blogTaskId });
+        // Rebuild the full description from all month's articles and attach the new featured image.
+        const all = await base44.asServiceRole.entities.BlogArticle.filter({ publish_date: { $gte: monthStart, $lte: monthEnd } });
+        try { await cuUpdateTask(h, blogTaskId, { description: buildArticlesDesc(all) }); } catch (e) {
+          summary.errors.push({ description: created.title, error: e.message });
+        }
+        const ordered = orderArticles(all);
+        const idx = ordered.findIndex((a) => a.id === created.id);
+        await attachFeatured(created, idx === -1 ? 0 : idx);
         summary.blogs.generated++; generated++;
       } catch (e) {
         summary.blogs.failed++; summary.errors.push({ blog: slot.topic, error: e.message });
