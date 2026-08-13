@@ -1,7 +1,8 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 import {
   MONTH_NAMES, buildSchedule, ensureStatuses, cuCreateTask, cuComment, cuGetComments,
-  blogDescription, socialDescription, blogTaskName, socialTaskName, ASSIGNEE_USER_ID, CLICKUP
+  cuUpdateTask, cuDeleteTask, blogCommentText, REVIEW_STATUSES,
+  socialDescription, socialTaskName, ASSIGNEE_USER_ID, CLICKUP
 } from '../../shared/monthlyRun.ts';
 import {
   buildBlogPrompt, blogJsonSchema, buildSocialPrompt, socialJsonSchema,
@@ -61,6 +62,32 @@ export default async function(req) {
     const summary = { blogs: { generated: 0, skipped: 0, failed: 0 }, social: { generated: 0, skipped: 0, failed: 0 }, errors: [] };
     let generated = 0;
 
+    const blogTaskId = envelope.blogsTaskId;
+
+    // Consolidate any previously created per-article tasks into the single blog task:
+    // re-post each article as a comment on the shared blog task, point the entity at it,
+    // and remove the old per-article task so all articles live in one place.
+    for (const art of existingBlogs) {
+      if (!art.clickup_task_id || art.clickup_task_id === blogTaskId) continue;
+      try {
+        await cuComment(h, blogTaskId, blogCommentText(art));
+        await base44.asServiceRole.entities.BlogArticle.update(art.id, { clickup_task_id: blogTaskId });
+        await cuDeleteTask(h, art.clickup_task_id);
+      } catch (e) {
+        summary.errors.push({ consolidate: art.title, error: e.message });
+      }
+    }
+
+    // Move the shared blog task to Draft if it hasn't entered a review stage yet.
+    try {
+      const btRes = await fetch(`${CLICKUP.apiBase}/task/${blogTaskId}`, { headers: h });
+      const bt = await btRes.json().catch(() => ({}));
+      const curStatus = bt.status && bt.status.status;
+      if (draftStatus && curStatus && !REVIEW_STATUSES.includes(curStatus)) {
+        await cuUpdateTask(h, blogTaskId, { status: draftStatus });
+      }
+    } catch (e) { /* status update is best-effort */ }
+
     // ---- Blogs ----
     for (const slot of envelope.blogs) {
       if (limit && generated >= limit) break;
@@ -91,11 +118,8 @@ export default async function(req) {
           disclaimer: BLOG_DISCLAIMER, featured_image_url: featured.url, header_image_url: header.url,
           status: 'Draft', escalated: false
         });
-        const task = await cuCreateTask(h, {
-          name: blogTaskName(created), description: blogDescription(created),
-          parent: envelope.blogsTaskId, assignees: [ASSIGNEE_USER_ID], status: draftStatus
-        });
-        if (task.id) await base44.asServiceRole.entities.BlogArticle.update(created.id, { clickup_task_id: task.id });
+        await cuComment(h, blogTaskId, blogCommentText(created));
+        await base44.asServiceRole.entities.BlogArticle.update(created.id, { clickup_task_id: blogTaskId });
         summary.blogs.generated++; generated++;
       } catch (e) {
         summary.blogs.failed++; summary.errors.push({ blog: slot.topic, error: e.message });

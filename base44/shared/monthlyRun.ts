@@ -255,6 +255,20 @@ export async function cuCreateTask(h, { name, description, parent, assignees, st
   return j;
 }
 
+export async function cuUpdateTask(h, taskId, patch) {
+  const res = await fetch(`${CLICKUP.apiBase}/task/${taskId}`, {
+    method: 'PUT', headers: h, body: JSON.stringify(patch)
+  });
+  return res.ok;
+}
+
+export async function cuDeleteTask(h, taskId) {
+  const res = await fetch(`${CLICKUP.apiBase}/task/${taskId}`, {
+    method: 'DELETE', headers: h
+  });
+  return res.ok;
+}
+
 export async function cuComment(h, taskId, text) {
   const res = await fetch(`${CLICKUP.apiBase}/task/${taskId}/comment`, {
     method: 'POST', headers: h,
@@ -298,10 +312,32 @@ export async function fetchBriefExcerpt(h) {
 export function blogDescription(item) {
   return `${item.body || ''}\n\nDisclaimer: ${item.disclaimer || ''}\n\nSegment: ${item.segment || ''} | Pillar: ${item.brand_pillar || ''}\nFeatured image: ${item.featured_image_url || ''}\nHeader image: ${item.header_image_url || ''}`;
 }
+
+export function blogCommentText(item) {
+  const links = (item.internal_links || []).concat(item.external_links || [])
+    .map((l) => `${l.anchor}: ${l.url}`).join('\n');
+  return [
+    `BLOG ARTICLE — ${item.title}`,
+    `Publish: ${item.publish_date || ''} | Segment: ${item.segment || ''} | Pillar: ${item.brand_pillar || ''} | Category: ${item.category || ''}`,
+    `Slug: ${item.slug || ''}`,
+    `Meta title: ${item.meta_title || ''}`,
+    `Meta description: ${item.meta_description || ''}`,
+    `Keywords: ${(item.keywords || []).join(', ')}`,
+    '',
+    item.body || '',
+    '',
+    `CTA: ${item.cta || ''}`,
+    links ? `Links:\n${links}` : '',
+    `Featured image: ${item.featured_image_url || ''}`,
+    `Header image: ${item.header_image_url || ''}`,
+    '',
+    `Disclaimer: ${item.disclaimer || ''}`
+  ].filter(Boolean).join('\n');
+}
 export function socialDescription(item) {
   return `${item.copy || ''}\n\nHashtags: ${item.hashtags || ''}\nDisclaimer: ${item.disclaimer || ''}\n\nSegment: ${item.segment || ''} | Pillar: ${item.brand_pillar || ''}\nImage: ${item.image_url || ''}`;
 }
 export function blogTaskName(item) { return `Draft | [Blog] ${item.title}`; }
 export function socialTaskName(item) { return `Draft | [${item.platform}] ${item.topic}`; }
 
-export { ASSIGNEE_USER_ID, CLICKUP };
+export { ASSIGNEE_USER_ID, CLICKUP, REVIEW_STATUSES };
