@@ -269,19 +269,6 @@ export default function Contact() {
                         />
                       </div>
 
-                      <div className="space-y-2">
-                        <Label htmlFor="message">How Can We Help? *</Label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          required
-                          rows={5}
-                          className="bg-white resize-none"
-                        />
-                      </div>
-
                       {/* Life Events Checkbox Section */}
                       <div className="space-y-3">
                         <p className="text-xs font-semibold tracking-wider text-slate-700 uppercase">
@@ -322,6 +309,19 @@ export default function Contact() {
                             </div>
                           ))}
                         </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="message">How Can We Help? *</Label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          rows={5}
+                          className="bg-white resize-none"
+                        />
                       </div>
 
                       <div className="flex items-center space-x-3">
