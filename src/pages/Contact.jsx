@@ -34,15 +34,55 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+    const LIFE_EVENTS_LEFT = [
+    'Changing Jobs Or Careers',
+    'Receiving An Inheritance',
+    'Going Through A Divorce Or Separation',
+    'Buying An Investment Property',
+    'IPO Or Company Liquidity Event'
+  ];
+  const LIFE_EVENTS_RIGHT = [
+    'Retiring Soon',
+    'Welcoming A New Baby Or Adopting',
+    'Buying A Home',
+    'Dealing With The Death Of A Loved One',
+    'Sudden Financial Windfall'
+  ];
+  const FINANCIAL_AREAS_LEFT = [
+    'Paying Less In Taxes',
+    'Understanding How Much I Can Spend',
+    'Planning For Retirement',
+    'Exiting Or Selling My Business',
+    'Protecting My Family'
+  ];
+  const FINANCIAL_AREAS_RIGHT = [
+    'Getting Financially Organized',
+    'Knowing How Much I Should Save',
+    'Setting Up Kids For Financial Success',
+    'Protecting My Wealth and Assets'
+  ];
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
     message: '',
-    subscribe: false
+    subscribe: false,
+    lifeEvents: [],
+    financialAreas: []
   });
   const [submitted, setSubmitted] = useState(false);
+
+  const toggleArrayValue = (field, value) => {
+    setFormData(prev => {
+      const arr = prev[field] || [];
+      return {
+        ...prev,
+        [field]: arr.includes(value) ? arr.filter(v => v !== value) : [...arr, value]
+      };
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -240,6 +280,48 @@ export default function Contact() {
                           rows={5}
                           className="bg-white resize-none"
                         />
+                      </div>
+
+                      {/* Life Events Checkbox Section */}
+                      <div className="space-y-3">
+                        <p className="text-xs font-semibold tracking-wider text-slate-700 uppercase">
+                          What major life event are you navigating right now? (Select all that apply)
+                        </p>
+                        <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+                          {[...LIFE_EVENTS_LEFT, ...LIFE_EVENTS_RIGHT].map((option) => (
+                            <div key={option} className="flex items-center space-x-3">
+                              <Checkbox
+                                id={`lifeEvent-${option}`}
+                                checked={formData.lifeEvents.includes(option)}
+                                onCheckedChange={() => toggleArrayValue('lifeEvents', option)}
+                              />
+                              <Label htmlFor={`lifeEvent-${option}`} className="text-sm text-slate-600 cursor-pointer font-normal">
+                                {option}
+                              </Label>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Financial Areas Checkbox Section */}
+                      <div className="space-y-3">
+                        <p className="text-xs font-semibold tracking-wider text-slate-700 uppercase">
+                          What areas of your financial life would you like to improve or plan for? (Select all that apply)
+                        </p>
+                        <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+                          {[...FINANCIAL_AREAS_LEFT, ...FINANCIAL_AREAS_RIGHT].map((option) => (
+                            <div key={option} className="flex items-center space-x-3">
+                              <Checkbox
+                                id={`financialArea-${option}`}
+                                checked={formData.financialAreas.includes(option)}
+                                onCheckedChange={() => toggleArrayValue('financialAreas', option)}
+                              />
+                              <Label htmlFor={`financialArea-${option}`} className="text-sm text-slate-600 cursor-pointer font-normal">
+                                {option}
+                              </Label>
+                            </div>
+                          ))}
+                        </div>
                       </div>
 
                       <div className="flex items-center space-x-3">
