@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.53';
 import { AUDIENCE_SEGMENTS, BRAND_PILLARS, COMPLIANCE_RULES, IMAGE_RULES, compliantImagePrefix, FACEBOOK_DISCLAIMER, LINKEDIN_DISCLAIMER } from '../../shared/contentRules.ts';
 
 const SEGMENT_NAMES = ['Young Adults', 'Professionals & Executives', 'Business Owners'];
@@ -38,7 +38,8 @@ export function buildDateSchedule(startDate, endDate) {
     const day = d.getUTCDay();
     if (day === 2 || day === 4) {
       const iso = d.toISOString().slice(0, 10);
-      if (iso !== '2026-11-26') dates.push(iso); // skip Thanksgiving
+      const excluded = ['2026-11-26', '2026-12-22', '2026-12-24', '2026-12-29', '2026-12-31'];
+      if (!excluded.includes(iso)) dates.push(iso); // skip Thanksgiving and Christmas/New Year weeks
     }
     d.setUTCDate(d.getUTCDate() + 1);
   }
@@ -116,7 +117,7 @@ export default async function(req) {
 
     for (let i = 0; i < Math.min(batchSize, pending.length); i++) {
       const iso = pending[i];
-      const segIdx = Math.floor((new Date(iso + 'T00:00:00Z').getTime() - new Date('2026-11-03T00:00:00Z').getTime()) / (7 * 86400000));
+      const segIdx = schedule.indexOf(iso) % 3;
       try {
         const plan = await base44.integrations.Core.InvokeLLM({
           prompt: buildPairPrompt(iso, segIdx),
