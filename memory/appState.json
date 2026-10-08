@@ -2,9 +2,9 @@
   "last_updated": "2026-10-08",
   "project_state": {
     "client_facing_document": "https://docs.google.com/document/d/1RRr_33vIbK4YUSLfSwTEsi_yFY21A8PBHhTb2rb1M3k/edit",
-    "document_status": "Fully rewritten with the redraft: 22 posting dates (Nov 3, 2026 - Jan 28, 2027), 66 posts (22 LinkedIn, 22 Facebook, 22 Instagram), every entry marked [REVISED] with a change note, plus reviewer notes, source notes, image suggestions, and alt text.",
+    "document_status": "Fully rewritten with the redraft and a second revision round (R2): 22 posting dates (Nov 3, 2026 - Jan 28, 2027) marked [REVISED R2], factual corrections (IRMAA, RMD/QCD ages, 2026 tax years, Roth catch-up from 2026, SALT/itemizing logic), filler deletions, rewritten closings on all 76 posts, and office/desk/skyline image suggestions replaced with neutral lifestyle imagery.",
     "social_posts": "76 redrafted SocialPost records in the database (66 LinkedIn/Facebook/Instagram plus 10 Google Business Profile); 52 old records deleted by id.",
-    "gbp_posts": "10 Google Business Profile posts (one per Thursday, adapted from the same date's Facebook copy) re-added as SocialPost records and grouped inside each Thursday's date section in the client-facing document (after the Instagram block), with a reviewer note that GBP is outside the signed SOW pending AWM's decision.",
+    "gbp_posts": "10 Google Business Profile posts (one per Thursday, adapted from the same date's Facebook copy) re-added as SocialPost records and moved into a final section titled "Google Business Profile: pending AWM scope approval" in the client-facing document with the long disclaimer adopted, with a reviewer note that GBP is outside the signed SOW pending AWM's decision.",
     "pending_decisions": [
       "Final disclaimer wording (longer version used everywhere in the meantime)",
       "Brand hashtag choice (#AustinWealthManagement used in the meantime)",
