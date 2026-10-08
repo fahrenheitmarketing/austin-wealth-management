@@ -7,6 +7,7 @@
       "enum": [
         "Facebook",
         "LinkedIn",
+        "Instagram",
         "Google Business Profile"
       ]
     },
@@ -23,10 +24,24 @@
     "segment": {
       "type": "string",
       "enum": [
+        "HENRYs",
         "Young Adults",
         "Professionals & Executives",
-        "Business Owners"
+        "Business Owners",
+        "Pre-retirees",
+        "Retirees",
+        "All"
       ]
+    },
+    "content_type": {
+      "type": "string",
+      "enum": [
+        "Education",
+        "Industry commentary",
+        "Brand awareness",
+        "Blog promotion"
+      ],
+      "default": "Education"
     },
     "copy": {
       "type": "string"
@@ -43,6 +58,17 @@
     "image_url": {
       "type": "string"
     },
+    "alt_text": {
+      "type": "string"
+    },
+    "source_note": {
+      "type": "string",
+      "description": "Internal note recording the official source for every figure used in the post"
+    },
+    "change_note": {
+      "type": "string",
+      "description": "One-line note on what changed in the redraft, shown beside the [REVISED] marker"
+    },
     "short_link": {
       "type": "string"
     },
@@ -50,7 +76,7 @@
       "type": "string",
       "enum": [
         "Education",
-        "Advacy",
+        "Advocacy",
         "Systems",
         "Accountability",
         "Adaptation"
