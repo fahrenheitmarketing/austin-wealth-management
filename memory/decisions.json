@@ -1,0 +1,6 @@
+[
+  {
+    "date": "2026-10-08",
+    "decision": "Client-facing content exports (blog and social media) are delivered as Google Docs created via the googledocs connector. The connector was authorized with scopes https://www.googleapis.com/auth/documents and email. The doc is created through the Documents API (documents.create + batchUpdate with insertText/updateParagraphStyle/updateTextStyle; field masks use the key 'fields', NOT 'updateMask'). Document format: heading per publish date, meta line with topic/audience/pillar, FACEBOOK and LINKEDIN label blocks each with copy, hashtags, and italic gray disclaimer, separated by divider lines."
+  }
+]
