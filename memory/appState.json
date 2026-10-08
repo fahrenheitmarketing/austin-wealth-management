@@ -1,14 +1,17 @@
 {
-  "updated": "2026-10-08",
-  "current_state": {
-    "googledocs_connector": "Authorized (shared). Scopes: https://www.googleapis.com/auth/documents, email. No drive scope, so sharing/permissions must be set manually in Google Drive.",
-    "client_facing_google_doc": {
-      "title": "Austin Wealth Management | Social Media Content Plan (November 2026 - January 2027)",
-      "url": "https://docs.google.com/document/d/1RRr_33vIbK4YUSLfSwTEsi_yFY21A8PBHhTb2rb1M3k/edit",
-      "docId": "1RRr_33vIbK4YUSLfSwTEsi_yFY21A8PBHhTb2rb1M3k",
-      "contents": "All 42 social posts (21 publish dates, Nov 3 2026 - Jan 28 2027), Facebook + LinkedIn pairs, client-facing format, PLUS a Google Business Profile Posts (Thursdays) section at the end: 10 GBP posts derived from the Facebook copy of the same dates (created 2026-10-08, no hashtags, 80-150 words, consultation-focused)",
-      "em_dash_fixes": "Two posts had em dashes removed via entity update after generation (ids 6ac7b3090c2e7aef99c6cc4a LinkedIn 2027-01-12, 6ac7ae00108276892254104d Facebook 2026-11-10). Verified zero em dashes remain."
-    },
-    "generateSocialBatch": "Segment rotation fixed to schedule-index based (schedule.indexOf(iso) % 3) after previous runs produced 18/12/12 segment imbalance; current batch already generated retains that imbalance (Young Adults 18, Professionals & Executives 12, Business Owners 12). Offered regeneration of 2 dates to even out."
+  "last_updated": "2026-10-08",
+  "project_state": {
+    "client_facing_document": "https://docs.google.com/document/d/1RRr_33vIbK4YUSLfSwTEsi_yFY21A8PBHhTb2rb1M3k/edit",
+    "document_status": "Fully rewritten with the redraft: 22 posting dates (Nov 3, 2026 - Jan 28, 2027), 66 posts (22 LinkedIn, 22 Facebook, 22 Instagram), every entry marked [REVISED] with a change note, plus reviewer notes, source notes, image suggestions, and alt text.",
+    "social_posts": "66 redrafted SocialPost records in the database; 52 old records (incl. 2 Google Business Profile) deleted by id.",
+    "gbp_posts": "Removed from the plan and document pending the signed-SOW scope decision.",
+    "pending_decisions": [
+      "Final disclaimer wording (longer version used everywhere in the meantime)",
+      "Brand hashtag choice (#AustinWealthManagement used in the meantime)",
+      "GBP in scope or out (removed until decided)"
+    ],
+    "placeholders": [
+      "[2027 LIMIT: VERIFY] in the Jan 12 post; add official 2027 401(k)/IRA limits before final approval"
+    ]
   }
 }
