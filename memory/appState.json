@@ -6,7 +6,7 @@
       "title": "Austin Wealth Management | Social Media Content Plan (November 2026 - January 2027)",
       "url": "https://docs.google.com/document/d/1RRr_33vIbK4YUSLfSwTEsi_yFY21A8PBHhTb2rb1M3k/edit",
       "docId": "1RRr_33vIbK4YUSLfSwTEsi_yFY21A8PBHhTb2rb1M3k",
-      "contents": "All 42 social posts (21 publish dates, Nov 3 2026 - Jan 28 2027), Facebook + LinkedIn pairs, client-facing format",
+      "contents": "All 42 social posts (21 publish dates, Nov 3 2026 - Jan 28 2027), Facebook + LinkedIn pairs, client-facing format, PLUS a Google Business Profile Posts (Thursdays) section at the end: 10 GBP posts derived from the Facebook copy of the same dates (created 2026-10-08, no hashtags, 80-150 words, consultation-focused)",
       "em_dash_fixes": "Two posts had em dashes removed via entity update after generation (ids 6ac7b3090c2e7aef99c6cc4a LinkedIn 2027-01-12, 6ac7ae00108276892254104d Facebook 2026-11-10). Verified zero em dashes remain."
     },
     "generateSocialBatch": "Segment rotation fixed to schedule-index based (schedule.indexOf(iso) % 3) after previous runs produced 18/12/12 segment imbalance; current batch already generated retains that imbalance (Young Adults 18, Professionals & Executives 12, Business Owners 12). Offered regeneration of 2 dates to even out."

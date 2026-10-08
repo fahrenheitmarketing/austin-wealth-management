@@ -2,5 +2,9 @@
   {
     "date": "2026-10-08",
     "decision": "Client-facing content exports (blog and social media) are delivered as Google Docs created via the googledocs connector. The connector was authorized with scopes https://www.googleapis.com/auth/documents and email. The doc is created through the Documents API (documents.create + batchUpdate with insertText/updateParagraphStyle/updateTextStyle; field masks use the key 'fields', NOT 'updateMask'). Document format: heading per publish date, meta line with topic/audience/pillar, FACEBOOK and LINKEDIN label blocks each with copy, hashtags, and italic gray disclaimer, separated by divider lines."
+  },
+  {
+    "date": "2026-10-08",
+    "decision": "GBP posts are generated for Thursdays only, as near-identical adaptations of the same date's Facebook copy: 80-150 words, no hashtags, warm/locally oriented/consultation-focused tone, GBP_DISCLAIMER. They are saved as SocialPost records (platform 'Google Business Profile', status Draft) and appended to the client-facing Google Doc in a dedicated section at the end. InvokeLLM response_json_schema does NOT accept 'required' inside array item schemas; document append must anchor insertion inside the last paragraph (insert at last paragraph endIndex - 1, not body.endIndex - 1)."
   }
 ]
