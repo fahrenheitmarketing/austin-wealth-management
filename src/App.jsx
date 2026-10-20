@@ -21,6 +21,7 @@ import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import TermsOfService from '@/pages/TermsOfService';
 import ClientAccess from '@/pages/ClientAccess';
 import SocialPosts from '@/pages/SocialPosts';
+import DisclosureDocuments from '@/pages/DisclosureDocuments';
 import SocialBlogStudio from '@/pages/SocialBlogStudio';
 
 const { Pages, Layout, mainPage } = pagesConfig;
@@ -167,6 +168,14 @@ const AuthenticatedApp = () => {
         element={
           <LayoutWrapper currentPageName="SocialBlogStudio">
             <SocialBlogStudio />
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/disclosure-documents"
+        element={
+          <LayoutWrapper currentPageName="DisclosureDocuments">
+            <DisclosureDocuments />
           </LayoutWrapper>
         }
       />
