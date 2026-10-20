@@ -13,7 +13,7 @@ const documents = [
     title: 'ADV Part 2AB',
     description:
       'A Securities Exchange Commission (SEC) required brochure disclosing information about our firm. It contains material changes to the firm in the last year, services we provide, fees for those services, affiliations and possible conflicts of interest, and more. It also contains supplements with information about each licensed advisor.',
-    href: 'https://adviserinfo.sec.gov/',
+    href: 'https://media.base44.com/files/public/6960325a10892c1a1fc0a802/10c28aeef_AWM-ADV-Part-2AB-09-27-2026.pdf',
     linkLabel: 'Download PDF',
   },
   {
@@ -21,7 +21,7 @@ const documents = [
     title: 'ADV Part 3',
     description:
       "A Securities Exchange Commission (SEC) required brochure describing the firm's retail client relationships in summary form.",
-    href: 'https://adviserinfo.sec.gov/',
+    href: 'https://media.base44.com/files/public/6960325a10892c1a1fc0a802/be38a5c11_AWMADVPart3-3-30-25.pdf',
     linkLabel: 'Download PDF',
   },
   {
